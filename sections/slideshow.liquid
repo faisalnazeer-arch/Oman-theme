@@ -132,6 +132,21 @@
         height: 300px;
         object-fit: cover;
       }
+
+  {%- for block in section.blocks -%}
+    {%- if block.settings.image_tablet != blank -%}
+      @media (min-width: 600px) and (max-width: 1023px) {
+        #{{ section.id }}_{{ forloop.index }} .slide-img--desktop { display: none !important; }
+        #{{ section.id }}_{{ forloop.index }} .slide-img--tablet { display: block !important; }
+      }
+      @media (min-width: 1024px) {
+        #{{ section.id }}_{{ forloop.index }} .slide-img--tablet { display: none !important; }
+      }
+      @media (max-width: 599px) {
+        #{{ section.id }}_{{ forloop.index }} .slide-img--tablet { display: none !important; }
+      }
+    {%- endif -%}
+  {%- endfor -%}
 {%- endstyle -%}
 
 <div
@@ -152,6 +167,7 @@
         {%- liquid
           assign img = block.settings.image_desktop
           assign m_img = block.settings.image_mobile
+          assign t_img = block.settings.image_tablet
           assign overlay_position = block.settings.overlay_position | split: ' '
           assign lazy_load = true
           if forloop.first
@@ -245,7 +261,13 @@
                 endcapture
               endif
 
-              if m_img != blank
+              if t_img != blank and m_img != blank
+                assign desktop_image_class = 'img-fit slide-img--desktop hidden sm:block'
+                assign tablet_image_class = 'img-fit slide-img--tablet hidden sm:block'
+              elsif t_img != blank
+                assign desktop_image_class = 'img-fit slide-img--desktop'
+                assign tablet_image_class = 'img-fit slide-img--tablet'
+              elsif m_img != blank
                 assign desktop_image_class = 'img-fit hidden sm:block'
               else
                 assign desktop_image_class = 'img-fit'
@@ -264,6 +286,17 @@
   -%}
 {%- endif -%}
 
+{%- if t_img -%}
+  {%- render 'image-slide',
+    image: t_img,
+    widths: '480, 980, 1200, 1400',
+    src_width: 1200,
+    sizes: sizes,
+    class: tablet_image_class,
+    lazy_load: lazy_load,
+    src_placeholder: true
+  -%}
+{%- endif -%}
 
             {%- render 'image-slide',
               image: img,
@@ -914,8 +947,14 @@
         {
           "type": "image_picker",
           "id": "image_desktop",
-          "label": "Image",
+          "label": "Desktop image",
           "info": "For best results, use a landscape shaped image with a minimum width of 3200px."
+        },
+        {
+          "type": "image_picker",
+          "id": "image_tablet",
+          "label": "Tablet image (optional)",
+          "info": "Shown on screens 600px–1023px wide. If not set, the desktop image will be used. Recommended size: 1024x600px."
         },
          {
             "type": "image_picker",
