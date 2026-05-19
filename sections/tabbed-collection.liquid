@@ -1,0 +1,636 @@
+{%- if section.index > 2 -%}
+  <link rel="stylesheet" href="{{ 'product.css' | asset_url }}" media="print" onload="this.media='all'">
+{%- else -%}
+  {{ 'product.css' | asset_url | stylesheet_tag }}
+{%- endif -%}
+
+{% if template contains 'product' %}
+  {%- if settings.enable_quick_add -%}
+    <link rel="stylesheet" href="{{ 'quick-add.css' | asset_url }}" media="print" onload="this.media='all'">
+    <script src="{{ 'quick-add.js' | asset_url }}" defer="defer"></script>
+    <script src="{{ 'variant-picker.js' | asset_url }}" defer="defer"></script>
+    <script src="{{ 'product-form.js' | asset_url }}" defer="defer"></script>
+    <script src="{{ 'custom-select.js' | asset_url }}" defer="defer"></script>
+    <script src="{{ 'quick-order-list.js' | asset_url }}" defer="defer"></script>
+  {%- endif -%}
+{% else %}
+  {%- if settings.enable_quick_add -%}
+    <link rel="stylesheet" href="{{ 'quick-add.css' | asset_url }}" media="print" onload="this.media='all'">
+    <script type="lazyload_int" data-src="{{ 'quick-add.js' | asset_url }}"></script>
+    <script type="lazyload_int" data-src="{{ 'variant-picker.js' | asset_url }}"></script>
+    <script type="lazyload_int" data-src="{{ 'product-form.js' | asset_url }}"></script>
+    <script type="lazyload_int" data-src="{{ 'custom-select.js' | asset_url }}"></script>
+    <script type="lazyload_int" data-src="{{ 'quick-order-list.js' | asset_url }}"></script>
+  {%- endif -%}
+{% endif %}
+
+{%- liquid
+  assign carousel_desktop_small = ' sm:auto-cols-3 md:auto-cols-4 lg:auto-cols-5 xl:auto-cols-6 small-cards-desktop'
+  assign carousel_desktop_medium = ' sm:auto-cols-3 md:auto-cols-4 lg:auto-cols-5 small-cards-desktop'
+  assign carousel_desktop_large = ' md:auto-cols-3 lg:auto-cols-4'
+
+  assign grid_desktop_small = ' sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 xxl:grid-cols-7 small-cards-desktop'
+  assign grid_desktop_medium = ' sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 small-cards-desktop'
+  assign grid_desktop_large = ' md:grid-cols-3 lg:grid-cols-4'
+
+  assign card_size = section.settings.card_size
+  if settings.dock_cart_drawer and settings.cart_type == 'drawer'
+    if card_size == 'small'
+      assign carousel_desktop_small = ' sm:auto-cols-3 md:auto-cols-3 lg:auto-cols-4 xxl:auto-cols-5 small-cards-desktop'
+      assign grid_desktop_small = ' sm:grid-cols-3 md:grid-cols-4 tab:grid-cols-5 dock:grid-cols-4 xl:grid-cols-5 xxl:grid-cols-6 small-cards-desktop'
+    elsif card_size == 'medium'
+      assign carousel_desktop_medium = ' sm:auto-cols-3 md:auto-cols-4 xxl:auto-cols-5 small-cards-desktop'
+      assign grid_desktop_medium = ' sm:grid-cols-3 md:grid-cols-4 xxl:grid-cols-5 small-cards-desktop'
+    elsif card_size == 'large'
+      assign carousel_desktop_large = ' md:auto-cols-3 xxl:auto-cols-4'
+      assign grid_desktop_large = ' md:grid-cols-3 xxl:grid-cols-4'
+    endif
+  endif
+
+  if section.settings.card_size_mobile == 'small' or section.settings.card_size_mobile == 'medium'
+    assign carousel_mobile_cols = 'grid-flow-col auto-cols-2 small-cards-mobile'
+    assign grid_mobile_cols = 'grid-cols-2 small-cards-mobile'
+    if section.settings.layout == 'carousel_on_mobile'
+      assign carousel_mobile_cols = carousel_mobile_cols | append: ' sm:grid-cols-2'
+    endif
+  else
+    assign carousel_mobile_cols = 'grid-flow-col auto-cols-1'
+    assign grid_mobile_cols = 'grid-cols-1'
+  endif
+
+  if section.settings.layout == 'carousel'
+    assign carousel = true
+
+    if card_size == 'small'
+      assign grid_classes = carousel_mobile_cols | append: carousel_desktop_small
+    elsif card_size == 'medium'
+      assign grid_classes = carousel_mobile_cols | append: carousel_desktop_medium
+    else
+      assign grid_classes = carousel_mobile_cols | append: carousel_desktop_large
+    endif
+  elsif section.settings.layout == 'carousel_on_mobile'
+    assign carousel = true
+
+    if card_size == 'small'
+      assign grid_classes = carousel_mobile_cols | append: grid_desktop_small
+    elsif card_size == 'medium'
+      assign grid_classes = carousel_mobile_cols | append: grid_desktop_medium
+    else
+      assign grid_classes = carousel_mobile_cols | append: grid_desktop_large
+    endif
+  else
+    assign carousel = false
+
+    if card_size == 'small'
+      assign grid_classes = grid_mobile_cols | append: grid_desktop_small
+    elsif card_size == 'medium'
+      assign grid_classes = grid_mobile_cols | append: grid_desktop_medium
+    else
+      assign grid_classes = grid_mobile_cols | append: grid_desktop_large
+    endif
+  endif
+
+  if settings.prod_card_image_ratio == 'shortest'
+    assign image_ratio = 0
+    for product in collection.products limit: section.settings.products_to_show
+      if product.featured_media.preview_image.aspect_ratio > image_ratio
+        assign image_ratio = product.featured_media.preview_image.aspect_ratio
+      endif
+    endfor
+  elsif settings.prod_card_image_ratio == 'tallest'
+    assign image_ratio = 99
+    for product in collection.products limit: section.settings.products_to_show
+      if product.featured_media.preview_image.aspect_ratio < image_ratio
+        assign image_ratio = product.featured_media.preview_image.aspect_ratio
+      endif
+    endfor
+  else
+    assign image_ratio = settings.prod_card_image_ratio
+  endif
+
+  assign color_scheme = section.settings.color_scheme
+  assign bg_color = false
+
+  if color_scheme == '1'
+    assign bg_color = settings.color_scheme_1_bg_grad | default: settings.color_scheme_1_bg
+  elsif color_scheme == '2'
+    assign bg_color = settings.color_scheme_2_bg_grad | default: settings.color_scheme_2_bg
+  elsif color_scheme == '3'
+    assign bg_color = settings.color_scheme_3_bg_grad | default: settings.color_scheme_3_bg
+  endif
+
+  if bg_color == settings.bg_color or bg_color == 'rgba(0,0,0,0)'
+    assign bg_color = false
+  endif
+-%}
+<div>
+  <h2 style="text-align:center; margin-top:15px;font-size: var(--h4-font-size);">
+    {{ section.settings['heading-text'] | escape }}
+  </h2>
+</div>
+
+<carousel-slider class="carousel block" style="margin-top:15px;">
+  <h2 class="h4 mb-0 flex-auto section__heading">
+    {{- section.settings.title | escape -}}
+  </h2>
+  <div class="container">
+    <div class="slider__1" id="slider-tabs-{{ section.id }}">
+      <ul class="slider__grid__1 gap-card" role="list">
+        {% for block in section.blocks %}
+          {% if block.settings.collection %}
+            <li class="slider__item__1">
+              <button
+                class="featured-tab-button"
+                data-collection-id="collection-{{ block.id }}"
+                data-section-id="{{ section.id }}"
+              >
+                {% if block.settings['collection-name'] == blank %}
+                  {{ block.settings.collection.title }}
+                {% else %}
+                  {{ block.settings['collection-name'] }}
+                {% endif %}
+              </button>
+            </li>
+          {% endif %}
+        {% endfor %}
+      </ul>
+    </div>
+  </div>
+
+  <!-- Slider Navigation -->
+  <!--
+    <div class="slider-nav slide-nav--inline justify-between items-center hidden md:flex no-js-hidden">
+      <button
+        type="button"
+        class="slider-nav__btn tap-target tap-target--left btn has-ltr-icon"
+        name="prev"
+        aria-controls="slider-tabs-{{ section.id }}"
+      >
+        <span class="visually-hidden">{{ 'general.slider.previous' | t }}</span>
+        {% render 'icon-chevron-left' %}
+      </button>
+      <button
+        type="button"
+        class="slider-nav__btn tap-target tap-target--right btn has-ltr-icon"
+        name="next"
+        aria-controls="slider-tabs-{{ section.id }}"
+      >
+        <span class="visually-hidden">{{ 'general.slider.next' | t }}</span>
+        {% render 'icon-chevron-right' %}
+      </button>
+    </div>
+  -->
+</carousel-slider>
+
+{% for block in section.blocks %}
+  {% if block.settings.collection %}
+    <div
+      class="collection-content"
+      data-collection-content="collection-{{ block.id }}"
+      data-section-id="{{ section.id }}"
+      {% if forloop.first %}
+        class="active"
+      {% endif %}
+    >
+      {% assign collection = block.settings.collection %}
+
+      <div
+        class="custom-feature-collectioin section relative{% unless bg_color == false %} section--padded{% if section.settings.full_width %} section--full-width{% endif %}{% endunless %}{% unless color_scheme == 'none' %} color-scheme color-scheme--{{ color_scheme }}{% endunless %}"
+        style="--product-card-gap: {% if section.settings.card_contain and settings.card_contain_gapless %}0px{% else %}24px{% endif %};"
+        {% if section.settings['section-id'] != noneid %}
+          id="{{section.settings.section-id}}"
+        {% endif %}
+      >
+        {%- if block.settings.collection.title != blank or section.settings.show_view_all -%}
+          <div class="container">
+            <div
+              class=""
+              style="text-align:center;"
+              {% if settings.animations_enabled != 'disabled' %}
+                data-cc-animate
+              {% endif %}
+            >
+              <h2 class="h4 mb-0 flex-auto section__heading ">
+                {{- section.settings.title | escape -}}
+              </h2>
+
+              {%- if section.settings.show_view_all -%}
+                <a style="margin-bottom:10px;" href="{{ collection.url }}" class="link">
+                  {{- 'sections.featured_collection.view_all' | t -}}
+                </a>
+              {%- endif -%}
+            </div>
+          </div>
+        {%- endif -%}
+
+        {%- if carousel -%}
+          <carousel-slider
+            style="margin-top:10px;"
+            class="carousel block"
+            inactive
+            {% if section.settings.layout == 'carousel_on_mobile' %}
+              disable-desktop="true"
+            {% endif %}
+          >
+            <h2 class="h4 mb-0 flex-auto section__heading ">
+              {{- section.settings.title | escape -}}
+            </h2>
+            <div class="container">
+              <div class="slider" id="slider-{{ section.id }}">
+        {%- endif -%}
+
+        <div class="container products-grid-container">
+          <ul
+            class="{% if settings.card_contain_gapless and section.settings.card_contain %}gapless{% else %}gap-card{% endif %} {% if carousel %}slider__grid {% endif %}grid {{ grid_classes }}{% if section.settings.card_size_mobile == 'small' and section.settings.card_contain %} small__grid{% endif %}"
+            role="list"
+          >
+            {%- for product in collection.products limit: section.settings.products_to_show -%}
+              <li
+                {% if carousel %}
+                  class="slider__item"
+                {% endif -%}
+                {% if settings.animations_enabled != 'disabled' %}
+                  data-cc-animate="fade-in{% unless carousel %}-up{% endunless %}"
+                  data-cc-animate-delay="{{ forloop.index | times: 0.07 }}s"
+                {% endif %}
+              >
+                {% render 'product-card',
+                  product: product,
+                  collection: collection,
+                  image_ratio: image_ratio,
+                  card_size: card_size,
+                  card_contain: section.settings.card_contain
+                %}
+              </li>
+            {%- else -%}
+              {%- for i in (1..section.settings.products_to_show) -%}
+                <li
+                  {% if carousel %}
+                    class="slider__item"
+                  {% endif -%}
+                  {% if settings.animations_enabled != 'disabled' %}
+                    data-cc-animate="fade-in{% unless carousel %}-up{% endunless %}"
+                    data-cc-animate-delay="{{ forloop.index | times: 0.07 }}s"
+                  {% endif %}
+                >
+                  {% render 'product-card',
+                    product: '',
+                    image_ratio: image_ratio,
+                    card_size: card_size,
+                    card_contain: section.settings.card_contain
+                  %}
+                </li>
+              {%- endfor -%}
+            {%- endfor -%}
+          </ul>
+        </div>
+
+        {%- if carousel -%}
+          </div>
+
+          {%- if settings.slider_show_arrows != 'never' -%}
+            <div class="slider-nav slide-nav--inline justify-between items-center absolute top-0 h-full {% if settings.slider_show_arrows == 'hover' %}slider-nav--show-on-hover no-hover-hidden {% endif %}hidden md:flex no-js-hidden">
+              <button
+                type="button"
+                class="slider-nav__btn tap-target tap-target--left btn has-ltr-icon"
+                name="prev"
+                aria-controls="slider-{{ section.id }}"
+              >
+                <span class="visually-hidden">{{ 'general.slider.previous' | t }}</span>
+                {% render 'icon-chevron-left' %}
+              </button>
+              <button
+                type="button"
+                class="slider-nav__btn tap-target tap-target--right btn has-ltr-icon"
+                name="next"
+                aria-controls="slider-{{ section.id }}"
+              >
+                <span class="visually-hidden">{{ 'general.slider.next' | t }}</span>
+                {% render 'icon-chevron-right' %}
+              </button>
+            </div>
+          {%- endif -%}
+          </div>
+          </carousel-slider>
+        {%- endif -%}
+      </div>
+    </div>
+  {% endif %}
+{% endfor %}
+
+<!-- JavaScript for Tabs -->
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    // Loop through each section individually
+    document.querySelectorAll('[id^="slider-tabs-"]').forEach(function (sectionContainer) {
+      const sectionId = sectionContainer.id.replace('slider-tabs-', ''); // Extract the section ID
+      const tabButtons = sectionContainer.querySelectorAll('.featured-tab-button');
+      const collections = document.querySelectorAll(
+        `[data-collection-content][data-section-id="${sectionId}"]`
+      );
+
+      // Initially activate the first tab and show the corresponding collection
+      if (tabButtons.length > 0 && collections.length > 0) {
+        tabButtons[0].classList.add('active');
+        collections[0].classList.add('active');
+      }
+
+      // Add click event to each tab button
+      tabButtons.forEach((button) => {
+        button.addEventListener('click', () => {
+          const targetCollectionId = button.getAttribute('data-collection-id');
+
+          // Deactivate all tabs and hide all collections for the current section
+          tabButtons.forEach((btn) => btn.classList.remove('active'));
+          collections.forEach((collection) =>
+            collection.classList.remove('active')
+          );
+
+          // Activate the clicked tab and show its corresponding collection
+          button.classList.add('active');
+          document
+            .querySelector(
+              `[data-collection-content="${targetCollectionId}"][data-section-id="${sectionId}"]`
+            )
+            .classList.add('active');
+        });
+      });
+    });
+  });
+</script>
+
+<!-- CSS for Tabs -->
+
+{% schema %}
+{
+  "name": "Featured collection",
+  "tag": "section",
+  "class": "cc-featured-collection",
+  "settings": [
+     {
+          "type": "text",
+          "id": "section-id",
+          "label": "Extra id",
+          "default": "noneid"
+        },
+    {
+          "type": "text",
+          "id": "heading-text",
+          "label": "Main Heading",
+          "default": "MLS Collection"
+        },
+    {
+      "type": "header",
+      "content": "Section header"
+    },
+
+    {
+      "type": "checkbox",
+      "id": "show_view_all",
+      "label": "Show \"View all\" link",
+      "default": true
+    },
+    {
+      "type": "header",
+      "content": "Layout"
+    },
+    {
+      "type": "select",
+      "id": "layout",
+      "label": "Layout",
+      "options": [
+        {
+          "value": "carousel",
+          "label": "Carousel"
+        },
+        {
+          "value": "carousel_on_mobile",
+          "label": "Carousel on mobile"
+        },
+        {
+          "value": "grid",
+          "label": "Grid"
+        }
+      ],
+      "default": "carousel"
+    },
+    {
+      "type": "select",
+      "id": "card_size_mobile",
+      "label": "Product per row on mobile",
+      "options": [
+        {
+          "value": "large",
+          "label": "1"
+        },
+        {
+          "value": "small",
+          "label": "2"
+        }
+      ],
+      "default": "small"
+    },
+    {
+      "type": "select",
+      "id": "card_size",
+      "label": "Product card size on large screens",
+      "options": [
+        {
+          "value": "small",
+          "label": "Small"
+        },
+        {
+          "value": "medium",
+          "label": "Medium"
+        },
+        {
+          "value": "large",
+          "label": "Large"
+        }
+      ],
+      "default": "small"
+    },
+    {
+      "type": "range",
+      "id": "products_to_show",
+      "label": "Maximum products to show",
+      "min": 4,
+      "max": 24,
+      "step": 1,
+      "default": 8
+    },
+    {
+      "type": "select",
+      "id": "color_scheme",
+      "label": "Color scheme",
+      "options": [
+        {
+          "value": "none",
+          "label": "Default"
+        },
+        {
+          "value": "1",
+          "label": "Scheme 1"
+        },
+        {
+          "value": "2",
+          "label": "Scheme 2"
+        },
+        {
+          "value": "3",
+          "label": "Scheme 3"
+        }
+      ],
+      "default": "none"
+    },
+    {
+      "type": "checkbox",
+      "id": "card_contain",
+      "info": "This can be used to avoid card colors clashing with color scheme colors.",
+      "label": "Show as a contained card",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "full_width",
+      "label": "Make section background full width",
+      "default": true
+    }
+  ],
+  "blocks": [
+    {
+      "type": "collection",
+      "name": "Collection",
+      "settings": [
+        {
+          "type": "collection",
+          "id": "collection",
+          "label": "Select Collection"
+        },
+        {
+          "type": "text",
+          "id": "collection-name",
+          "label": "Collection Name"
+        }
+      ]
+    },
+
+  ],
+  "presets": [
+    {
+      "name": "Tabbed Featured collection"
+    }
+  ],
+  "disabled_on": {
+    "templates": [
+      "password"
+    ],
+    "groups": [
+      "header",
+      "footer",
+      "aside"
+    ]
+  }
+}
+{% endschema %}
+
+<style>
+                             /* Styling for tabs */
+                   /* .featured-tab-button {
+                     cursor: pointer;
+                     padding: 10px 20px;
+                     border: none;
+                     background-color: #f0f0f0;
+                     margin-right: 10px;
+                   } */
+
+
+                   /* Hide collections by default */
+                   .collection-content {
+                     display: none;
+                   }
+                   .collection-content.active {
+                     display: block;
+                   }
+
+
+    .slider__grid__1::-webkit-scrollbar {
+      display: none !important; /* For Chrome, Safari, and Edge */
+    }
+          /* General styles for the tabs container */
+         .slider__grid__1 {
+           display: flex;
+           gap: 10px; /* Space between tabs */
+           overflow-x: auto; /* Enable horizontal scrolling when necessary */
+           white-space: nowrap; /* Prevent line breaks for items */
+           padding: 0; /* Remove extra padding */
+           margin: 0 auto; /* Center the container if tabs fit */
+           scrollbar-width: none !important; /* Thin scrollbar */
+           justify-content: center; /* Center tabs by default */
+           position: relative;
+         }
+      .slider__1 {
+
+          overflow-x: auto;
+          overflow-y: hidden;
+          scrollbar-width: none !important;
+      }
+         /* Dynamically adjust alignment based on content width */
+         .slider__grid__1::after {
+           content: ''; /* Empty content for measuring */
+           display: block;
+           flex: 1 0 auto; /* Flexible empty space */
+         }
+
+         /* Left-align when tabs overflow */
+         .slider__grid__1:has(.slider__item__1:last-child) {
+           justify-content: flex-start; /* Align to the left if tabs overflow */
+                   width: max-content !important;
+               border-inline-end: none !important;
+
+         }
+         @media(max-width: 600px){
+        .slider__grid__1:has(.slider__item__1:last-child) {
+
+           padding: 0px 10px 0px 15px;
+         }
+         }
+
+         /* Styles for individual tabs (buttons) */
+         .slider__item__1 {
+           flex: 0 0 auto; /* Prevent tabs from shrinking or growing */
+           white-space: nowrap; /* Ensure text stays in one line */
+         }
+
+         .featured-tab-button {
+           display: inline-block;
+           padding: 10px 20px;
+           background-color: #fff;
+           border: 2px solid #a70a10;
+           color: #a70a10;
+           border-radius: 20px;
+           white-space: nowrap;
+           cursor: pointer;
+           text-align: center;
+         }
+
+         .featured-tab-button.active {
+           background-color: #a70a10; /* Highlighted background color */
+           color: #fff; /* Highlighted text color */
+         }
+
+         /* Ensure no extra space on very small devices */
+         .tabs-carousel {
+           margin: 0; /* Remove any default margin */
+           padding: 0; /* Remove any default padding */
+           overflow: hidden; /* Prevent content overflow */
+         }
+
+         /* Horizontal scrolling styles */
+         .slider__grid__1::-webkit-scrollbar {
+           height: 4px; /* Height of the scrollbar */
+         }
+    .custom-feature-collectioin{
+  margin-top:15px !important;
+    }
+</style>

@@ -1,0 +1,757 @@
+{% doc %}
+  @prompt
+    i need holographic reels carousel section make sure it is optimized for mobile sure audio will be listenable number of reels display desktop and on mobile too option add
+    
+    
+{% enddoc %}
+{% assign ai_gen_id = block.id | replace: '_', '' | downcase %}
+
+{% style %}
+  .ai-holographic-reels-{{ ai_gen_id }} {
+    display: block;
+    width: 100%;
+    padding: 40px 20px;
+    background: {{ block.settings.background_color }};
+    overflow: hidden;
+  }
+
+  .ai-holographic-reels__container-{{ ai_gen_id }} {
+    max-width: 1400px;
+    margin: 0 auto;
+  }
+
+  .ai-holographic-reels__header-{{ ai_gen_id }} {
+    text-align: center;
+    margin-bottom: 32px;
+  }
+
+  .ai-holographic-reels__title-{{ ai_gen_id }} {
+    font-size: {{ block.settings.heading_size }}px;
+    color: {{ block.settings.heading_color }};
+    margin: 0 0 12px;
+  }
+
+  .ai-holographic-reels__subtitle-{{ ai_gen_id }} {
+    font-size: {{ block.settings.subheading_size }}px;
+    color: {{ block.settings.text_color }};
+    margin: 0;
+  }
+
+  .ai-holographic-reels__carousel-{{ ai_gen_id }} {
+    position: relative;
+    overflow: hidden;
+    margin: 0 -10px;
+  }
+
+  .ai-holographic-reels__track-{{ ai_gen_id }} {
+    display: flex;
+    gap: 20px;
+    padding: 0 10px;
+    overflow-x: auto;
+    scroll-behavior: smooth;
+    scrollbar-width: none;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .ai-holographic-reels__track-{{ ai_gen_id }}::-webkit-scrollbar {
+    display: none;
+  }
+
+  .ai-holographic-reels__reel-{{ ai_gen_id }} {
+    flex: 0 0 auto;
+    width: calc((100% - 40px) / {{ block.settings.reels_mobile }});
+    position: relative;
+    border-radius: {{ block.settings.border_radius }}px;
+    overflow: hidden;
+    background: #000;
+    aspect-ratio: 9 / 16;
+  }
+
+  @media screen and (min-width: 750px) {
+    .ai-holographic-reels__reel-{{ ai_gen_id }} {
+      width: calc((100% - ({{ block.settings.reels_desktop | minus: 1 }} * 20px)) / {{ block.settings.reels_desktop }});
+    }
+  }
+
+  .ai-holographic-reels__video-{{ ai_gen_id }} {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+
+  .ai-holographic-reels__overlay-{{ ai_gen_id }} {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      180deg,
+      rgba(0, 0, 0, 0) 0%,
+      rgba(0, 0, 0, 0.3) 70%,
+      rgba(0, 0, 0, 0.7) 100%
+    );
+    pointer-events: none;
+  }
+
+  .ai-holographic-reels__holographic-{{ ai_gen_id }} {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      135deg,
+      rgba(255, 0, 255, 0.15) 0%,
+      rgba(0, 255, 255, 0.15) 25%,
+      rgba(255, 255, 0, 0.15) 50%,
+      rgba(0, 255, 255, 0.15) 75%,
+      rgba(255, 0, 255, 0.15) 100%
+    );
+    background-size: 400% 400%;
+    opacity: {{ block.settings.holographic_intensity }};
+    mix-blend-mode: overlay;
+    pointer-events: none;
+    animation: ai-holographic-shift-{{ ai_gen_id }} 8s ease infinite;
+  }
+
+  @keyframes ai-holographic-shift-{{ ai_gen_id }} {
+    0% {
+      background-position: 0% 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+    100% {
+      background-position: 0% 50%;
+    }
+  }
+
+  .ai-holographic-reels__content-{{ ai_gen_id }} {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 20px;
+    color: #ffffff;
+    z-index: 2;
+  }
+
+  .ai-holographic-reels__reel-title-{{ ai_gen_id }} {
+    font-size: 16px;
+    font-weight: 700;
+    margin: 0 0 8px;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+  }
+
+  .ai-holographic-reels__reel-description-{{ ai_gen_id }} {
+    font-size: 14px;
+    margin: 0;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+    line-height: 1.4;
+  }
+
+  .ai-holographic-reels__controls-{{ ai_gen_id }} {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 3;
+    background: rgba(255, 255, 255, 0.9);
+    border: none;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+  }
+
+  .ai-holographic-reels__controls-{{ ai_gen_id }}:hover {
+    background: rgba(255, 255, 255, 1);
+    transform: translateY(-50%) scale(1.1);
+  }
+
+  .ai-holographic-reels__controls-{{ ai_gen_id }}--prev {
+    left: 10px;
+  }
+
+  .ai-holographic-reels__controls-{{ ai_gen_id }}--next {
+    right: 10px;
+  }
+
+  .ai-holographic-reels__controls-{{ ai_gen_id }} svg {
+    width: 20px;
+    height: 20px;
+    fill: #333;
+  }
+
+  .ai-holographic-reels__play-button-{{ ai_gen_id }} {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 60px;
+    height: 60px;
+    background: rgba(255, 255, 255, 0.9);
+    border: none;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    z-index: 2;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  }
+
+  .ai-holographic-reels__play-button-{{ ai_gen_id }}:hover {
+    transform: translate(-50%, -50%) scale(1.1);
+    background: rgba(255, 255, 255, 1);
+  }
+
+  .ai-holographic-reels__play-button-{{ ai_gen_id }} svg {
+    width: 24px;
+    height: 24px;
+    fill: #333;
+    margin-left: 3px;
+  }
+
+  .ai-holographic-reels__play-button-{{ ai_gen_id }}.playing svg {
+    margin-left: 0;
+  }
+
+  .ai-holographic-reels__mute-button-{{ ai_gen_id }} {
+    position: absolute;
+    top: 16px;
+    right: 16px;
+    width: 36px;
+    height: 36px;
+    background: rgba(0, 0, 0, 0.6);
+    border: none;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    z-index: 2;
+    transition: all 0.3s ease;
+  }
+
+  .ai-holographic-reels__mute-button-{{ ai_gen_id }}:hover {
+    background: rgba(0, 0, 0, 0.8);
+  }
+
+  .ai-holographic-reels__mute-button-{{ ai_gen_id }} svg {
+    width: 18px;
+    height: 18px;
+    fill: #fff;
+  }
+
+  @media screen and (max-width: 749px) {
+    .ai-holographic-reels__controls-{{ ai_gen_id }} {
+      display: none;
+    }
+
+    .ai-holographic-reels__title-{{ ai_gen_id }} {
+      font-size: {{ block.settings.heading_size | times: 0.7 }}px;
+    }
+
+    .ai-holographic-reels__subtitle-{{ ai_gen_id }} {
+      font-size: {{ block.settings.subheading_size | times: 0.8 }}px;
+    }
+  }
+{% endstyle %}
+
+<holographic-reels-{{ ai_gen_id }}
+  class="ai-holographic-reels-{{ ai_gen_id }}"
+  {{ block.shopify_attributes }}
+>
+  <div class="ai-holographic-reels__container-{{ ai_gen_id }}">
+    {% if block.settings.heading != blank or block.settings.subheading != blank %}
+      <div class="ai-holographic-reels__header-{{ ai_gen_id }}">
+        {% if block.settings.heading != blank %}
+          <h2 class="ai-holographic-reels__title-{{ ai_gen_id }}">{{ block.settings.heading }}</h2>
+        {% endif %}
+        {% if block.settings.subheading != blank %}
+          <p class="ai-holographic-reels__subtitle-{{ ai_gen_id }}">{{ block.settings.subheading }}</p>
+        {% endif %}
+      </div>
+    {% endif %}
+
+    <div class="ai-holographic-reels__carousel-{{ ai_gen_id }}">
+      <button
+        class="ai-holographic-reels__controls-{{ ai_gen_id }} ai-holographic-reels__controls-{{ ai_gen_id }}--prev"
+        aria-label="Previous reel"
+      >
+        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+          <path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"/>
+        </svg>
+      </button>
+
+      <div class="ai-holographic-reels__track-{{ ai_gen_id }}">
+        {% for i in (1..6) %}
+          {% liquid
+            assign video_key = 'video_' | append: i
+            assign title_key = 'title_' | append: i
+            assign description_key = 'description_' | append: i
+            assign video = block.settings[video_key]
+            assign title = block.settings[title_key]
+            assign description = block.settings[description_key]
+          %}
+
+          {% if video != blank %}
+            <div class="ai-holographic-reels__reel-{{ ai_gen_id }}" data-reel-index="{{ i }}">
+              <video
+                class="ai-holographic-reels__video-{{ ai_gen_id }}"
+                src="{{ video.sources[1].url }}"
+                playsinline
+                loop
+                {% if block.settings.autoplay %}muted{% endif %}
+                preload="metadata"
+              ></video>
+
+              <div class="ai-holographic-reels__overlay-{{ ai_gen_id }}"></div>
+              
+              {% if block.settings.show_holographic %}
+                <div class="ai-holographic-reels__holographic-{{ ai_gen_id }}"></div>
+              {% endif %}
+
+              <button class="ai-holographic-reels__play-button-{{ ai_gen_id }}" aria-label="Play video">
+                <svg class="play-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M8 5v14l11-7z"/>
+                </svg>
+                <svg class="pause-icon" style="display: none;" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M6 4h4v16H6V4zm8 0h4v16h-4V4z"/>
+                </svg>
+              </button>
+
+              <button class="ai-holographic-reels__mute-button-{{ ai_gen_id }}" aria-label="Toggle mute">
+                <svg class="unmuted-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02z"/>
+                </svg>
+                <svg class="muted-icon" style="display: none;" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M16.5 12c0-1.77-1.02-3.29-2.5-4.03v2.21l2.45 2.45c.03-.2.05-.41.05-.63zm2.5 0c0 .94-.2 1.82-.54 2.64l1.51 1.51C20.63 14.91 21 13.5 21 12c0-4.28-2.99-7.86-7-8.77v2.06c2.89.86 5 3.54 5 6.71zM4.27 3L3 4.27 7.73 9H3v6h4l5 5v-6.73l4.25 4.25c-.67.52-1.42.93-2.25 1.18v2.06c1.38-.31 2.63-.95 3.69-1.81L19.73 21 21 19.73l-9-9L4.27 3zM12 4L9.91 6.09 12 8.18V4z"/>
+                </svg>
+              </button>
+
+              {% if title != blank or description != blank %}
+                <div class="ai-holographic-reels__content-{{ ai_gen_id }}">
+                  {% if title != blank %}
+                    <h3 class="ai-holographic-reels__reel-title-{{ ai_gen_id }}">{{ title }}</h3>
+                  {% endif %}
+                  {% if description != blank %}
+                    <p class="ai-holographic-reels__reel-description-{{ ai_gen_id }}">{{ description }}</p>
+                  {% endif %}
+                </div>
+              {% endif %}
+            </div>
+          {% endif %}
+        {% endfor %}
+      </div>
+
+      <button
+        class="ai-holographic-reels__controls-{{ ai_gen_id }} ai-holographic-reels__controls-{{ ai_gen_id }}--next"
+        aria-label="Next reel"
+      >
+        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+          <path d="M8.59 16.59L10 18l6-6-6-6-1.41 1.41L13.17 12z"/>
+        </svg>
+      </button>
+    </div>
+  </div>
+</holographic-reels-{{ ai_gen_id }}>
+
+<script>
+  (function() {
+    class HolographicReels{{ ai_gen_id }} extends HTMLElement {
+      constructor() {
+        super();
+        this.track = this.querySelector('.ai-holographic-reels__track-{{ ai_gen_id }}');
+        this.prevButton = this.querySelector('.ai-holographic-reels__controls-{{ ai_gen_id }}--prev');
+        this.nextButton = this.querySelector('.ai-holographic-reels__controls-{{ ai_gen_id }}--next');
+        this.reels = this.querySelectorAll('.ai-holographic-reels__reel-{{ ai_gen_id }}');
+        this.currentIndex = 0;
+      }
+
+      connectedCallback() {
+        this.setupVideoControls();
+        this.setupCarouselControls();
+        this.setupIntersectionObserver();
+      }
+
+      setupVideoControls() {
+        this.reels.forEach((reel) => {
+          const video = reel.querySelector('.ai-holographic-reels__video-{{ ai_gen_id }}');
+          const playButton = reel.querySelector('.ai-holographic-reels__play-button-{{ ai_gen_id }}');
+          const muteButton = reel.querySelector('.ai-holographic-reels__mute-button-{{ ai_gen_id }}');
+          const playIcon = playButton.querySelector('.play-icon');
+          const pauseIcon = playButton.querySelector('.pause-icon');
+          const mutedIcon = muteButton.querySelector('.muted-icon');
+          const unmutedIcon = muteButton.querySelector('.unmuted-icon');
+
+          if (!video) return;
+
+          playButton.addEventListener('click', () => {
+            if (video.paused) {
+              video.play();
+              playIcon.style.display = 'none';
+              pauseIcon.style.display = 'block';
+              playButton.classList.add('playing');
+            } else {
+              video.pause();
+              playIcon.style.display = 'block';
+              pauseIcon.style.display = 'none';
+              playButton.classList.remove('playing');
+            }
+          });
+
+          muteButton.addEventListener('click', () => {
+            video.muted = !video.muted;
+            if (video.muted) {
+              mutedIcon.style.display = 'block';
+              unmutedIcon.style.display = 'none';
+            } else {
+              mutedIcon.style.display = 'none';
+              unmutedIcon.style.display = 'block';
+            }
+          });
+
+          {% if block.settings.autoplay %}
+            mutedIcon.style.display = 'block';
+            unmutedIcon.style.display = 'none';
+          {% endif %}
+        });
+      }
+
+      setupCarouselControls() {
+        if (this.prevButton) {
+          this.prevButton.addEventListener('click', () => this.scroll('prev'));
+        }
+        if (this.nextButton) {
+          this.nextButton.addEventListener('click', () => this.scroll('next'));
+        }
+
+        let isDown = false;
+        let startX;
+        let scrollLeft;
+
+        this.track.addEventListener('mousedown', (e) => {
+          isDown = true;
+          startX = e.pageX - this.track.offsetLeft;
+          scrollLeft = this.track.scrollLeft;
+        });
+
+        this.track.addEventListener('mouseleave', () => {
+          isDown = false;
+        });
+
+        this.track.addEventListener('mouseup', () => {
+          isDown = false;
+        });
+
+        this.track.addEventListener('mousemove', (e) => {
+          if (!isDown) return;
+          e.preventDefault();
+          const x = e.pageX - this.track.offsetLeft;
+          const walk = (x - startX) * 2;
+          this.track.scrollLeft = scrollLeft - walk;
+        });
+      }
+
+      scroll(direction) {
+        const reelWidth = this.reels[0].offsetWidth;
+        const gap = 20;
+        const scrollAmount = reelWidth + gap;
+
+        if (direction === 'next') {
+          this.track.scrollBy({ left: scrollAmount, behavior: 'smooth' });
+        } else {
+          this.track.scrollBy({ left: -scrollAmount, behavior: 'smooth' });
+        }
+      }
+
+      setupIntersectionObserver() {
+        const options = {
+          root: this.track,
+          threshold: 0.5
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+          entries.forEach((entry) => {
+            const video = entry.target.querySelector('.ai-holographic-reels__video-{{ ai_gen_id }}');
+            const playButton = entry.target.querySelector('.ai-holographic-reels__play-button-{{ ai_gen_id }}');
+            const playIcon = playButton.querySelector('.play-icon');
+            const pauseIcon = playButton.querySelector('.pause-icon');
+
+            if (!video) return;
+
+            if (entry.isIntersecting) {
+              {% if block.settings.autoplay %}
+                video.play();
+                playIcon.style.display = 'none';
+                pauseIcon.style.display = 'block';
+                playButton.classList.add('playing');
+              {% endif %}
+            } else {
+              video.pause();
+              playIcon.style.display = 'block';
+              pauseIcon.style.display = 'none';
+              playButton.classList.remove('playing');
+            }
+          });
+        }, options);
+
+        this.reels.forEach((reel) => {
+          observer.observe(reel);
+        });
+      }
+    }
+
+    customElements.define('holographic-reels-{{ ai_gen_id }}', HolographicReels{{ ai_gen_id }});
+  })();
+</script>
+
+{% schema %}
+{
+  "name": "Holographic reels",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Content"
+    },
+    {
+      "type": "inline_richtext",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Watch our reels"
+    },
+    {
+      "type": "inline_richtext",
+      "id": "subheading",
+      "label": "Subheading",
+      "default": "Discover our latest stories"
+    },
+    {
+      "type": "header",
+      "content": "Layout"
+    },
+    {
+      "type": "range",
+      "id": "reels_desktop",
+      "label": "Reels per row on desktop",
+      "min": 2,
+      "max": 6,
+      "step": 1,
+      "default": 4
+    },
+    {
+      "type": "range",
+      "id": "reels_mobile",
+      "label": "Reels per row on mobile",
+      "min": 1,
+      "max": 3,
+      "step": 1,
+      "default": 2
+    },
+    {
+      "type": "header",
+      "content": "Holographic effect"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_holographic",
+      "label": "Enable holographic overlay",
+      "default": true
+    },
+    {
+      "type": "range",
+      "id": "holographic_intensity",
+      "label": "Holographic intensity",
+      "min": 0,
+      "max": 1,
+      "step": 0.1,
+      "default": 0.5
+    },
+    {
+      "type": "header",
+      "content": "Video settings"
+    },
+    {
+      "type": "checkbox",
+      "id": "autoplay",
+      "label": "Autoplay videos when in view",
+      "info": "Videos will be muted by default when autoplay is enabled",
+      "default": true
+    },
+    {
+      "type": "header",
+      "content": "Reel 1"
+    },
+    {
+      "type": "video",
+      "id": "video_1",
+      "label": "Video"
+    },
+    {
+      "type": "text",
+      "id": "title_1",
+      "label": "Title"
+    },
+    {
+      "type": "textarea",
+      "id": "description_1",
+      "label": "Description"
+    },
+    {
+      "type": "header",
+      "content": "Reel 2"
+    },
+    {
+      "type": "video",
+      "id": "video_2",
+      "label": "Video"
+    },
+    {
+      "type": "text",
+      "id": "title_2",
+      "label": "Title"
+    },
+    {
+      "type": "textarea",
+      "id": "description_2",
+      "label": "Description"
+    },
+    {
+      "type": "header",
+      "content": "Reel 3"
+    },
+    {
+      "type": "video",
+      "id": "video_3",
+      "label": "Video"
+    },
+    {
+      "type": "text",
+      "id": "title_3",
+      "label": "Title"
+    },
+    {
+      "type": "textarea",
+      "id": "description_3",
+      "label": "Description"
+    },
+    {
+      "type": "header",
+      "content": "Reel 4"
+    },
+    {
+      "type": "video",
+      "id": "video_4",
+      "label": "Video"
+    },
+    {
+      "type": "text",
+      "id": "title_4",
+      "label": "Title"
+    },
+    {
+      "type": "textarea",
+      "id": "description_4",
+      "label": "Description"
+    },
+    {
+      "type": "header",
+      "content": "Reel 5"
+    },
+    {
+      "type": "video",
+      "id": "video_5",
+      "label": "Video"
+    },
+    {
+      "type": "text",
+      "id": "title_5",
+      "label": "Title"
+    },
+    {
+      "type": "textarea",
+      "id": "description_5",
+      "label": "Description"
+    },
+    {
+      "type": "header",
+      "content": "Reel 6"
+    },
+    {
+      "type": "video",
+      "id": "video_6",
+      "label": "Video"
+    },
+    {
+      "type": "text",
+      "id": "title_6",
+      "label": "Title"
+    },
+    {
+      "type": "textarea",
+      "id": "description_6",
+      "label": "Description"
+    },
+    {
+      "type": "header",
+      "content": "Style"
+    },
+    {
+      "type": "range",
+      "id": "heading_size",
+      "label": "Heading size",
+      "min": 20,
+      "max": 60,
+      "step": 2,
+      "unit": "px",
+      "default": 36
+    },
+    {
+      "type": "range",
+      "id": "subheading_size",
+      "label": "Subheading size",
+      "min": 12,
+      "max": 24,
+      "step": 1,
+      "unit": "px",
+      "default": 16
+    },
+    {
+      "type": "range",
+      "id": "border_radius",
+      "label": "Border radius",
+      "min": 0,
+      "max": 40,
+      "step": 2,
+      "unit": "px",
+      "default": 16
+    },
+    {
+      "type": "color",
+      "id": "background_color",
+      "label": "Background color",
+      "default": "#ffffff"
+    },
+    {
+      "type": "color",
+      "id": "heading_color",
+      "label": "Heading color",
+      "default": "#000000"
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "Text color",
+      "default": "#333333"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Holographic reels"
+    }
+  ]
+}
+{% endschema %}

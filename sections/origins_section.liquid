@@ -1,0 +1,306 @@
+{%- comment -%}Shop by Origin – FINAL: Mobile 3+2 centered tabs, Desktop 1 line – FULLY SCOPED & NO CONFLICTS{%- endcomment -%}
+
+<div class="shop-by-origin-2025">
+  <div class="shop-by-origin-2025__header">
+    <h2>SHOP BY ORIGIN</h2>
+    <h6>14+ worldwide origins under one roof.</h6>
+  </div>
+
+  <!-- Tabs -->
+  <div class="shop-by-origin-2025__tabs">
+    <div class="shop-by-origin-2025__tab-row shop-by-origin-2025__tab-row--top">
+      <button class="shop-by-origin-2025__tab active" data-tab="beef">BEEF</button>
+      <button class="shop-by-origin-2025__tab" data-tab="lamb">LAMB</button>
+    </div>
+    <div class="shop-by-origin-2025__tab-row shop-by-origin-2025__tab-row--bottom">
+     <button class="shop-by-origin-2025__tab" data-tab="ostrich">OSTRICH</0></button>
+      <button class="shop-by-origin-2025__tab" data-tab="venison">VENISON</button>
+    </div>
+  </div>
+
+  <!-- Carousels -->
+  {% assign categories = "beef,lamb,ostrich,veal,venison" | split: "," %}
+  {% for cat in categories %}
+    <div class="shop-by-origin-2025__carousel-wrapper" 
+         id="origin-{{ cat }}" 
+         style="{% if forloop.first %}display:block{% else %}display:none{% endif %}">
+      
+      <button class="shop-by-origin-2025__arrow shop-by-origin-2025__arrow--left" 
+              onclick="shopByOriginScroll('origin-{{ cat }}', 'left')" 
+              aria-label="Previous">
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#a70a10" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M15 18l-6-6 6-6"/>
+        </svg>
+      </button>
+      <button class="shop-by-origin-2025__arrow shop-by-origin-2025__arrow--right" 
+              onclick="shopByOriginScroll('origin-{{ cat }}', 'right')" 
+              aria-label="Next">
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#a70a10" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M9 18l6-6-6-6"/>
+        </svg>
+      </button>
+
+      <div class="shop-by-origin-2025__carousel">
+        {% for block in section.blocks %}
+          {% if block.type == cat %}
+            <div class="shop-by-origin-2025__item" onclick="location.href='{{ block.settings.link }}'">
+              <div class="shop-by-origin-2025__img-container">
+                <img loading="lazy" 
+                     src="{{ block.settings.image | img_url: '300x300' }}" 
+                     alt="{{ block.settings.text | escape }}">
+              </div>
+              <p class="shop-by-origin-2025__title">{{ block.settings.text }}</p>
+            </div>
+          {% endif %}
+        {% endfor %}
+      </div>
+    </div>
+  {% endfor %}
+</div>
+
+{% schema %}
+{
+  "name": "Shop by Origin",
+  "settings": [],
+  "blocks": [
+    {"type":"beef","name":"Beef","settings":[{"type":"image_picker","id":"image","label":"Image"},{"type":"text","id":"text","label":"Text"},{"type":"url","id":"link","label":"Link"}]},
+    {"type":"lamb","name":"Lamb","settings":[{"type":"image_picker","id":"image","label":"Image"},{"type":"text","id":"text","label":"Text"},{"type":"url","id":"link","label":"Link"}]},
+    {"type":"ostrich","name":"Ostrich","settings":[{"type":"image_picker","id":"image","label":"Image"},{"type":"text","id":"text","label":"Text"},{"type":"url","id":"link","label":"Link"}]},
+    {"type":"veal","name":"Veal","settings":[{"type":"image_picker","id":"image","label":"Image"},{"type":"text","id":"text","label":"Text"},{"type":"url","id":"link","label":"Link"}]},
+    {"type":"venison","name":"Venison","settings":[{"type":"image_picker","id":"image","label":"Image"},{"type":"text","id":"text","label":"Text"},{"type":"url","id":"link","label":"Link"}]}
+  ],
+  "presets": [{"name": "Shop by Origin", "category": "Custom"}]
+}
+{% endschema %}
+
+<style>
+  .shop-by-origin-2025 { 
+    padding: 20px 15px; 
+    max-width: 1600px; 
+    margin: 0 auto; 
+    font-family: system-ui, sans-serif; 
+  }
+  .shop-by-origin-2025__header { 
+    text-align: center; 
+    margin-bottom: 28px; 
+  }
+  .shop-by-origin-2025__header h2 { 
+    margin: 0; 
+    font-size: 24px; 
+    font-weight: 800; 
+    color: #111; 
+  }
+  .shop-by-origin-2025__header h6 { 
+    margin: 8px 0 0; 
+    color: #666; 
+    font-size: 14px; 
+  }
+
+  /* Tabs */
+  .shop-by-origin-2025__tabs {
+    display: flex;
+    
+    align-items: center;
+    gap: 12px;
+    margin: 0 auto 34px;
+    max-width: 800px;
+  }
+  .shop-by-origin-2025__tab-row {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    width: 100%;
+  }
+  .shop-by-origin-2025__tab-row--top { 
+    justify-content: none; 
+    max-width: 800px; 
+  }
+  .shop-by-origin-2025__tab-row--bottom { 
+    justify-content: center; 
+    gap: 20px;
+    max-width: 800px; 
+  }
+
+  .shop-by-origin-2025__tab {
+    flex: 1;
+    max-width: 125px;
+    padding: 13px 10px;
+    border: 2.8px solid #a70a10;
+    border-radius: 50px;
+    background: white;
+    color: #a70a10;
+    font-weight: 700;
+    font-size: 13.5px;
+    letter-spacing: 0.8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    white-space: nowrap;
+  }
+  .shop-by-origin-2025__tab.active { 
+    background: #a70a10; 
+    color: white; 
+  }
+
+  /* Desktop: One row */
+  @media (min-width: 768px) {
+    .shop-by-origin-2025__tabs {
+      flex-direction: row;
+      flex-wrap: nowrap;
+      justify-content: center;
+      gap: 18px;
+      max-width: 100%;
+    }
+    .shop-by-origin-2025__tab-row { 
+      all: unset; 
+      display: contents; 
+    }
+    .shop-by-origin-2025__tab { 
+      min-width: 130px; 
+      font-size: 14.5px; 
+    }
+  }
+
+  /* Carousel */
+  .shop-by-origin-2025__carousel-wrapper { 
+    position: relative; 
+    margin-bottom: 40px; 
+  }
+  .shop-by-origin-2025__carousel {
+    display: flex;
+    overflow-x: auto;
+    gap: 14px;
+    padding: 10px 0 20px;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+  }
+  .shop-by-origin-2025__carousel::-webkit-scrollbar { 
+    display: none; 
+  }
+
+  .shop-by-origin-2025__item {
+    flex: 0 0 calc(33.333% - 9.33px);
+    background: #f9f9f9;
+    border-radius: 18px;
+    padding: 18px 10px 22px;
+    text-align: center;
+    scroll-snap-align: center;
+    transition: transform 0.25s ease;
+    cursor: pointer;
+  }
+  .shop-by-origin-2025__item:hover { 
+    transform: translateY(-5px); 
+  }
+
+  .shop-by-origin-2025__img-container {
+    height: 96px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 14px;
+  }
+  .shop-by-origin-2025__img-container img { 
+    max-height: 88px; 
+    max-width: 100%; 
+    object-fit: contain; 
+  }
+
+  .shop-by-origin-2025__title {
+    margin: 0;
+    font-weight: 600;
+    color: #222;
+    line-height: 1.35;
+    height: 36px;
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    font-size: clamp(10px, 3.2vw, 12.8px);
+  }
+
+  @media (min-width: 768px) {
+    .shop-by-origin-2025__item { 
+      flex: 0 0 calc(20% - 11px); 
+    }
+    .shop-by-origin-2025__title { 
+      font-size: 13.5px; 
+      height: auto; 
+      -webkit-line-clamp: 3; 
+    }
+  }
+
+  /* Arrows - Desktop Only */
+  .shop-by-origin-2025__arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 52px;
+    height: 52px;
+    background: white;
+    border: none;
+    border-radius: 50%;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    z-index: 10;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+    transition: all 0.3s ease;
+  }
+  .shop-by-origin-2025__arrow:hover { 
+    transform: translateY(-50%) scale(1.1); 
+  }
+  .shop-by-origin-2025__arrow--left { left: 12px; }
+  .shop-by-origin-2025__arrow--right { right: 12px; }
+
+  @media (min-width: 768px) {
+    .shop-by-origin-2025__arrow { 
+      display: flex; 
+    }
+  }
+</style>
+
+<script>
+  // Fully scoped to this section only
+  document.addEventListener('DOMContentLoaded', function () {
+    const section = document.querySelector('.shop-by-origin-2025');
+    if (!section) return;
+
+    // Tab switching
+    section.querySelectorAll('.shop-by-origin-2025__tab').forEach(tab => {
+      tab.addEventListener('click', () => {
+        const targetId = tab.dataset.tab;
+        const carouselId = 'origin-' + targetId;
+
+        // Update active tab
+        section.querySelectorAll('.shop-by-origin-2025__tab').forEach(t => t.classList.remove('active'));
+        tab.classList.add('active');
+
+        // Show correct carousel
+        section.querySelectorAll('.shop-by-origin-2025__carousel-wrapper').forEach(c => {
+          c.style.display = 'none';
+        });
+        const targetCarousel = document.getElementById(carouselId);
+        if (targetCarousel) targetCarousel.style.display = 'block';
+      });
+    });
+  });
+
+  // Global scoped scroll function (safe because it targets specific ID)
+  function shopByOriginScroll(carouselId, direction) {
+    const carousel = document.querySelector(`#${carouselId} .shop-by-origin-2025__carousel`);
+    if (!carousel) return;
+
+    const item = carousel.querySelector('.shop-by-origin-2025__item');
+    if (!item) return;
+
+    const gap = 14;
+    const itemWidth = item.offsetWidth;
+    const scrollAmount = (itemWidth + gap) * 3; // ~3 items
+
+    carousel.scrollBy({
+      left: direction === 'left' ? -scrollAmount : scrollAmount,
+      behavior: 'smooth'
+    });
+  }
+</script>

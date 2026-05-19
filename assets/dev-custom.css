@@ -1,0 +1,38 @@
+
+.text-overlay.text-center.has-motion.w3_bg {
+    /* width: 700px !important; */
+    max-width: 500px;
+}
+
+.text-overlay__block.rte.w3_bg {
+    max-width: 400px;
+}
+
+h2.text-overlay__heading.h1,
+h2.text-overlay__heading.h0 {
+    line-height: 1.1em !important;
+    margin-bottom: 10px !important;
+}
+@media(max-width:767px)
+{
+  
+}
+
+.custom--column .pf-c {
+  padding: 0 !important;
+}
+
+
+
+
+
+
+
+
+
+
+
+@media(min-width:768px)
+{
+  
+}

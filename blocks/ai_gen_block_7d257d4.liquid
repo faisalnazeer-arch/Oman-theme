@@ -1,0 +1,200 @@
+{% doc %}
+  @prompt
+    need section with text with section width and font size ful width 
+    
+    , font sizimg not working need for mobile and desktop spserately
+    
+    also background color for section as well. font color not working?, font sizimg not working need both sizes for desktop and mobile
+{% enddoc %}
+{% assign ai_gen_id = block.id | replace: '_', '' | downcase %}
+
+{% style %}
+  .ai-text-block-{{ ai_gen_id }} {
+    display: block;
+    width: 100%;
+    padding: {{ block.settings.padding_desktop }}px;
+    background-color: {{ block.settings.background_color }};
+  }
+
+  .ai-text-block-container-{{ ai_gen_id }} {
+    width: {{ block.settings.desktop_width_percent }}%;
+    max-width: 100%;
+    margin: 0 auto;
+  }
+
+  .ai-text-block-content-{{ ai_gen_id }} {
+    font-size: {{ block.settings.font_size_desktop }}px;
+    color: {{ block.settings.text_color }};
+    text-align: {{ block.settings.text_align }};
+    line-height: 1.6;
+  }
+
+  .ai-text-block-content-{{ ai_gen_id }} p,
+  .ai-text-block-content-{{ ai_gen_id }} h1,
+  .ai-text-block-content-{{ ai_gen_id }} h2,
+  .ai-text-block-content-{{ ai_gen_id }} h3,
+  .ai-text-block-content-{{ ai_gen_id }} h4,
+  .ai-text-block-content-{{ ai_gen_id }} h5,
+  .ai-text-block-content-{{ ai_gen_id }} h6,
+  .ai-text-block-content-{{ ai_gen_id }} span,
+  .ai-text-block-content-{{ ai_gen_id }} div,
+  .ai-text-block-content-{{ ai_gen_id }} li,
+  .ai-text-block-content-{{ ai_gen_id }} a {
+    color: {{ block.settings.text_color }} !important;
+  }
+
+  @media screen and (max-width: 749px) {
+    .ai-text-block-{{ ai_gen_id }} {
+      padding: {{ block.settings.padding_mobile }}px;
+    }
+
+    .ai-text-block-container-{{ ai_gen_id }} {
+      width: 100%;
+    }
+
+    .ai-text-block-content-{{ ai_gen_id }} {
+      font-size: {{ block.settings.font_size_mobile }}px !important;
+    }
+
+    .ai-text-block-content-{{ ai_gen_id }} p,
+    .ai-text-block-content-{{ ai_gen_id }} h1,
+    .ai-text-block-content-{{ ai_gen_id }} h2,
+    .ai-text-block-content-{{ ai_gen_id }} h3,
+    .ai-text-block-content-{{ ai_gen_id }} h4,
+    .ai-text-block-content-{{ ai_gen_id }} h5,
+    .ai-text-block-content-{{ ai_gen_id }} h6,
+    .ai-text-block-content-{{ ai_gen_id }} span,
+    .ai-text-block-content-{{ ai_gen_id }} div,
+    .ai-text-block-content-{{ ai_gen_id }} li,
+    .ai-text-block-content-{{ ai_gen_id }} a {
+      font-size: {{ block.settings.font_size_mobile }}px !important;
+    }
+  }
+{% endstyle %}
+
+<div class="ai-text-block-{{ ai_gen_id }}" {{ block.shopify_attributes }}>
+  <div class="ai-text-block-container-{{ ai_gen_id }}">
+    {% if block.settings.text != blank %}
+      <div class="ai-text-block-content-{{ ai_gen_id }}">
+        {{ block.settings.text }}
+      </div>
+    {% else %}
+      <div class="ai-text-block-content-{{ ai_gen_id }}" style="color: #999; font-style: italic;">
+        Add your text content here
+      </div>
+    {% endif %}
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Text block",
+  "settings": [
+    {
+      "type": "richtext",
+      "id": "text",
+      "label": "Text",
+      "default": "<p>Add your text content here. You can format it with bold, italic, and other styles.</p>"
+    },
+    {
+      "type": "header",
+      "content": "Desktop settings"
+    },
+    {
+      "type": "range",
+      "id": "font_size_desktop",
+      "label": "Font size",
+      "min": 12,
+      "max": 72,
+      "step": 2,
+      "unit": "px",
+      "default": 16
+    },
+    {
+      "type": "range",
+      "id": "desktop_width_percent",
+      "label": "Desktop width",
+      "min": 50,
+      "max": 100,
+      "step": 5,
+      "unit": "%",
+      "default": 100
+    },
+    {
+      "type": "range",
+      "id": "padding_desktop",
+      "label": "Padding",
+      "min": 0,
+      "max": 100,
+      "step": 5,
+      "unit": "px",
+      "default": 20
+    },
+    {
+      "type": "header",
+      "content": "Mobile settings"
+    },
+    {
+      "type": "range",
+      "id": "font_size_mobile",
+      "label": "Font size",
+      "min": 12,
+      "max": 48,
+      "step": 2,
+      "unit": "px",
+      "default": 14
+    },
+    {
+      "type": "range",
+      "id": "padding_mobile",
+      "label": "Padding",
+      "min": 0,
+      "max": 60,
+      "step": 5,
+      "unit": "px",
+      "default": 15
+    },
+    {
+      "type": "header",
+      "content": "Style"
+    },
+    {
+      "type": "select",
+      "id": "text_align",
+      "label": "Text alignment",
+      "options": [
+        {
+          "value": "left",
+          "label": "Left"
+        },
+        {
+          "value": "center",
+          "label": "Center"
+        },
+        {
+          "value": "right",
+          "label": "Right"
+        }
+      ],
+      "default": "left"
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "Text color",
+      "default": "#333333"
+    },
+    {
+      "type": "color",
+      "id": "background_color",
+      "label": "Background color",
+      "default": "#ffffff"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Text block"
+    }
+  ]
+}
+{% endschema %}

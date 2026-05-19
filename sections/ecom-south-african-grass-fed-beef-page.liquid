@@ -1,0 +1,1141 @@
+{% comment %}
+ EComposer (https://ecomposer.io)
+ You SHOULD NOT modify source code in this page because
+ It is automatically generated from EComposer
+ At 2025-08-05 13:09:03
+ {% endcomment %} 
+ 
+ {% assign ecom_root_url = routes.root_url %}
+ 
+ {% if ecom_root_url != '/'%}
+ {% assign ecom_root_url = routes.root_url | append: '/' %}
+ {% endif %}
+ <link rel="stylesheet" media="print" onload="this.media='all'" id="ecom-vendors-modal_css" href="https://cdn.ecomposer.app/vendors/css/ecom_modal.css" /><link rel="stylesheet" media="print" onload="this.media='all'" id="ecom-vendors-slider_css" href="https://cdn.ecomposer.app/vendors/css/ecom-swiper@11.css" /><link rel="stylesheet" media="all" id="ecom-vendors-css_ecomposer_base" href="https://cdn.ecomposer.app/vendors/css/ecom-base.css?v=1.9" /><noscript><link rel="stylesheet" media="all" onload="this.media='all'" id="ecom-vendors-modal_css" href="https://cdn.ecomposer.app/vendors/css/ecom_modal.css" /><link rel="stylesheet" media="all" onload="this.media='all'" id="ecom-vendors-slider_css" href="https://cdn.ecomposer.app/vendors/css/ecom-swiper@11.css" /><link rel="stylesheet" media="all" id="ecom-vendors-css_ecomposer_base" href="https://cdn.ecomposer.app/vendors/css/ecom-base.css?v=1.9" /></noscript><script type="text/javascript" asyc="async" id="ecom-vendors-modal_js" src="https://cdn.ecomposer.app/vendors/js/ecom_modal_new.js" ></script><script type="text/javascript" asyc="async" id="ecom-vendors-slider_js" src="https://cdn.ecomposer.app/vendors/js/ecom-swiper@11.0.5.js" ></script><script type="text/javascript" asyc="async" id="ecom-vendors-shopify_option_selection_js" src="https://cdn.ecomposer.app/vendors/js/ecomposer_option_selection.js" ></script><script type="text/javascript" asyc="async" id="ecom-vendors-countdown_js" src="https://cdn.ecomposer.app/vendors/js/ecom-countdown.js?ver=2.0" ></script>
+{%capture section_id %}ecom-south-african-grass-fed-beef-page{% endcapture%}{% if section and section_id == section.id and headless == true %}
+{{ content_for_header }}
+{% render 'ecom_header', ECOM_THEME: true %}{% endif %}<link href="https://fonts.googleapis.com/css?family=Roboto:100,200,300,400,500,600,700,800,900&display=swap" rel="stylesheet"/><link href="https://fonts.googleapis.com/css?family=Open+Sans:100,200,300,400,500,600,700,800,900&display=swap" rel="stylesheet"/><link href="https://fonts.googleapis.com/css?family=Jost:100,200,300,400,500,600,700,800,900&display=swap" rel="stylesheet"/><link href="https://fonts.googleapis.com/css?family=Inter:100,200,300,400,500,600,700,800,900&display=swap" rel="stylesheet"/>
+{{'ecom-663d181a27edec48a308fa75.css' | asset_url | stylesheet_tag }}
+<script src="{{'ecom-663d181a27edec48a308fa75.js' | asset_url }}" defer="defer"></script>
+<script type="text/javascript" class="ecom-page-info">
+ window.EComposer = window.EComposer || {};
+ window.EComposer.TEMPLATE_ID="663d181a27edec48a308fa75";
+ window.EComposer.PAGE = {"template_id":"663d181a27edec48a308fa75","title":"South African Grass-Fed Beef","type":"page","slug":"ecom-south-african-grass-fed-beef","plan_id":4};
+ </script>
+<div class="ecom-builder" id="ecom-south-african-grass-fed-beef"><div class="ecom-sections" data-section-id="{{section.id}}">
+ {% comment %}
+ // Reactive
+ * this.data.settings.product
+ {% endcomment %}
+ {% liquid
+ unless recommendations.performed
+ if request.page_type != 'product' or product == blank
+ assign selected_product = ''
+ if selected_product == blank or selected_product == '' or all_products[selected_product] == blank
+ assign product = collections['all'].products.first
+ else
+ assign product = all_products[selected_product]
+ if product.id == blank
+ assign product = collections['all'].products.last
+ endif
+ endif
+ endif
+ endunless
+ %}
+ {%- if product != blank -%}
+ {%- capture ec_form_id -%}product_form_{{ product.id }}_ecom-rvob16n1qur{%- endcapture -%}
+ {%- form 'product', product, id: ec_form_id, class: "ecom-product-form ecom-product-form--single ecom-click", product_id: product.id, data-product_id: product.id,data-product-id: product.id, data-handle: product.handle-%}
+ <section class="ecom-row ecom-core ecom-section ecom-rvob16n1qur" data-id="ecom-rvob16n1qur" id="sa-banner" style="z-index: inherit;"><div data-deep="1" class="core__row--columns"><div class="ecom-column ecom-core ecom-hhjpwu632qi"><div class="core__column--wrapper"><div class="ecom-column__overlay"><div class="ecom-overlay"></div></div><div class="core__blocks" index="0"><div class="core__blocks--body"><div class="ecom-block ecom-core core__block elmspace ecom-z40nygssgf" data-core-is="row"><div class="ecom-row ecom-core core__block ecom-8tvj7ssg6u9" data-id="ecom-8tvj7ssg6u9" style="z-index: inherit;"><div data-deep="2" class="core__row--columns"><div class="ecom-column ecom-core ecom-bah5qr32f1b"><div class="core__column--wrapper"><div class="ecom-column__overlay"><div class="ecom-overlay"></div></div><div class="core__blocks" index="0"><div class="core__blocks--body"><div class="ecom-block ecom-core core__block elmspace ecom-ssish0104ar remove-caption" data-core-is="block"><div class="ecom-element ecom-product-single ecom-product-single__rating" deep="2"><div class="ecom-product-single__rating-wrapper" data-review-platform="
+ {%- assign review_platform = shop.metafields.ecomposer.app_review.value -%}
+ {{review_platform}}
+ "><div class="ecom-product-single__rating-container">
+ {%- if review_platform -%}
+ {%- if EComBuilderMode == true -%}
+ <div class="ecom-theme-app-extensions-skeleton">
+ <div class="ecom-app-extension-info">
+ <span class="ecom-theme-app-extension-icon">
+ <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path d="M364.2 267.2l-104.8-15.28L212.6 156.7C208.7 148.8 200.7 143.9 191.9 143.9C183.2 143.8 175.1 148.8 171.4 156.7L124.5 251.1L19.71 267.2C.9566 269.9-6.618 293.1 7.007 306.5l75.87 74l-17.1 104.6c-1.25 6.75 .5878 13.51 4.963 18.63C74.22 509 80.64 512 87.52 512c3.625 0 7.436-.9554 10.69-2.705l93.79-49.38l93.74 49.38c3.25 1.625 6.991 2.675 10.62 2.675c6.75 0 13.23-2.97 17.61-8.22c4.25-5.125 6.273-11.98 5.148-18.61L301.2 380.5l75.92-74C390.6 293 383.1 269.1 364.2 267.2zM266.7 369.3l17.62 103.1l-92.5-48.75l-92.5 48.75l17.62-103.1L42.22 296.1l103.4-15l46.38-93.88l46.13 93.88l103.5 15L266.7 369.3zM256 112h64v64C320 184.8 327.2 192 336 192S352 184.8 352 176v-64h64c8.844 0 16-7.156 16-16s-7.154-15.1-15.1-15.1L352 80v-64C352 7.156 344.8 0 336 0S320 7.156 320 16v64l-63.99 .0022C247.2 80 240 87.16 240 96S247.2 112 256 112zM496 208h-32v-32c0-8.844-7.155-15.1-15.1-15.1S432 167.2 432 176v32h-32c-8.844 0-15.1 7.162-15.1 16.01S391.2 240 400 240h32v32c0 8.844 7.158 16.01 16 16.01S464 280.8 464 272v-32h32c8.844 0 16-7.151 16-15.99S504.8 208 496 208z"/></svg>
+ </span>
+ <div class="ecom-theme-app-extension-content">
+ <span class="ecom-theme-app-extension-title">{{review_platform | replace: '_', ' ' | replace: '-', ' ' | capitalize}}</span>
+ <div class="ecom-placeholder-on-builder-mode" data-ecom-placeholder="The rating element will display when published to Online store"></div>
+ </div>
+ </div>
+ </div>
+ {%- else -%}
+ {%- case review_platform -%}
+ {%- when 'none' -%}
+ <div class="ecom-theme-app-extensions-skeleton">
+ <p>Please select the rating platform in settings</p>
+ </div>
+ {%- when 'ali-reviews' -%}
+ <div product-id="{{ product.id }}" product-handle="{{ product.handle }}" class="alireviews-review-star-rating"></div>
+ {%- when 'vital-reviews'-%}
+ <div class="bundle-aggregated_reviews"></div>
+ {%- when 'opinew-reviews' -%}
+ <div id='opinew-stars-plugin-product'>{% render 'opinew_review_stars_product' product:product %}</div>
+ {%- when 'judgeme' -%}
+ <div style='{{ jm_style }}' class='jdgm-widget jdgm-preview-badge' data-id='{{ product.id }}'>
+ {{ product.metafields.judgeme.badge }}
+ </div> 
+ {%- when 'product-reviews-addon' -%}
+ <span class="stamped-product-reviews-badge stamped-main-badge" data-id="{{ product.id }}" data-product-sku="{{ product.handle }}" style="display: inline-block;">{{- product.metafields.stamped.badge -}}</span>
+ {%- when 'areviews-aliexpress'-%}
+ <div class="areviews_header_stars"></div>
+ {%- when 'loox'-%}
+ <a href="#looxReviews">
+ <div class="loox-rating" data-id="{{ product.id }}" data-rating="{{ product.metafields.loox.avg_rating }}" data-raters="{{ product.metafields.loox.num_reviews }}"></div>
+ </a>
+ {% when 'ryviu'%}
+ {%- if EComBuilderMode == true -%}
+ <div class="ecom-theme-app-extensions-skeleton">
+ <div class="ecom-app-extension-info">
+ <span class="ecom-theme-app-extension-icon">
+ <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path d="M364.2 267.2l-104.8-15.28L212.6 156.7C208.7 148.8 200.7 143.9 191.9 143.9C183.2 143.8 175.1 148.8 171.4 156.7L124.5 251.1L19.71 267.2C.9566 269.9-6.618 293.1 7.007 306.5l75.87 74l-17.1 104.6c-1.25 6.75 .5878 13.51 4.963 18.63C74.22 509 80.64 512 87.52 512c3.625 0 7.436-.9554 10.69-2.705l93.79-49.38l93.74 49.38c3.25 1.625 6.991 2.675 10.62 2.675c6.75 0 13.23-2.97 17.61-8.22c4.25-5.125 6.273-11.98 5.148-18.61L301.2 380.5l75.92-74C390.6 293 383.1 269.1 364.2 267.2zM266.7 369.3l17.62 103.1l-92.5-48.75l-92.5 48.75l17.62-103.1L42.22 296.1l103.4-15l46.38-93.88l46.13 93.88l103.5 15L266.7 369.3zM256 112h64v64C320 184.8 327.2 192 336 192S352 184.8 352 176v-64h64c8.844 0 16-7.156 16-16s-7.154-15.1-15.1-15.1L352 80v-64C352 7.156 344.8 0 336 0S320 7.156 320 16v64l-63.99 .0022C247.2 80 240 87.16 240 96S247.2 112 256 112zM496 208h-32v-32c0-8.844-7.155-15.1-15.1-15.1S432 167.2 432 176v32h-32c-8.844 0-15.1 7.162-15.1 16.01S391.2 240 400 240h32v32c0 8.844 7.158 16.01 16 16.01S464 280.8 464 272v-32h32c8.844 0 16-7.151 16-15.99S504.8 208 496 208z"/></svg>
+ </span>
+ <div class="ecom-theme-app-extension-content">
+ <span class="ecom-theme-app-extension-title">Ryviu</span>
+ <div class="ecom-placeholder-on-builder-mode" data-ecom-placeholder="The rating element will display when published to Online store"></div>
+ </div>
+ </div>
+ {%- else -%}
+ <div class="review-widget">
+ <ryviu-widget-total
+ reviews_data="{{product.metafields.ryviu.product_reviews_info | escape }}"
+ product_id="{{product.id}}" handle="{{product.handle}}">
+ </ryviu-widget-total>
+ </div>
+ {%- endif -%}
+ {%- when 'yotpo-social-reviews' -%}
+ <div class="yotpo bottomLine" style="display:inline-block" data-product-id="{{ product.id }}"> </div>
+ {%- when 'aliexpress-reviews-importer'-%}
+ <div id="shop_booster_rate_6" product-id="{{ product.id }}"></div>
+ {%- when 'rivyo-product-review'-%}
+ <div class="wc_product_review_badge" data-handle="{{ product.handle }}" data-product_id="{{ product.id }}"></div>
+ {%-when 'growave' -%}
+ {% capture the_snippet_review_avg %}{% render 'ssw-widget-avg-rate-listing', product: product %}{% endcapture %}
+ {% unless the_snippet_review_avg contains 'Liquid error' %}
+ {{ the_snippet_review_avg }}
+ {% endunless %}
+ {%- when 'smart-aliexpress-reviews'-%}
+ <a href="#scm-reviews-importer">
+ <div id="scm-product-detail-rate" class="scm-reviews-rate" data-rate-version2= {{ product.metafields.scm_review_importer.reviewsData.reviewCountInfo | json}}>
+ </div>
+ </a>
+ {%- when 'photo-reviews' -%}
+ <div id='opinew-stars-plugin-product'>{% render 'opinew_review_stars_product' product:product %}</div>
+ {%- when 'lai-reviews' -%}
+ <div class="scm-reviews-rate" data-rate-version2="{{ product.metafields.scm_review_importer.reviewsData.reviewCountInfo | json | escape }}" data-product-id="{{ product.id }}"></div>
+ {%- when 'product-reviews' -%}
+ <span class="shopify-product-reviews-badge" data-id="{{ product.id }}"></span>
+ {%- when 'rivyo' -%}
+ <div class="wc_product_review_badge" data-handle="{{ product.handle }}" data-product_id="{{ product.id }}"></div>
+ {%- when 'sealapps-product-review' -%}
+ <div class="custom-vstar-rating-widget" product-id="{{ product.id }}"></div>
+ {%- when 'ali-product-review' -%}
+ <div product-id="{{ product.id }}" class="alr-display-review-badge"></div>
+ {%- when 'klaviyo-reviews' -%}
+ <div class="klaviyo-star-rating-widget" data-id="{{product.id}}" data-product-title="{{product.title}}" data-product-type="{{product.type}}"></div>
+ {%- when 'air-reviews' -%}
+ <div class="AirReviews-Widget AirReviews-Widget--Stars" data-review-avg="{{ product.metafields.air_reviews_product.review_avg }}" data-review-count="{{ product.metafields.air_reviews_product.review_count }}"></div>
+ {%- when 'ait-product-reviews' -%}
+ <span class="egg-product-reviews-rating" data-id="{{ product.id }}" id="{{ product.id }}"></span>
+ {%- when 'trustify-reviews' -%}
+ <div
+ class="trustify-review-stars"
+ data-review-type="product"
+ data-product-id="{{ product.id }}"
+ data-product-handle="{{ product.handle }}"
+ data-review-avg="{{ product.metafields.tr_reviews_product.review_avg }}"
+ data-review-count="{{ product.metafields.tr_reviews_product.review_count }}"
+ >
+ </div>
+ {% else %}
+ <p>The rating platform not supported</p>
+ {%-endcase-%}
+ {% endif %}
+ {%- else -%}
+ <div class="ecom-theme-app-extensions-skeleton">
+ <p>Please select the rating platform in settings</p>
+ </div>
+ {%- endif -%}
+ </div></div></div></div> <div class="ecom-block ecom-core core__block elmspace ecom-oh73llewkeb" data-core-is="block"><div class="ecom__element ecom-element element__text" data-stopdrag="" deep="2"><div class="text-content ecom-html has-drop-cap-view-framed">{{ 'sections.ecom-south-african-grass-fed-beef-page.textcontent_oh73llewkeb_html' | t }}</div></div></div> </div></div></div></div> </div><div class="ecom-section__overlay"><div class="ecom-overlay"></div></div> </div></div> <div class="ecom-block ecom-core core__block elmspace ecom-7t3wjxzl4iv" data-core-is="row"><div class="ecom-row ecom-core core__block ecom-ipi68ch4pvr" data-id="ecom-ipi68ch4pvr" style="z-index: inherit;"><div data-deep="2" class="core__row--columns"><div class="ecom-column ecom-core ecom-azaeu8ni3f"><div class="core__column--wrapper"><div class="ecom-column__overlay"><div class="ecom-overlay"></div></div><div class="core__blocks" index="0"><div class="core__blocks--body"><div class="ecom-block ecom-core core__block elmspace ecom-x8b16q1i9s" data-core-is="block"><div class="ecom__element element__heading ecom-element ecom-html" data-stopdrag="true" deep="2"><h3 class="ecom__heading ecom-db">{{ 'sections.ecom-south-african-grass-fed-beef-page.headingtext_x8b16q1i9s_html' | t }}</h3></div></div> <div class="ecom-block ecom-core core__block elmspace ecom-i1jtf1ppy8m" data-core-is="block"><div class="ecom__element ecom-element element__text" data-stopdrag="" deep="2"><div class="text-content ecom-html has-drop-cap-view-framed">{{ 'sections.ecom-south-african-grass-fed-beef-page.textcontent_i1jtf1ppy8m_html' | t }}</div></div></div> <div class="ecom-animation ecom-block ecom-core core__block ecom-9t9b789us3f" data-core-is="block"><div class="ecom__element ecom-element-button ecom-button-default" deep="2"><a class="ecom__element--button ecom-flex ecom-fl_center ecom-al_center" href="#product-s"><span class="ecom__element--button-icon-text">{{ 'sections.ecom-south-african-grass-fed-beef-page.buttoncontent_9t9b789us3f_html' | t }}</span><span class="ecom-button-icon ecom__element--button-icon"></span></a></div></div> </div></div></div></div> </div><div class="ecom-section__overlay"><div class="ecom-overlay"></div></div> </div></div> </div></div></div></div> </div><div class="ecom-section__overlay"><div class="ecom-overlay"></div></div> </section>
+ {% unless ecom_has_variant_picker %}
+ <input type="hidden" name="id" value="{{product.selected_or_first_available_variant.id}}" />
+ <script type="application/json" id="product-json-{{product.id}}-ecom-rvob16n1qur">
+ {%- render "ecom_product_json", product: product -%}
+ </script>
+ {% endunless %}
+ {%- endform -%}
+ {% assign ecom_has_variant_picker = false %}
+ {%- endif -%}
+ <section class="ecom-row ecom-core ecom-section ecom-u25tu80x3ep" data-id="ecom-u25tu80x3ep" style="z-index: inherit;"><div data-deep="1" class="core__row--columns"><div class="ecom-column ecom-core ecom-nkedtn1dzm"><div class="core__column--wrapper"><div class="ecom-column__overlay"><div class="ecom-overlay"></div></div><div class="core__blocks" index="0"><div class="core__blocks--body"><div class="ecom-block ecom-core core__block elmspace ecom-b8e7afnmnyh" data-core-is="block"><div class="ecom__element element__heading ecom-element ecom-html" data-stopdrag="true" deep="1"><h3 class="ecom__heading ecom-db">{{ 'sections.ecom-south-african-grass-fed-beef-page.headingtext_b8e7afnmnyh_html' | t }}</h3></div></div> </div></div></div></div> </div><div class="ecom-section__overlay"><div class="ecom-overlay"></div></div> </section><section class="ecom-row ecom-core ecom-section ecom-24re4bjit9pi" data-id="ecom-24re4bjit9pi" style="z-index: inherit;"><div data-deep="1" class="core__row--columns"><div class="ecom-column ecom-core ecom-8k1bog0abl"><div class="core__column--wrapper"><div class="ecom-column__overlay"><div class="ecom-overlay"></div></div><div class="core__blocks" index="0"><div class="core__blocks--body"><div class="ecom-block ecom-core core__block elmspace ecom-rlzhwczzggg" data-core-is="row"><div class="ecom-row ecom-core core__block ecom-d809vwnkxes" data-id="ecom-d809vwnkxes" style="z-index: inherit;"><div data-deep="2" class="core__row--columns"><div class="ecom-column ecom-core ecom-x6slvq7qxxh"><div class="core__column--wrapper"><div class="ecom-column__overlay"><div class="ecom-overlay"></div></div><div class="core__blocks" index="0"><div class="core__blocks--body"><div class="ecom-block ecom-core core__block elmspace ecom-dpmfywc1kt" data-core-is="block"><div class="ecom__element element__heading ecom-element ecom-html" data-stopdrag="true" deep="2"><h3 class="ecom__heading ecom-db">{{ 'sections.ecom-south-african-grass-fed-beef-page.headingtext_dpmfywc1kt_html' | t }}</h3></div></div> </div></div></div></div> <div class="ecom-column ecom-core ecom-z2d85ct15s"><div class="core__column--wrapper"><div class="ecom-column__overlay"><div class="ecom-overlay"></div></div><div class="core__blocks" index="1"><div class="core__blocks--body"><div class="ecom-block ecom-core core__block ecom-efqzqm4o58 hide-on-mobile" data-core-is="block"><div class="ecom__element ecom-element element__featured ecom-html" deep="2"><div class="element__featured--wrapper"><div class="element__featured--box"><div class="ecom-image-align ecom-flex" href="#"><figure class="element__featured--box-img ecom-image-default"><img alt="ecom-edit-image-lAbsF1sZj1Capture" src="https://cdn.shopify.com/s/files/1/0821/0202/6556/files/ecom-edit-image-lAbsF1sZj1Capture.png?v=1715169367"></figure></div><div class="element__featured--box-content ecom-w__full"><div class="element__featured--box-text"><div>{{ 'sections.ecom-south-african-grass-fed-beef-page.text0_efqzqm4o58_html' | t }}</div></div><div class="ecom-button-default"></div></div></div><div class="element__featured--box"><div class="ecom-image-align ecom-flex" href="#"><figure class="element__featured--box-img ecom-image-default"><img alt="1_2" src="https://cdn.shopify.com/s/files/1/0285/3732/3629/files/1_2.png?v=1699223194"></figure></div><div class="element__featured--box-content ecom-w__full"><div class="element__featured--box-text"><div>{{ 'sections.ecom-south-african-grass-fed-beef-page.text1_efqzqm4o58_html' | t }}</div></div><div class="ecom-button-default"></div></div></div><div class="element__featured--box"><div class="ecom-image-align ecom-flex" href="#"><figure class="element__featured--box-img ecom-image-default"><img alt="3_2_02b2848f-94a5-4ef9-b498-e31cf7879953" src="https://cdn.shopify.com/s/files/1/0285/3732/3629/files/3_2_02b2848f-94a5-4ef9-b498-e31cf7879953.png?v=1699223194"></figure></div><div class="element__featured--box-content ecom-w__full"><div class="element__featured--box-text"><div>{{ 'sections.ecom-south-african-grass-fed-beef-page.text2_efqzqm4o58_html' | t }}</div></div><div class="ecom-button-default"></div></div></div><div class="element__featured--box"><div class="ecom-image-align ecom-flex" href="#"><figure class="element__featured--box-img ecom-image-default"><img alt="2_1_379f712a-14cc-49ae-894b-16fd036998d2" src="https://cdn.shopify.com/s/files/1/0285/3732/3629/files/2_1_379f712a-14cc-49ae-894b-16fd036998d2.png?v=1699223193"></figure></div><div class="element__featured--box-content ecom-w__full"><div class="element__featured--box-text"><div>{{ 'sections.ecom-south-african-grass-fed-beef-page.text3_efqzqm4o58_html' | t }}</div></div><div class="ecom-button-default"></div></div></div></div></div></div> <div class="ecom-block ecom-core core__block ecom-z5u7qr3n6aq hide-on-desktop" data-core-is="block"><div class="ecom__element ecom-element element__featured ecom-html" deep="2"><div class="element__featured--wrapper"><div class="element__featured--box"><div class="ecom-image-align ecom-flex" href="#"><figure class="element__featured--box-img ecom-image-default"><img alt="ecom-edit-image-lAbsF1sZj1Capture" src="https://cdn.shopify.com/s/files/1/0821/0202/6556/files/ecom-edit-image-lAbsF1sZj1Capture.png?v=1715169367"></figure></div><div class="element__featured--box-content ecom-w__full"><div class="element__featured--box-text"><div>{{ 'sections.ecom-south-african-grass-fed-beef-page.text0_z5u7qr3n6aq_html' | t }}</div></div><div class="ecom-button-default"></div></div></div><div class="element__featured--box"><div class="ecom-image-align ecom-flex" href="#"><figure class="element__featured--box-img ecom-image-default"><img alt="1_2" src="https://cdn.shopify.com/s/files/1/0285/3732/3629/files/1_2.png?v=1699223194"></figure></div><div class="element__featured--box-content ecom-w__full"><div class="element__featured--box-text"><div>{{ 'sections.ecom-south-african-grass-fed-beef-page.text1_z5u7qr3n6aq_html' | t }}</div></div><div class="ecom-button-default"></div></div></div><div class="element__featured--box"><div class="ecom-image-align ecom-flex" href="#"><figure class="element__featured--box-img ecom-image-default"><img alt="3_2_02b2848f-94a5-4ef9-b498-e31cf7879953" src="https://cdn.shopify.com/s/files/1/0285/3732/3629/files/3_2_02b2848f-94a5-4ef9-b498-e31cf7879953.png?v=1699223194"></figure></div><div class="element__featured--box-content ecom-w__full"><div class="element__featured--box-text"><div>{{ 'sections.ecom-south-african-grass-fed-beef-page.text2_z5u7qr3n6aq_html' | t }}</div></div><div class="ecom-button-default"></div></div></div></div></div></div> </div></div></div></div> </div><div class="ecom-section__overlay"><div class="ecom-overlay"></div></div> </div></div> </div></div></div></div> </div><div class="ecom-section__overlay"><div class="ecom-overlay"></div></div> </section><section class="ecom-row ecom-core ecom-section ecom-zs1vkryrlu hide-on-screen hide-on-desktop" data-id="ecom-zs1vkryrlu" style="z-index: inherit;"><div data-deep="1" class="core__row--columns"><div class="ecom-column ecom-core ecom-pmes0h8vf2k"><div class="core__column--wrapper ecom__column-full-height"><div class="ecom-column__overlay"><div class="ecom-overlay"></div></div><div class="core__blocks" index="0"><div class="core__blocks--body"><div class="ecom-block ecom-core core__block elmspace ecom-ulhp4rui7fm" data-core-is="block"><div class="ecom__element element__heading ecom-element ecom-html" data-stopdrag="true" deep="1"><h3 class="ecom__heading ecom-db">{{ 'sections.ecom-south-african-grass-fed-beef-page.headingtext_ulhp4rui7fm_html' | t }}</h3></div></div> <div class="ecom-block ecom-core core__block elmspace ecom-psiarnemc7e" data-core-is="row"><div class="ecom-row ecom-core core__block ecom-lvg4e2av67" data-id="ecom-lvg4e2av67" style="z-index: inherit;"><div data-deep="2" class="core__row--columns"><div class="ecom-column ecom-core ecom-q5meg80h8w"><div class="core__column--wrapper ecom__column-full-height"><div class="ecom-column__overlay"><div class="ecom-overlay"></div></div><div class="core__blocks" index="0"><div class="core__blocks--body"><div class="ecom-block ecom-core core__block elmspace ecom-g62eoue8scv" data-core-is="block"><div class="ecom-element ecom-base-image" deep="2"><figure><div class="ecom-container-image ecom-image-align" data-stopdrag=""><div data-stopdrag="" class="ecom-image-content-position ecom-image-default ecom-base-image-container-overlay" style=""><picture class="ecom-image-picture"><img loading="lazy" fetchpriority="low" src="https://cdn.shopify.com/s/files/1/0821/0202/6556/files/Group.png?v=1715168604" alt="Group" width="61" height="42"></picture></div></div></figure></div></div> </div></div></div></div> <div class="ecom-column ecom-core ecom-j6znr5j4wv"><div class="core__column--wrapper ecom__column-full-height"><div class="ecom-column__overlay"><div class="ecom-overlay"></div></div><div class="core__blocks" index="1"><div class="core__blocks--body"><div class="ecom-block ecom-core core__block elmspace ecom-t55mgjwol0l" data-core-is="block"><div class="ecom__element ecom-element element__text" data-stopdrag="" deep="2"><div class="text-content ecom-html has-drop-cap-view-framed">{{ 'sections.ecom-south-african-grass-fed-beef-page.textcontent_t55mgjwol0l_html' | t }}</div></div></div> </div></div></div></div> </div><div class="ecom-section__overlay"><div class="ecom-overlay"></div></div> </div></div> <div class="ecom-block ecom-core core__block elmspace ecom-twj005dgc4a" data-core-is="row"><div class="ecom-row ecom-core core__block ecom-kfsoj7eu07s" data-id="ecom-kfsoj7eu07s" style="z-index: inherit;"><div data-deep="2" class="core__row--columns"><div class="ecom-column ecom-core ecom-ixl0fft0mp"><div class="core__column--wrapper ecom__column-full-height"><div class="ecom-column__overlay"><div class="ecom-overlay"></div></div><div class="core__blocks" index="0"><div class="core__blocks--body"><div class="ecom-block ecom-core core__block elmspace ecom-5wdk5i0koef" data-core-is="block"><div class="ecom-element ecom-base-image" deep="2"><figure><div class="ecom-container-image ecom-image-align" data-stopdrag=""><div data-stopdrag="" class="ecom-image-content-position ecom-image-default ecom-base-image-container-overlay" style=""><picture class="ecom-image-picture"><img loading="lazy" fetchpriority="low" src="https://cdn.shopify.com/s/files/1/0821/0202/6556/files/25aRBk.png?v=1715168831" alt="25aRBk" width="52" height="49"></picture></div></div></figure></div></div> </div></div></div></div> <div class="ecom-column ecom-core ecom-c0rikeacj79"><div class="core__column--wrapper ecom__column-full-height"><div class="ecom-column__overlay"><div class="ecom-overlay"></div></div><div class="core__blocks" index="1"><div class="core__blocks--body"><div class="ecom-block ecom-core core__block elmspace ecom-eeb4bs9hol" data-core-is="block"><div class="ecom__element ecom-element element__text" data-stopdrag="" deep="2"><div class="text-content ecom-html has-drop-cap-view-framed">{{ 'sections.ecom-south-african-grass-fed-beef-page.textcontent_eeb4bs9hol_html' | t }}</div></div></div> </div></div></div></div> </div><div class="ecom-section__overlay"><div class="ecom-overlay"></div></div> </div></div> <div class="ecom-block ecom-core core__block elmspace ecom-m0fn35uw9ep" data-core-is="row"><div class="ecom-row ecom-core core__block ecom-vkjyx5jm75e" data-id="ecom-vkjyx5jm75e" style="z-index: inherit;"><div data-deep="2" class="core__row--columns"><div class="ecom-column ecom-core ecom-u9rxej9n5v"><div class="core__column--wrapper ecom__column-full-height"><div class="ecom-column__overlay"><div class="ecom-overlay"></div></div><div class="core__blocks" index="0"><div class="core__blocks--body"><div class="ecom-block ecom-core core__block elmspace ecom-7dqrxww77ck" data-core-is="block"><div class="ecom-element ecom-base-image" deep="2"><figure><div class="ecom-container-image ecom-image-align" data-stopdrag=""><div data-stopdrag="" class="ecom-image-content-position ecom-image-default ecom-base-image-container-overlay" style=""><picture class="ecom-image-picture"><img loading="lazy" fetchpriority="low" src="https://cdn.shopify.com/s/files/1/0821/0202/6556/files/QNSKFP.png?v=1715168855" alt="QNSKFP" width="51" height="64"></picture></div></div></figure></div></div> </div></div></div></div> <div class="ecom-column ecom-core ecom-ofrbi6kl46"><div class="core__column--wrapper ecom__column-full-height"><div class="ecom-column__overlay"><div class="ecom-overlay"></div></div><div class="core__blocks" index="1"><div class="core__blocks--body"><div class="ecom-block ecom-core core__block elmspace ecom-ahkv4yt2tog" data-core-is="block"><div class="ecom__element ecom-element element__text" data-stopdrag="" deep="2"><div class="text-content ecom-html has-drop-cap-view-framed">{{ 'sections.ecom-south-african-grass-fed-beef-page.textcontent_ahkv4yt2tog_html' | t }}</div></div></div> </div></div></div></div> </div><div class="ecom-section__overlay"><div class="ecom-overlay"></div></div> </div></div> <div class="ecom-block ecom-core core__block elmspace ecom-35l5s4m0aef" data-core-is="row"><div class="ecom-row ecom-core core__block ecom-2sxrw10t6au" data-id="ecom-2sxrw10t6au" style="z-index: inherit;"><div data-deep="2" class="core__row--columns"><div class="ecom-column ecom-core ecom-3pbjym4bkdz"><div class="core__column--wrapper"><div class="ecom-column__overlay"><div class="ecom-overlay"></div></div><div class="core__blocks" index="0"><div class="core__blocks--body"><div class="ecom-block ecom-core core__block elmspace ecom-xxlv64vcgod" data-core-is="block"><div class="ecom__element ecom-element-button ecom-button-default" deep="2"><a class="ecom__element--button ecom-flex ecom-fl_center ecom-al_center" href="#product-s"><span class="ecom__element--button-icon-text">{{ 'sections.ecom-south-african-grass-fed-beef-page.buttoncontent_xxlv64vcgod_html' | t }}</span><span class="ecom-button-icon ecom__element--button-icon"></span></a></div></div> </div></div></div></div> </div><div class="ecom-section__overlay"><div class="ecom-overlay"></div></div> </div></div> </div></div></div></div> </div><div class="ecom-section__overlay"><div class="ecom-overlay"></div></div> </section><section class="ecom-row ecom-core ecom-section ecom-zbrlttnb7do hide-on-tablet hide-on-mobile" data-id="ecom-zbrlttnb7do" style="z-index: inherit;"><div data-deep="1" class="core__row--columns"><div class="ecom-column ecom-core ecom-gi05kez36tn"><div class="core__column--wrapper"><div class="ecom-column__overlay"><div class="ecom-overlay"></div></div><div class="core__blocks" index="0"><div class="core__blocks--body"><div class="ecom-block ecom-core core__block elmspace ecom-xo3lc87i22j" data-core-is="block"><div class="ecom__element element__heading ecom-element ecom-html" data-stopdrag="true" deep="1"><h3 class="ecom__heading ecom-db">{{ 'sections.ecom-south-african-grass-fed-beef-page.headingtext_xo3lc87i22j_html' | t }}</h3></div></div> <div class="ecom-block ecom-core core__block elmspace ecom-zmjn1k9l7a" data-core-is="row"><div class="ecom-row ecom-core core__block ecom-cgz1k9qkkyn" data-id="ecom-cgz1k9qkkyn" style="z-index: inherit;"><div data-deep="2" class="core__row--columns"><div class="ecom-column ecom-core ecom-5rpp411h863"><div class="core__column--wrapper"><div class="ecom-column__overlay"><div class="ecom-overlay"></div></div><div class="core__blocks" index="0"><div class="core__blocks--body"><div class="ecom-block ecom-core core__block elmspace ecom-x5i7dpl71g" data-core-is="block"><div class="ecom__element ecom-element element__featured ecom-html" deep="2"><div class="element__featured--wrapper"><div class="element__featured--box"><div class="ecom-image-align ecom-flex" href="#"><figure class="element__featured--box-img ecom-image-default"><img alt="Group" src="https://cdn.shopify.com/s/files/1/0821/0202/6556/files/Group.png?v=1715168604"></figure></div><div class="element__featured--box-content ecom-w__full"><h2 class="element__featured--box-title" href="#">{{ 'sections.ecom-south-african-grass-fed-beef-page.title0_x5i7dpl71g_html' | t }}</h2><div class="element__featured--box-text"><div>{{ 'sections.ecom-south-african-grass-fed-beef-page.text0_x5i7dpl71g_html' | t }}</div></div><div class="ecom-button-default"></div></div></div><div class="element__featured--box"><div class="ecom-image-align ecom-flex" href="#"><figure class="element__featured--box-img ecom-image-default"><img alt="25aRBk" src="https://cdn.shopify.com/s/files/1/0821/0202/6556/files/25aRBk.png?v=1715168831"></figure></div><div class="element__featured--box-content ecom-w__full"><h2 class="element__featured--box-title" href="#">{{ 'sections.ecom-south-african-grass-fed-beef-page.title1_x5i7dpl71g_html' | t }}</h2><div class="element__featured--box-text"><div>{{ 'sections.ecom-south-african-grass-fed-beef-page.text1_x5i7dpl71g_html' | t }}</div></div><div class="ecom-button-default"></div></div></div><div class="element__featured--box"><div class="ecom-image-align ecom-flex" href="#"><figure class="element__featured--box-img ecom-image-default"><img alt="QNSKFP" src="https://cdn.shopify.com/s/files/1/0821/0202/6556/files/QNSKFP.png?v=1715168855"></figure></div><div class="element__featured--box-content ecom-w__full"><h2 class="element__featured--box-title" href="#">{{ 'sections.ecom-south-african-grass-fed-beef-page.title2_x5i7dpl71g_html' | t }}</h2><div class="element__featured--box-text"><div>{{ 'sections.ecom-south-african-grass-fed-beef-page.text2_x5i7dpl71g_html' | t }}</div></div><div class="ecom-button-default"></div></div></div></div></div></div> </div></div></div></div> </div><div class="ecom-section__overlay"><div class="ecom-overlay"></div></div> </div></div> <div class="ecom-block ecom-core core__block elmspace ecom-tvhrfxd6f9a" data-core-is="block"><div class="ecom__element ecom-element-button ecom-button-default" deep="1"><a class="ecom__element--button ecom-flex ecom-fl_center ecom-al_center" href="#product-s"><span class="ecom__element--button-icon-text">{{ 'sections.ecom-south-african-grass-fed-beef-page.buttoncontent_tvhrfxd6f9a_html' | t }}</span><span class="ecom-button-icon ecom__element--button-icon"></span></a></div></div> </div></div></div></div> </div><div class="ecom-section__overlay"><div class="ecom-overlay"></div></div> </section><section class="ecom-row ecom-core ecom-section ecom-553qsjp1dyl" data-id="ecom-553qsjp1dyl" style="z-index: inherit;"><div data-deep="1" class="core__row--columns"><div class="ecom-column ecom-core ecom-5elyr139y08"><div class="core__column--wrapper"><div class="ecom-column__overlay"><div class="ecom-overlay"></div></div><div class="core__blocks" index="0"><div class="core__blocks--body"><div class="ecom-block ecom-core core__block elmspace ecom-5w0cgxmm4xj" data-core-is="block"><div class="ecom__element ecom-element element__text" data-stopdrag="" deep="1"><div class="text-content ecom-html has-drop-cap-view-framed">{{ 'sections.ecom-south-african-grass-fed-beef-page.textcontent_5w0cgxmm4xj_html' | t }}</div></div></div> <div class="ecom-block ecom-core core__block elmspace ecom-dv2wa5syxkr" data-core-is="group"><div class="ecom-elements ecom-base-element ecom-elements-slider"><div class="ecom-core ecom-group core__block ecom-hx4p8pvi5mn"> <div class="core__group--wrapper" data-r="" style=""><div class="ecom-slider--container"><div class="ecom-element ecom-slider slider__body ecom-swiper-container ecom-slider-not-custom-height" data-option-swiper="{&quot;direction&quot;:&quot;horizontal&quot;,&quot;freeMode&quot;:false,&quot;loop&quot;:false,&quot;breakpoints&quot;:{&quot;0&quot;:{&quot;slidesPerView&quot;:1},&quot;768&quot;:{&quot;slidesPerView&quot;:2},&quot;1025&quot;:{&quot;slidesPerView&quot;:2}},&quot;autoplay&quot;:{&quot;enabled&quot;:false,&quot;delay&quot;:6000,&quot;pauseOnMouseEnter&quot;:false,&quot;disableOnInteraction&quot;:false,&quot;reverseDirection&quot;:false},&quot;speed&quot;:500,&quot;effect&quot;:&quot;slide&quot;,&quot;grabCursor&quot;:true,&quot;slideActiveClass&quot;:&quot;ecom-box-active&quot;,&quot;centeredSlides&quot;:false,&quot;watchOverflow&quot;:true,&quot;autoHeight&quot;:true,&quot;cubeEffect&quot;:{&quot;slideShadows&quot;:true,&quot;shadowOffset&quot;:20},&quot;creativeEffect&quot;:{},&quot;fadeEffect&quot;:{&quot;crossFade&quot;:true},&quot;pagination&quot;:{&quot;el&quot;:&quot;.ecom-swiper-pagination&quot;,&quot;type&quot;:&quot;bullets&quot;,&quot;clickable&quot;:true},&quot;navigation&quot;:{&quot;nextEl&quot;:&quot;.ecom-swiper-button-next&quot;,&quot;prevEl&quot;:&quot;.ecom-swiper-button-prev&quot;},&quot;slidesPerGroup&quot;:1,&quot;spaceBetween&quot;:10}"><div class="ecom-swiper-wrapper"><div class="ecom-swiper-slide"><div class="ecom-content-item"><div class="ecom-content-item__container ecom-transition-undefined"><div class="core__blocks" index="0"><div class="core__blocks--body"><div class="ecom-block ecom-core core__block elmspace ecom-xrebsjbk2y9" data-core-is="block"><div class="ecom__element element__video ecom-element" deep="1"><div class="ecom-element_video-iframe ecom-element-overlay"><iframe id="ecom-elements__popup-video-ecom-xrebsjbk2y9" class="ecom_iframe" frameborder="0" allowfullscreen="" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" src="https://www.youtube.com/embed/mJKDgAWGbMs?version=3?&amp;controls=1&amp;mute=1&amp;showinfo=0&amp;iv_load_policy=3&amp;playlist=mJKDgAWGbMs&amp;autoplay=1&amp;loop=1" data-src-video="https://www.youtube.com/embed/mJKDgAWGbMs?version=3?&amp;controls=1&amp;mute=1&amp;showinfo=0&amp;iv_load_policy=3&amp;playlist=mJKDgAWGbMs&amp;autoplay=1&amp;loop=1" style="border: 0px; width: 100%; display: flex !important;"></iframe></div></div></div> </div></div></div></div></div><div class="ecom-swiper-slide"><div class="ecom-content-item"><div class="ecom-content-item__container ecom-transition-undefined"><div class="core__blocks" index="1"><div class="core__blocks--body"><div class="ecom-block ecom-core core__block elmspace ecom-thx9nfrf6lf" data-core-is="block"><div class="ecom__element element__video ecom-element" deep="1"><div class="ecom-element_video-iframe ecom-element-overlay"><iframe id="ecom-elements__popup-video-ecom-thx9nfrf6lf" class="ecom_iframe" frameborder="0" allowfullscreen="" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" src="https://www.youtube.com/embed/afjXtWYq6kE?version=3?&amp;controls=1&amp;mute=1&amp;showinfo=0&amp;iv_load_policy=3&amp;playlist=afjXtWYq6kE&amp;autoplay=1&amp;loop=1" data-src-video="https://www.youtube.com/embed/afjXtWYq6kE?version=3?&amp;controls=1&amp;mute=1&amp;showinfo=0&amp;iv_load_policy=3&amp;playlist=afjXtWYq6kE&amp;autoplay=1&amp;loop=1" style="border: 0px; width: 100%; display: flex !important;"></iframe></div></div></div> </div></div></div></div></div></div></div><div class="ecom-swiper-navigation-position" data-position="center"><button type="button" class="ecom-swiper-button ecom-swiper-button-prev" data-ecnav-id="ecom-hx4p8pvi5mn" style="--ecom-position: absolute; --ecom-position__tablet: absolute; --ecom-position__mobile: absolute;"><svg xmlns="http: //www.w3.org/2000/svg" width="52" height="52" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevron-left"><polyline points="15 18 9 12 15 6"></polyline></svg></button><button type="button" class="ecom-swiper-button ecom-swiper-button-next" data-ecnav-id="ecom-hx4p8pvi5mn" style="--ecom-position: absolute; --ecom-position__tablet: absolute; --ecom-position__mobile: absolute;"><svg xmlns="http://www.w3.org/2000/svg" width="52" height="52" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevron-right"><polyline points="9 18 15 12 9 6"></polyline></svg></button></div><div data-position="bottom_center" data-position-mobile="bottom_center" data-ecnav-id="ecom-hx4p8pvi5mn" class="ecom-swiper-pagination-position ecom-swiper-pagination"></div></div></div> </div></div></div> </div></div></div></div> </div><div class="ecom-section__overlay"><div class="ecom-overlay"></div></div> </section><section class="ecom-row ecom-core ecom-section ecom-khktvl4fybm" data-id="ecom-khktvl4fybm" style="z-index: inherit;"><div data-deep="1" class="core__row--columns core__row--full"><div class="ecom-column ecom-core ecom-m8z5f2hxcmb"><div class="core__column--wrapper"><div class="ecom-column__overlay"><div class="ecom-overlay"></div></div><div class="core__blocks" index="0"><div class="core__blocks--body"><div class="ecom-block ecom-core core__block ecom-ylo2kl25ia" data-core-is="block"><div class="ecom__element element__heading ecom-element ecom-html" data-stopdrag="true" deep="1"><h3 class="ecom__heading ecom-db">{{ 'sections.ecom-south-african-grass-fed-beef-page.headingtext_ylo2kl25ia_html' | t }}</h3></div></div> <div class="ecom-block ecom-core core__block ecom-j2ccgswo08g" data-core-is="block"><div class="ecom__element ecom-element ecom-testimonials" deep="1"><div class="ecom-testimonials--container"><div class="ecom__testimonials ecom-html ecom-swiper-container ecom-d-hide" data-option-swiper="{&quot;direction&quot;:&quot;horizontal&quot;,&quot;freeMode&quot;:false,&quot;loop&quot;:true,&quot;breakpoints&quot;:{&quot;0&quot;:{&quot;slidesPerView&quot;:1,&quot;spaceBetween&quot;:0},&quot;768&quot;:{&quot;slidesPerView&quot;:1,&quot;spaceBetween&quot;:30},&quot;1025&quot;:{&quot;slidesPerView&quot;:1,&quot;spaceBetween&quot;:100}},&quot;autoplay&quot;:{&quot;enabled&quot;:false,&quot;delay&quot;:4000,&quot;pauseOnMouseEnter&quot;:true,&quot;disableOnInteraction&quot;:false,&quot;reverseDirection&quot;:false},&quot;speed&quot;:500,&quot;effect&quot;:&quot;slide&quot;,&quot;grabCursor&quot;:true,&quot;slideActiveClass&quot;:&quot;ecom-box-active&quot;,&quot;centeredSlides&quot;:false,&quot;watchOverflow&quot;:true,&quot;autoHeight&quot;:true,&quot;cubeEffect&quot;:{&quot;slideShadows&quot;:true,&quot;shadowOffset&quot;:20},&quot;creativeEffect&quot;:{},&quot;fadeEffect&quot;:{&quot;crossFade&quot;:true},&quot;pagination&quot;:{&quot;el&quot;:&quot;.ecom-swiper-pagination&quot;,&quot;type&quot;:&quot;bullets&quot;,&quot;clickable&quot;:true},&quot;navigation&quot;:{&quot;nextEl&quot;:&quot;.ecom-swiper-button-next&quot;,&quot;prevEl&quot;:&quot;.ecom-swiper-button-prev&quot;}}"><div class="ecom-swiper-wrapper ecom__testimonials-slider-horizontal"><div class="ecom-swiper-slide"><div class="testimonial-content" style=""><div class="testimonial-content-prag" style="order: 3;">{{ 'sections.ecom-south-african-grass-fed-beef-page.text0_j2ccgswo08g_html' | t }}</div><div class="testimonial-rating ecom-icon-list" style="order: 1;"><span class="ecom-icon-active"><svg version="1.1" id="lni_lni-star-fill" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 64 64" style="enable-background:new 0 0 64 64;" xml:space="preserve" fill="currentColor"><path d="M59.7,23.9l-18.1-2.8L33.4,3.9c-0.6-1.2-2.2-1.2-2.8,0l-8.2,17.3L4.4,23.9c-1.3,0.2-1.8,1.9-0.8,2.8l13.1,13.5l-3.1,18.9c-0.2,1.3,1.1,2.4,2.3,1.6l16.3-8.9l16.2,8.9c1.1,0.6,2.5-0.4,2.2-1.6l-3.1-18.9l13.1-13.5C61.4,25.8,61,24.1,59.7,23.9z"></path></svg></span><span class="ecom-icon-active"><svg version="1.1" id="lni_lni-star-fill" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 64 64" style="enable-background:new 0 0 64 64;" xml:space="preserve" fill="currentColor"><path d="M59.7,23.9l-18.1-2.8L33.4,3.9c-0.6-1.2-2.2-1.2-2.8,0l-8.2,17.3L4.4,23.9c-1.3,0.2-1.8,1.9-0.8,2.8l13.1,13.5l-3.1,18.9c-0.2,1.3,1.1,2.4,2.3,1.6l16.3-8.9l16.2,8.9c1.1,0.6,2.5-0.4,2.2-1.6l-3.1-18.9l13.1-13.5C61.4,25.8,61,24.1,59.7,23.9z"></path></svg></span><span class="ecom-icon-active"><svg version="1.1" id="lni_lni-star-fill" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 64 64" style="enable-background:new 0 0 64 64;" xml:space="preserve" fill="currentColor"><path d="M59.7,23.9l-18.1-2.8L33.4,3.9c-0.6-1.2-2.2-1.2-2.8,0l-8.2,17.3L4.4,23.9c-1.3,0.2-1.8,1.9-0.8,2.8l13.1,13.5l-3.1,18.9c-0.2,1.3,1.1,2.4,2.3,1.6l16.3-8.9l16.2,8.9c1.1,0.6,2.5-0.4,2.2-1.6l-3.1-18.9l13.1-13.5C61.4,25.8,61,24.1,59.7,23.9z"></path></svg></span><span class="ecom-icon-active"><svg version="1.1" id="lni_lni-star-fill" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 64 64" style="enable-background:new 0 0 64 64;" xml:space="preserve" fill="currentColor"><path d="M59.7,23.9l-18.1-2.8L33.4,3.9c-0.6-1.2-2.2-1.2-2.8,0l-8.2,17.3L4.4,23.9c-1.3,0.2-1.8,1.9-0.8,2.8l13.1,13.5l-3.1,18.9c-0.2,1.3,1.1,2.4,2.3,1.6l16.3-8.9l16.2,8.9c1.1,0.6,2.5-0.4,2.2-1.6l-3.1-18.9l13.1-13.5C61.4,25.8,61,24.1,59.7,23.9z"></path></svg></span><span class="ecom-icon-active"><svg version="1.1" id="lni_lni-star-fill" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 64 64" style="enable-background:new 0 0 64 64;" xml:space="preserve" fill="currentColor"><path d="M59.7,23.9l-18.1-2.8L33.4,3.9c-0.6-1.2-2.2-1.2-2.8,0l-8.2,17.3L4.4,23.9c-1.3,0.2-1.8,1.9-0.8,2.8l13.1,13.5l-3.1,18.9c-0.2,1.3,1.1,2.4,2.3,1.6l16.3-8.9l16.2,8.9c1.1,0.6,2.5-0.4,2.2-1.6l-3.1-18.9l13.1-13.5C61.4,25.8,61,24.1,59.7,23.9z"></path></svg></span></div><div class="testimonial-info ecom-column-center" style="order: 2;"><div class="testimonial-info-avatar ecom-image-align"></div><div><h3 class="testimonial-content-name">{{ 'sections.ecom-south-african-grass-fed-beef-page.name0_j2ccgswo08g_html' | t }}</h3><h4 class="testimonial-content-title">{{ 'sections.ecom-south-african-grass-fed-beef-page.title0_j2ccgswo08g_html' | t }}</h4></div></div></div></div><div class="ecom-swiper-slide"><div class="testimonial-content" style=""><div class="testimonial-content-prag" style="order: 3;">{{ 'sections.ecom-south-african-grass-fed-beef-page.text1_j2ccgswo08g_html' | t }}</div><div class="testimonial-rating ecom-icon-list" style="order: 1;"><span class="ecom-icon-active"><svg version="1.1" id="lni_lni-star-fill" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 64 64" style="enable-background:new 0 0 64 64;" xml:space="preserve" fill="currentColor"><path d="M59.7,23.9l-18.1-2.8L33.4,3.9c-0.6-1.2-2.2-1.2-2.8,0l-8.2,17.3L4.4,23.9c-1.3,0.2-1.8,1.9-0.8,2.8l13.1,13.5l-3.1,18.9c-0.2,1.3,1.1,2.4,2.3,1.6l16.3-8.9l16.2,8.9c1.1,0.6,2.5-0.4,2.2-1.6l-3.1-18.9l13.1-13.5C61.4,25.8,61,24.1,59.7,23.9z"></path></svg></span><span class="ecom-icon-active"><svg version="1.1" id="lni_lni-star-fill" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 64 64" style="enable-background:new 0 0 64 64;" xml:space="preserve" fill="currentColor"><path d="M59.7,23.9l-18.1-2.8L33.4,3.9c-0.6-1.2-2.2-1.2-2.8,0l-8.2,17.3L4.4,23.9c-1.3,0.2-1.8,1.9-0.8,2.8l13.1,13.5l-3.1,18.9c-0.2,1.3,1.1,2.4,2.3,1.6l16.3-8.9l16.2,8.9c1.1,0.6,2.5-0.4,2.2-1.6l-3.1-18.9l13.1-13.5C61.4,25.8,61,24.1,59.7,23.9z"></path></svg></span><span class="ecom-icon-active"><svg version="1.1" id="lni_lni-star-fill" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 64 64" style="enable-background:new 0 0 64 64;" xml:space="preserve" fill="currentColor"><path d="M59.7,23.9l-18.1-2.8L33.4,3.9c-0.6-1.2-2.2-1.2-2.8,0l-8.2,17.3L4.4,23.9c-1.3,0.2-1.8,1.9-0.8,2.8l13.1,13.5l-3.1,18.9c-0.2,1.3,1.1,2.4,2.3,1.6l16.3-8.9l16.2,8.9c1.1,0.6,2.5-0.4,2.2-1.6l-3.1-18.9l13.1-13.5C61.4,25.8,61,24.1,59.7,23.9z"></path></svg></span><span class="ecom-icon-active"><svg version="1.1" id="lni_lni-star-fill" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 64 64" style="enable-background:new 0 0 64 64;" xml:space="preserve" fill="currentColor"><path d="M59.7,23.9l-18.1-2.8L33.4,3.9c-0.6-1.2-2.2-1.2-2.8,0l-8.2,17.3L4.4,23.9c-1.3,0.2-1.8,1.9-0.8,2.8l13.1,13.5l-3.1,18.9c-0.2,1.3,1.1,2.4,2.3,1.6l16.3-8.9l16.2,8.9c1.1,0.6,2.5-0.4,2.2-1.6l-3.1-18.9l13.1-13.5C61.4,25.8,61,24.1,59.7,23.9z"></path></svg></span><span class="ecom-icon-active"><svg version="1.1" id="lni_lni-star-fill" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 64 64" style="enable-background:new 0 0 64 64;" xml:space="preserve" fill="currentColor"><path d="M59.7,23.9l-18.1-2.8L33.4,3.9c-0.6-1.2-2.2-1.2-2.8,0l-8.2,17.3L4.4,23.9c-1.3,0.2-1.8,1.9-0.8,2.8l13.1,13.5l-3.1,18.9c-0.2,1.3,1.1,2.4,2.3,1.6l16.3-8.9l16.2,8.9c1.1,0.6,2.5-0.4,2.2-1.6l-3.1-18.9l13.1-13.5C61.4,25.8,61,24.1,59.7,23.9z"></path></svg></span></div><div class="testimonial-info ecom-column-center" style="order: 2;"><div class="testimonial-info-avatar ecom-image-align"></div><div><h3 class="testimonial-content-name">{{ 'sections.ecom-south-african-grass-fed-beef-page.name1_j2ccgswo08g_html' | t }}</h3><h4 class="testimonial-content-title">{{ 'sections.ecom-south-african-grass-fed-beef-page.title1_j2ccgswo08g_html' | t }}</h4></div></div></div></div><div class="ecom-swiper-slide"><div class="testimonial-content" style=""><div class="testimonial-content-prag" style="order: 3;">{{ 'sections.ecom-south-african-grass-fed-beef-page.text2_j2ccgswo08g_html' | t }}</div><div class="testimonial-rating ecom-icon-list" style="order: 1;"><span class="ecom-icon-active"><svg version="1.1" id="lni_lni-star-fill" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 64 64" style="enable-background:new 0 0 64 64;" xml:space="preserve" fill="currentColor"><path d="M59.7,23.9l-18.1-2.8L33.4,3.9c-0.6-1.2-2.2-1.2-2.8,0l-8.2,17.3L4.4,23.9c-1.3,0.2-1.8,1.9-0.8,2.8l13.1,13.5l-3.1,18.9c-0.2,1.3,1.1,2.4,2.3,1.6l16.3-8.9l16.2,8.9c1.1,0.6,2.5-0.4,2.2-1.6l-3.1-18.9l13.1-13.5C61.4,25.8,61,24.1,59.7,23.9z"></path></svg></span><span class="ecom-icon-active"><svg version="1.1" id="lni_lni-star-fill" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 64 64" style="enable-background:new 0 0 64 64;" xml:space="preserve" fill="currentColor"><path d="M59.7,23.9l-18.1-2.8L33.4,3.9c-0.6-1.2-2.2-1.2-2.8,0l-8.2,17.3L4.4,23.9c-1.3,0.2-1.8,1.9-0.8,2.8l13.1,13.5l-3.1,18.9c-0.2,1.3,1.1,2.4,2.3,1.6l16.3-8.9l16.2,8.9c1.1,0.6,2.5-0.4,2.2-1.6l-3.1-18.9l13.1-13.5C61.4,25.8,61,24.1,59.7,23.9z"></path></svg></span><span class="ecom-icon-active"><svg version="1.1" id="lni_lni-star-fill" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 64 64" style="enable-background:new 0 0 64 64;" xml:space="preserve" fill="currentColor"><path d="M59.7,23.9l-18.1-2.8L33.4,3.9c-0.6-1.2-2.2-1.2-2.8,0l-8.2,17.3L4.4,23.9c-1.3,0.2-1.8,1.9-0.8,2.8l13.1,13.5l-3.1,18.9c-0.2,1.3,1.1,2.4,2.3,1.6l16.3-8.9l16.2,8.9c1.1,0.6,2.5-0.4,2.2-1.6l-3.1-18.9l13.1-13.5C61.4,25.8,61,24.1,59.7,23.9z"></path></svg></span><span class="ecom-icon-active"><svg version="1.1" id="lni_lni-star-fill" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 64 64" style="enable-background:new 0 0 64 64;" xml:space="preserve" fill="currentColor"><path d="M59.7,23.9l-18.1-2.8L33.4,3.9c-0.6-1.2-2.2-1.2-2.8,0l-8.2,17.3L4.4,23.9c-1.3,0.2-1.8,1.9-0.8,2.8l13.1,13.5l-3.1,18.9c-0.2,1.3,1.1,2.4,2.3,1.6l16.3-8.9l16.2,8.9c1.1,0.6,2.5-0.4,2.2-1.6l-3.1-18.9l13.1-13.5C61.4,25.8,61,24.1,59.7,23.9z"></path></svg></span><span class="ecom-icon-active"><svg version="1.1" id="lni_lni-star-fill" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 64 64" style="enable-background:new 0 0 64 64;" xml:space="preserve" fill="currentColor"><path d="M59.7,23.9l-18.1-2.8L33.4,3.9c-0.6-1.2-2.2-1.2-2.8,0l-8.2,17.3L4.4,23.9c-1.3,0.2-1.8,1.9-0.8,2.8l13.1,13.5l-3.1,18.9c-0.2,1.3,1.1,2.4,2.3,1.6l16.3-8.9l16.2,8.9c1.1,0.6,2.5-0.4,2.2-1.6l-3.1-18.9l13.1-13.5C61.4,25.8,61,24.1,59.7,23.9z"></path></svg></span></div><div class="testimonial-info ecom-column-center" style="order: 2;"><div class="testimonial-info-avatar ecom-image-align"></div><div><h3 class="testimonial-content-name">{{ 'sections.ecom-south-african-grass-fed-beef-page.name2_j2ccgswo08g_html' | t }}</h3><h4 class="testimonial-content-title">{{ 'sections.ecom-south-african-grass-fed-beef-page.title2_j2ccgswo08g_html' | t }}</h4></div></div></div></div></div></div><div class="ecom-swiper-navigation-position" style="display: none;"><button class="ecom-swiper-button ecom-swiper-button-prev" style="--ecom-position: unset; --ecom-position__tablet: unset; --ecom-position__mobile: unset;"><svg xmlns="http://www.w3.org/2000/svg" width="52" height="52" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevron-left"><polyline points="15 18 9 12 15 6"></polyline></svg></button><button class="ecom-swiper-button ecom-swiper-button-next" style="--ecom-position: unset; --ecom-position__tablet: unset; --ecom-position__mobile: unset;"><svg xmlns="http://www.w3.org/2000/svg" width="52" height="52" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevron-right"><polyline points="9 18 15 12 9 6"></polyline></svg></button></div><div class="ecom-swiper-pagination-position ecom-swiper-pagination" data-ecnav-id="ecom-j2ccgswo08g"></div></div></div></div> </div></div></div></div> </div><div class="ecom-section__overlay"><div class="ecom-overlay"></div></div> </section><section class="ecom-row ecom-core ecom-section ecom-cwaxyayryk" data-id="ecom-cwaxyayryk" id="section8" style="z-index: inherit;"><div data-deep="1" class="core__row--columns"><div class="ecom-column ecom-core ecom-2ci8ozvvibv"><div class="core__column--wrapper"><div class="ecom-column__overlay"><div class="ecom-overlay"></div></div><div class="core__blocks" index="0"><div class="core__blocks--body"><div class="ecom-block ecom-core core__block elmspace ecom-7jcdbx2x8p hide-on-desktop" data-core-is="block" id="product-s"><div class="ecom__element ecom-element element__text" data-stopdrag="" deep="1"><div class="text-content ecom-html has-drop-cap-view-framed">{{ 'sections.ecom-south-african-grass-fed-beef-page.textcontent_7jcdbx2x8p_html' | t }}</div></div></div> <div class="ecom-block ecom-core core__block elmspace ecom-1ah2p39e2sn hide-on-tablet hide-on-mobile" data-core-is="block" id="product-s"><div class="ecom__element ecom-element element__text" data-stopdrag="" deep="1"><div class="text-content ecom-html has-drop-cap-view-framed">{{ 'sections.ecom-south-african-grass-fed-beef-page.textcontent_1ah2p39e2sn_html' | t }}</div></div></div> <div class="ecom-block ecom-core core__block elmspace ecom-gcy6qot0so product-s" data-core-is="block"><div class="ecom-element ecom-collection ecom-collection__product" deep="1"><div class="ecom-collection__product-wrapper"><div class="ecom-collection__product-container ecom-collection__product-container_featured"><div class="ecom-collection__product-main ecom-collection_product_template_featured" data-option-swiper="{&quot;direction&quot;:&quot;horizontal&quot;,&quot;freeMode&quot;:false,&quot;breakpoints&quot;:{&quot;0&quot;:{&quot;slidesPerView&quot;:2},&quot;768&quot;:{&quot;slidesPerView&quot;:3},&quot;1025&quot;:{&quot;slidesPerView&quot;:4}},&quot;autoplay&quot;:{&quot;enabled&quot;:false,&quot;delay&quot;:0,&quot;pauseOnMouseEnter&quot;:false,&quot;disableOnInteraction&quot;:false,&quot;reverseDirection&quot;:false},&quot;speed&quot;:200,&quot;grabCursor&quot;:true,&quot;slideActiveClass&quot;:&quot;ecom-box-active&quot;,&quot;centeredSlides&quot;:false,&quot;watchOverflow&quot;:true,&quot;autoHeight&quot;:true,&quot;cubeEffect&quot;:{&quot;slideShadows&quot;:true,&quot;shadowOffset&quot;:20},&quot;creativeEffect&quot;:{},&quot;fadeEffect&quot;:{&quot;crossFade&quot;:true},&quot;pagination&quot;:{&quot;el&quot;:&quot;.ecom-swiper-pagination&quot;,&quot;type&quot;:&quot;bullets&quot;,&quot;clickable&quot;:true},&quot;navigation&quot;:{&quot;nextEl&quot;:&quot;.ecom-swiper-button-next&quot;,&quot;prevEl&quot;:&quot;.ecom-swiper-button-prev&quot;},&quot;spaceBetween&quot;:10}" data-week="{{ 'sections.ecom-south-african-grass-fed-beef-page.text_week_gcy6qot0so_html' | t }}" data-day="{{ 'sections.ecom-south-african-grass-fed-beef-page.text_day_gcy6qot0so_html' | t }}" data-hour="{{ 'sections.ecom-south-african-grass-fed-beef-page.text_hour_gcy6qot0so_html' | t }}" data-minute="{{ 'sections.ecom-south-african-grass-fed-beef-page.text_minute_gcy6qot0so_html' | t }}" data-second="{{ 'sections.ecom-south-african-grass-fed-beef-page.text_second_gcy6qot0so_html' | t }}" data-sale="{{ 'sections.ecom-south-african-grass-fed-beef-page.sale_gcy6qot0so_html' | t }}" data-review-platform="{%- assign review_platform = shop.metafields.ecomposer.app_review.value -%}{{-review_platform-}}" data-countdown-shows="day,hour,minute,second" data-translate="true">
+ {%- capture badge_tags -%}{{ 'sections.ecom-south-african-grass-fed-beef-page.badge_tags_gcy6qot0so_html' | t }}{%- endcapture -%}
+ {%- liquid
+ assign colors = shop.metafields.ecomposer.colors
+ assign badge_tags = badge_tags | strip | split: ','
+ assign tmp_collection = collection
+ assign tmp_product = product
+ assign enable_hook = shop.metafields.ecomposer.enable_hook.value
+ -%}
+ 
+ 
+ {%- capture limit-%}50{% endcapture %}
+ {%- if limit == blank -%}
+ {% assign limit = 12 %}
+ {% else %}
+ {% assign limit = limit | plus: 0 %}
+ {%- endif-%}
+ 
+ {%- capture handle_collection -%}south-african-grass-fed-beef{% endcapture%}
+ {% assign collection = collections[handle_collection] %}
+ {%- if handle_collection and collection.handle != blank -%}
+ {% assign products = collection.products | sort: "created_at" | reverse %}
+ {% else %}
+ {% assign products = collections.all.products | sort: "created_at" | reverse %}
+ {% assign collection = collections.all%}
+ {%- endif -%}
+ {% assign is_collection = true %}
+ 
+ {% if false and featured == product %}
+ {% if true %}
+ {% assign products = blank %}
+ {% endif %}
+ {%- if recommendations.performed? and recommendations.products_count > 0 -%}
+ {% assign products = recommendations.products %}
+ {%- endif -%}
+ {% endif %}
+ {% capture quickshop_layout%}full{% endcapture %}
+ {% capture product_style%}vertical{% endcapture%}
+ {%- assign view_more_only = false -%}
+ {% capture product_layout %}grid{% endcapture %}
+ {% assign check_min = 0%}
+ {% if products and products.size > check_min and products != blank %}
+ <div class="
+ ecom-collection__product--wrapper-items ecom-collection-product__layout-grid
+ "
+ data-grid-column="4"
+ data-grid-column-tablet="3"
+ data-grid-column-mobile="2"
+ 
+ 
+ >
+ {% assign ecom_count = 0 %}
+ {% for p in products %}
+ {% assign product = p %}
+ {% if p.handle %}
+ {% assign product = p %}
+ {% else %}
+ {% assign product = all_products[p] %}
+ {% endif %}
+ {% if product.url == blank %} {% continue %} {% endif %}
+ {% if ecom_count >= limit %}{% break %}{% endif %}
+ 
+ 
+ {% assign ecom_count = ecom_count | plus: 1 %}
+ {%- capture swatch_option -%}{{ 'sections.ecom-south-african-grass-fed-beef-page.product_option_swatch_gcy6qot0so_html' | t }}{%- endcapture -%}
+ {% assign hide_quickshop = true %}
+ {% assign other_option_layout = 'radio' %}
+ {% capture product_picker%}
+ 
+ {% endcapture%}
+ {% capture product_actions%}
+ <div class="ecom-collection__product--actions" data-layout="{{quickshop_layout}}">
+ 
+ {%- assign quickview_app = shop.metafields.ecomposer.app_quickview.value -%}
+ <div
+ class="ecom-collection__product--quickview-wrapper"
+ 
+ data-quickview-app="{{quickview_app}}"
+ >
+ {%- if quickview_app -%}
+ {% case quickview_app %}
+ {% when 'intergrated' %}
+ <a href="{{ product.url }}" title="{{ product.title }}" class="ecom-product-quickview" data-handle="{{product.handle}}" data-id="{{product.id}}">
+ <svg xmlns="http://www.w3.org/2000/svg" width="52" height="52" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-zoom-in"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line><line x1="11" y1="8" x2="11" y2="14"></line><line x1="8" y1="11" x2="14" y2="11"></line></svg>
+ <span class="ecom-product-quickview--text">
+ {{ 'sections.ecom-south-african-grass-fed-beef-page.quickview_gcy6qot0so_html' | t }}
+ </span>
+ </a>
+ {% endcase %}
+ {% endif %}
+ </div>
+ 
+ <div
+ class="ecom-button-default ecom-collection__product-form__actions "
+ 
+ style="display:none;">
+ {%- if enable_hook -%}
+ {% capture the_ecom_hook %}
+ {% render 'ecom_product_loop_before_cart_button', product: product %}
+ {% endcapture %}
+ {% unless the_ecom_hook contains 'Liquid error' %}
+ {{ the_ecom_hook }}
+ {% endunless %}
+ {%- endif -%}
+ {% if view_more_only %}
+ 
+ {% elsif product.has_only_default_variant == true and product.available == false %}
+ 
+ {% elsif product.has_only_default_variant %}
+ {%- if product.requires_selling_plan == true and view_more_only != true -%}
+ 
+ {%- else -%}
+ 
+ 
+ <a data-no-instant href="{{ecom_root_url}}cart/add?id={{ product.variants.first.id }}&quantity=1"
+ data-action="popup"
+ data-text-added-cart="{{ 'sections.ecom-south-african-grass-fed-beef-page.added_cart_text_gcy6qot0so_html' | t }}"
+ data-message-added-cart="{{ 'sections.ecom-south-african-grass-fed-beef-page.added_cart_message_gcy6qot0so_html' | t }}"
+ data-href="#"
+ data-target="_blank"
+ class="ecom-collection__product-submit ecom-collection__product-form__actions--add ecom-collection__product-simple-add-to-cart ecom-ajax-cart-simple ecom-collection__product-add-cart-icon-before ecom-child-element" 
+ data-id="{{ product.variants.first.id }}"
+ data-handle="{{ product.handle }}" data-pid="{{ product.id }}" title="{{ product.title | escape }}">
+ 
+ <span class="ecom-add-to-cart-text">
+ {%- if product.variants.first.inventory_management and product.variants.first.inventory_quantity <= 0 and product.variants.first.inventory_policy == 'continue' -%}
+ {{ 'sections.ecom-south-african-grass-fed-beef-page.pre_order_gcy6qot0so_html' | t }}
+ {%-else-%}
+ {{ 'sections.ecom-south-african-grass-fed-beef-page.add_to_cart_gcy6qot0so_html' | t }}
+ {%- endif -%}
+ </span>
+ </a>
+ 
+ {%- endif -%}
+ {% else %}
+ 
+ 
+ 
+ {% endif %}
+ {%- if enable_hook -%}
+ {% capture the_ecom_hook %}
+ {% render 'ecom_product_loop_after_cart_button', product: product %}
+ {% endcapture %}
+ {% unless the_ecom_hook contains 'Liquid error' %}
+ {{ the_ecom_hook }}
+ {% endunless %}
+ {%- endif -%}
+ </div>
+ </div>
+ {% endcapture %}
+ <div class="ecom-collection__product-item " data-product-handle="{{product.handle}}" data-style="{{product_style}}"{% unless product.has_only_default_variant %} ec-variant-init{% endunless %}>
+ <div
+ class="ecom-collection__product-item--wrapper {% if product_style == 'horizontal'%} ecom-d-flex {% else %} ecom-flex-column {% endif %}">
+ <div class="ecom-collection__product-media-wrapper ecom-enable-hover--mobile {% if product_style == 'horizontal'%} ecom-d-flex{% endif %} "
+ >
+ {%- if enable_hook -%}
+ {% capture the_ecom_hook %}
+ {% render 'ecom_product_loop_before', product: product %}
+ {% endcapture %}
+ {% unless the_ecom_hook contains 'Liquid error' %}
+ {{ the_ecom_hook }}
+ {% endunless %}
+ {%- endif -%}
+ <a href="{%- if is_collection-%}{{- product.url | within: collection -}}{% else %}{{- product.url -}}{%-endif-%}" target="" title="{{product.title | escape }}" class="ecom-collection__product-item--inner ecom-image-default">
+ {%- if product.featured_image -%}
+ {%- liquid
+ assign featured_media_aspect_ratio = product.featured_image.aspect_ratio
+ if product.featured_image.aspect_ratio == nil
+ assign featured_media_aspect_ratio = 1
+ endif
+ -%}
+ <div class="ecom-collection__product-media--container">
+ <div
+ class="ecom-child-element ecom-collection__product-media ecom-collection__product-media--adapt
+ "
+ style="padding-bottom: {{ 1 | divided_by: featured_media_aspect_ratio | times: 100 }}%;"
+ 
+ >
+ <img srcset="
+ {%- if product.featured_image.width >= 165 -%}{{ product.featured_image | image_url: width: 165 }} 165w,{%- endif -%}
+ {%- if product.featured_image.width >= 360 -%}{{ product.featured_image | image_url: width: 360 }} 360w,{%- endif -%}
+ {%- if product.featured_image.width >= 533 -%}{{ product.featured_image | image_url: width: 533 }} 533w,{%- endif -%}
+ {%- if product.featured_image.width >= 720 -%}{{ product.featured_image | image_url: width: 720 }} 720w,{%- endif -%}
+ {%- if product.featured_image.width >= 940 -%}{{ product.featured_image | image_url: width: 940 }} 940w,{%- endif -%}
+ {%- if product.featured_image.width >= 1066 -%}{{ product.featured_image | image_url: width: 1066 }} 1066w,{%- endif -%}
+ {{ product.featured_image | image_url }} {{ product.featured_image.width }}w"
+ src="{{ product.featured_image | image_url: width: 533 }}"
+ sizes="(min-width: 1100px) 535px, (min-width: 750px) calc((100vw - 130px) / 2), calc((100vw - 50px) / 2)"
+ alt="{{ product.featured_image.alt | escape }}"
+ loading='lazy'
+ class="ecom-collection__product-media-image"
+ width="{{ product.featured_image.width }}"
+ height="{{ product.featured_image.height }}"
+ />
+ 
+ </div>
+ </div>
+ {% else %}
+ <div class="ecom-collection__product-media--container">
+ <div class="ecom-child-element ecom-collection__product-media ecom-collection__product-media--adapt"
+ 
+ style="padding-bottom: 85%;"
+ >
+ {{ 'product-1' | placeholder_svg_tag: 'ecom-colection__product-svg-placeholder' }}
+ </div>
+ </div>
+ {% endif %}
+ 
+ <div class="ecom-collection__product-badge">
+ 
+ 
+ <span class="ecom-collection__product-badge--sold-out" aria-hidden="true" style="{%- if product.available == true -%}display: none; {%- endif -%}">
+ {{ 'sections.ecom-south-african-grass-fed-beef-page.sold_text_gcy6qot0so_html' | t }}
+ </span>
+ <span class="ecom-collection__product-badge--sale" aria-hidden="true" style="{%- unless product.compare_at_price > product.price and product.available -%}display: none;{%- endunless -%}">
+ {{ 'sections.ecom-south-african-grass-fed-beef-page.sale_text_gcy6qot0so_html' | t }}
+ </span>
+ 
+ {% if badge_tags %}
+ {% for badge in badge_tags %}
+ {% for original_tag in product.tags %}
+ {% assign tag = original_tag | replace: ' ', ' ' %}
+ {% if tag == badge %}
+ <span class="ecom-collection__product-badge--custom ecom-collection__product-badge--{{ badge | handleize}}" aria-hidden="true">
+ {{ badge }}
+ </span>
+ {% endif %}
+ {% endfor %}
+ {%- assign bad = badge | strip -%}
+ {% endfor %}
+ {% endif %}
+ 
+ {%- if product.has_only_default_variant -%}
+ {%- if product.compare_at_price != null and product.compare_at_price > product.price -%}
+ {%- assign sale = product.compare_at_price | minus: product.price | times: 100.0 | divided_by: product.compare_at_price | round -%}
+ <span class="ecom-collection__product-price--bage-sale">
+ {{ 'sections.ecom-south-african-grass-fed-beef-page.sale_badge_gcy6qot0so_html' | t: sale:sale }}
+ </span>
+ {%- endif -%}
+ {%- else -%}
+ {%- if product.selected_or_first_available_variant.compare_at_price != null and product.selected_or_first_available_variant.compare_at_price > product.selected_or_first_available_variant.price -%}
+ {%- assign sale = product.selected_or_first_available_variant.compare_at_price | minus: product.selected_or_first_available_variant.price | times: 100.0 | divided_by: product.selected_or_first_available_variant.compare_at_price | round -%}
+ {%else%}
+ {%- assign sale = null %}
+ {%- endif -%}
+ <span class="ecom-collection__product-price--bage-sale" style="{% unless sale %}display:none{% endunless %}">
+ {{ 'sections.ecom-south-african-grass-fed-beef-page.sale_badge_gcy6qot0so_html' | t: sale:sale }}
+ </span>
+ {%- endif -%}
+ </div>
+ </a>
+ 
+ <div class="ecom-collection__product-group-button-action " style="justify-content: start">
+ 
+ 
+ </div>
+ </div>
+ <div class="ecom-collection__product-item--information">
+ <div class="ecom-collection__product-item--information-wrapper ecom-flex ecom-column">
+ {% if product_style == 'absolute' %}
+ {{product_actions}}
+ {{ product_picker}}
+ {% endif %}
+ 
+ 
+ 
+ {%- if enable_hook -%}
+ {% capture the_ecom_hook %}
+ {% render 'ecom_product_loop_before_title', product: product %}
+ {% endcapture %}
+ {% unless the_ecom_hook contains 'Liquid error' %}
+ {{ the_ecom_hook }}
+ {% endunless %}
+ {%- endif -%}
+ <h3
+ class="ecom-collection__product-title-tag ecom-child-element"
+ 
+ >
+ <a
+ href="{%- if is_collection-%}{{- product.url | within: collection -}}{% else %}{{- product.url -}}{%-endif-%}"
+ title="{{product.title | escape }}"
+ target=""
+ class="ecom-collection__product-item-information-title "
+ >
+ {{ product.title | strip_html}}
+ </a>
+ </h3>
+ {%- if enable_hook -%}
+ {% capture the_ecom_hook %}
+ {% render 'ecom_product_loop_after_title', product: product %}
+ {% endcapture %}
+ {% unless the_ecom_hook contains 'Liquid error' %}
+ {{ the_ecom_hook }}
+ {% endunless %}
+ {%- endif -%}
+ 
+ 
+ {% assign showPriceWhenNotLogin = true %}
+ {% if undefined and customer == blank%}
+ {% assign showPriceWhenNotLogin = false %}
+ {% endif %}
+ {% if showPriceWhenNotLogin == false and undefined %}
+ {% assign showOnLive = true %}
+ {% else %}
+ {% assign showOnLive = false %}
+ {% endif %}
+ {% assign showPreview = false %}
+ {% if showOnLive or showPreview %}
+ <div class="ecom-collection__product-login-to-see">
+ undefined
+ </div>
+ {% endif %}
+ {% if true and showPriceWhenNotLogin %}
+ <div class="ecom-collection__product-prices ecom-child-element" >
+ {% capture ground_price %}
+ 
+ {% endcapture %}
+ {%- assign target = product.selected_or_first_available_variant -%}
+ 
+ {% if product.has_only_default_variant %}
+ <div class="ecom-collection__product-price-wrapper">
+ <span class="ecom-collection__product-price--regular ecom-collection__product--compare-at-price"{%- if product.compare_at_price == nil or product.compare_at_price <= product.price -%} style="display:none; content:'1'" {%- endif -%}>{% if settings.currency_code_enabled == true %} {{ product.compare_at_price_max | money_with_currency }} {% else %} {{ product.compare_at_price_max | money }} {% endif %}</span>
+ <span class="ecom-collection__product-price{% if product.compare_at_price > product.price %} ecom-collection__product-price--sale{% endif %}">{% if settings.currency_code_enabled == true %} {{product.price_min | money_with_currency }} {% else %} {{product.price_min | money }} {% endif %}</span>
+ {%- comment -%}
+ <span class="ecom-collection__product-price--bage-sale">
+ {% assign sale = product.compare_at_price_max | minus: product.price | times: 100 | divided_by: product.compare_at_price_max | times: 100 | money %}
+ {{ 'sections.ecom-south-african-grass-fed-beef-page.sale_badge_gcy6qot0so_html' | t: sale:sale }}
+ </span>
+ {%- endcomment -%}
+ </div>
+ {{ ground_price }}
+ {% else %}
+ {% if false %}
+ <div class="ecom-collection__product-price-wrapper">
+ <span class="ecom-collection__product-price--from">
+ {{ 'sections.ecom-south-african-grass-fed-beef-page.price_from_gcy6qot0so_html' | t }}
+ </span>
+ <span
+ class="ecom-collection__product-price--regular ecom-collection__product--compare-at-price"
+ {%- if product.compare_at_price == nil or product.compare_at_price <= product.price -%} style="display:none" {% endif %}
+ >
+ {% if settings.currency_code_enabled == true %} {{ product.compare_at_price_min | money_with_currency }} {% else %} {{ product.compare_at_price_min | money }} {% endif %}
+ </span>
+ <span class="ecom-collection__product-price{% if product.compare_at_price_min > product.price_min %} ecom-collection__product-price--sale{% endif %}">
+ {% if settings.currency_code_enabled == true %} {{product.price_min | money_with_currency }} {% else %} {{product.price_min | money }} {% endif %}
+ </span>
+ </div>
+ {{ ground_price }}
+ {%elsif false %}
+ <div class="ecom-collection__product-price-wrapper">
+ {% if product.price_max > product.price_min %}
+ <span class="ecom-collection__product-price ecom-collection__product-price-range">
+ {% if settings.currency_code_enabled == true %} {{product.price_min | money_with_currency }} - {{product.price_max | money_with_currency}} {% else %} {{product.price_min | money }} - {{product.price_max | money }}{% endif %}
+ </span>
+ {% else %}
+ <span class="ecom-collection__product-price">
+ {% if settings.currency_code_enabled == true %} {{product.price_min | money_with_currency }} {% else %} {{product.price_min | money }} {% endif %}
+ </span>
+ {%endif %}
+ </div>
+ {{ ground_price }}
+ {%else%}
+ <div class="ecom-collection__product-price-wrapper">
+ <span
+ class="ecom-collection__product-price--regular ecom-collection__product--compare-at-price"
+ {%- if product.compare_at_price == nil or product.compare_at_price <= product.price -%} style="display:none" {% endif %}
+ >
+ {% if settings.currency_code_enabled == true %} {{ target.compare_at_price | money_with_currency }} {% else %} {{ target.compare_at_price | money }} {% endif %}
+ </span>
+ <span class="ecom-collection__product-price{% if target.compare_at_price > target.price %} ecom-collection__product-price--sale{% endif %}">{% if settings.currency_code_enabled == true %} {{ target.price | money_with_currency }} {% else %} {{ target.price | money }} {% endif %}</span>
+ </div>
+ {{ ground_price }}
+ {% endif %}
+ {% endif %}
+ 
+ </div>
+ {% endif %}
+ 
+ {% if product_style != 'absolute'%}
+ {{ product_picker }}
+ {% endif %}
+ {% if product_style == 'horizontal' or product_style == 'vertical' or product_layout == 'list' %}
+ {{product_actions}}
+ {% endif %}
+ 
+ {% if product.available and product.metafields.ecomposer.countdown %}
+ <div
+ class="ecom-collection__product-countdown ecom-child-element" 
+ >
+ <div
+ class="ecom-collection__product-countdown-wrapper"
+ >
+ <div class="ecom-collection__product-countdown-wrapper--title">{{ 'sections.ecom-south-african-grass-fed-beef-page.countdown_title_gcy6qot0so_html' | t }}</div>
+ <div class="ecom-product-single__countdown-container" >
+ {%- assign countdown_from = product.metafields.ecomposer.countdown_from -%}
+ <div data-product-id="{{product.id}}" class="ecom-collection__product-countdown-time ecom-collection__product-countdown-time--metafields" data-ecom-countdown-from="{{ countdown_from }}" data-ecom-countdown="{{product.metafields.ecomposer.countdown}}"></div>
+ </div>
+ 
+ {% if countdown_from%}
+ <div class="ecom-collection__product-countdown-progress-bar">
+ <div class="ecom-collection__product-countdown-progress-bar--wrap">
+ <div class="ecom-collection__product-countdown-progress-bar--timer ecom-product-single__countdown-progress-bar--timer"></div>
+ </div>
+ </div>
+ {% endif %}
+ 
+ </div>
+ </div>
+ {% endif %}
+ 
+ </div>
+ </div>
+ </div>
+ {%- if enable_hook -%}
+ {% capture the_ecom_hook %}
+ {% render 'ecom_product_loop_after', product: product %}
+ {% endcapture %}
+ {% unless the_ecom_hook contains 'Liquid error' %}
+ {{ the_ecom_hook }}
+ {% endunless %}
+ {%- endif -%}
+ </div>
+ {% endfor %}
+ </div>
+ {% else %}
+ <div class="ecom-collection__product--wrapper-items ecom-collection__product--no-item ecom-collection-product__layout-grid" >
+ <div class="ecom-collection__product-item" >
+ {{ 'sections.ecom-south-african-grass-fed-beef-page.no_product_item_gcy6qot0so_html' | t }}
+ </div>
+ </div>
+ {% endif %}
+ 
+ 
+ {% assign collection = tmp_collection %}
+ {% assign product = tmp_product %}
+ </div></div></div></div></div> </div></div></div></div> </div><div class="ecom-section__overlay"><div class="ecom-overlay"></div></div> </section><section class="ecom-row ecom-core ecom-section ecom-mt42m9zwur" data-id="ecom-mt42m9zwur" id="fresh-poultry-products" style="z-index: inherit;"><div data-deep="1" class="core__row--columns"><div class="ecom-column ecom-core ecom-xbhc3b2q6fo"><div class="core__column--wrapper"><div class="ecom-column__overlay"><div class="ecom-overlay"></div></div><div class="core__blocks" index="0"><div class="core__blocks--body"><div class="ecom-block ecom-core core__block elmspace ecom-5tvre1kx2rp" data-core-is="block"><div class="ecom__element element__heading ecom-element ecom-html" data-stopdrag="true" deep="1"><h3 class="ecom__heading ecom-db">{{ 'sections.ecom-south-african-grass-fed-beef-page.headingtext_5tvre1kx2rp_html' | t }}</h3></div></div> <div class="ecom-block ecom-core core__block elmspace ecom-9btuujiu8qj" data-core-is="block"><div class="ecom-element ecom-collection ecom-collection__product" deep="1"><div class="ecom-collection__product-wrapper"><div class="ecom-collection__product-container ecom-collection__product-container_featured"><div class="ecom-collection__product-main ecom-swiper-container ecom-collection_product_template_featured" data-option-swiper="{&quot;direction&quot;:&quot;horizontal&quot;,&quot;freeMode&quot;:false,&quot;breakpoints&quot;:{&quot;0&quot;:{&quot;slidesPerView&quot;:2,&quot;slidesPerGroup&quot;:2},&quot;768&quot;:{&quot;slidesPerView&quot;:3},&quot;1025&quot;:{&quot;slidesPerView&quot;:4}},&quot;autoplay&quot;:{&quot;enabled&quot;:false,&quot;delay&quot;:0,&quot;pauseOnMouseEnter&quot;:false,&quot;disableOnInteraction&quot;:false,&quot;reverseDirection&quot;:false},&quot;speed&quot;:200,&quot;grabCursor&quot;:true,&quot;slideActiveClass&quot;:&quot;ecom-box-active&quot;,&quot;centeredSlides&quot;:false,&quot;watchOverflow&quot;:true,&quot;autoHeight&quot;:true,&quot;cubeEffect&quot;:{&quot;slideShadows&quot;:true,&quot;shadowOffset&quot;:20},&quot;creativeEffect&quot;:{},&quot;fadeEffect&quot;:{&quot;crossFade&quot;:true},&quot;pagination&quot;:{&quot;el&quot;:&quot;.ecom-swiper-pagination&quot;,&quot;type&quot;:&quot;bullets&quot;,&quot;clickable&quot;:true},&quot;navigation&quot;:{&quot;nextEl&quot;:&quot;.ecom-swiper-button-next&quot;,&quot;prevEl&quot;:&quot;.ecom-swiper-button-prev&quot;},&quot;spaceBetween&quot;:10}" data-week="{{ 'sections.ecom-south-african-grass-fed-beef-page.text_week_9btuujiu8qj_html' | t }}" data-day="{{ 'sections.ecom-south-african-grass-fed-beef-page.text_day_9btuujiu8qj_html' | t }}" data-hour="{{ 'sections.ecom-south-african-grass-fed-beef-page.text_hour_9btuujiu8qj_html' | t }}" data-minute="{{ 'sections.ecom-south-african-grass-fed-beef-page.text_minute_9btuujiu8qj_html' | t }}" data-second="{{ 'sections.ecom-south-african-grass-fed-beef-page.text_second_9btuujiu8qj_html' | t }}" data-sale="{{ 'sections.ecom-south-african-grass-fed-beef-page.sale_9btuujiu8qj_html' | t }}" data-review-platform="{%- assign review_platform = shop.metafields.ecomposer.app_review.value -%}{{-review_platform-}}" data-countdown-shows="day,hour,minute,second" data-translate="true">
+ {%- capture badge_tags -%}{{ 'sections.ecom-south-african-grass-fed-beef-page.badge_tags_9btuujiu8qj_html' | t }}{%- endcapture -%}
+ {%- liquid
+ assign colors = shop.metafields.ecomposer.colors
+ assign badge_tags = badge_tags | strip | split: ','
+ assign tmp_collection = collection
+ assign tmp_product = product
+ assign enable_hook = shop.metafields.ecomposer.enable_hook.value
+ -%}
+ 
+ 
+ {%- capture limit-%}50{% endcapture %}
+ {%- if limit == blank -%}
+ {% assign limit = 12 %}
+ {% else %}
+ {% assign limit = limit | plus: 0 %}
+ {%- endif-%}
+ 
+ {%- capture handle_collection -%}mls-fire-sale{% endcapture%}
+ {% assign collection = collections[handle_collection] %}
+ {%- if handle_collection and collection.handle != blank -%}
+ {% assign products = collection.products | sort: "created_at" | reverse %}
+ {% else %}
+ {% assign products = collections.all.products | sort: "created_at" | reverse %}
+ {% assign collection = collections.all%}
+ {%- endif -%}
+ {% assign is_collection = true %}
+ 
+ {% if false and featured == product %}
+ {% if true %}
+ {% assign products = blank %}
+ {% endif %}
+ {%- if recommendations.performed? and recommendations.products_count > 0 -%}
+ {% assign products = recommendations.products %}
+ {%- endif -%}
+ {% endif %}
+ {% capture quickshop_layout%}full{% endcapture %}
+ {% capture product_style%}vertical{% endcapture%}
+ {%- assign view_more_only = false -%}
+ {% capture product_layout %}slider{% endcapture %}
+ {% assign check_min = 0%}
+ {% if products and products.size > check_min and products != blank %}
+ <div class="ecom-swiper-wrapper
+ ecom-collection__product--wrapper-items ecom-collection-product__layout-slider
+ "
+ data-grid-column="4"
+ data-grid-column-tablet="3"
+ data-grid-column-mobile="2"
+ 
+ 
+ >
+ {% assign ecom_count = 0 %}
+ {% for p in products %}
+ {% assign product = p %}
+ {% if p.handle %}
+ {% assign product = p %}
+ {% else %}
+ {% assign product = all_products[p] %}
+ {% endif %}
+ {% if product.url == blank %} {% continue %} {% endif %}
+ {% if ecom_count >= limit %}{% break %}{% endif %}
+ 
+ 
+ {% assign ecom_count = ecom_count | plus: 1 %}
+ {%- capture swatch_option -%}{{ 'sections.ecom-south-african-grass-fed-beef-page.product_option_swatch_9btuujiu8qj_html' | t }}{%- endcapture -%}
+ {% assign hide_quickshop = true %}
+ {% assign other_option_layout = 'radio' %}
+ {% capture product_picker%}
+ 
+ {% endcapture%}
+ {% capture product_actions%}
+ <div class="ecom-collection__product--actions" data-layout="{{quickshop_layout}}">
+ 
+ {%- assign quickview_app = shop.metafields.ecomposer.app_quickview.value -%}
+ <div
+ class="ecom-collection__product--quickview-wrapper"
+ 
+ data-quickview-app="{{quickview_app}}"
+ >
+ {%- if quickview_app -%}
+ {% case quickview_app %}
+ {% when 'intergrated' %}
+ <a href="{{ product.url }}" title="{{ product.title }}" class="ecom-product-quickview" data-handle="{{product.handle}}" data-id="{{product.id}}">
+ <svg xmlns="http://www.w3.org/2000/svg" width="52" height="52" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-zoom-in"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line><line x1="11" y1="8" x2="11" y2="14"></line><line x1="8" y1="11" x2="14" y2="11"></line></svg>
+ <span class="ecom-product-quickview--text">
+ {{ 'sections.ecom-south-african-grass-fed-beef-page.quickview_9btuujiu8qj_html' | t }}
+ </span>
+ </a>
+ {% endcase %}
+ {% endif %}
+ </div>
+ 
+ <div
+ class="ecom-button-default ecom-collection__product-form__actions "
+ 
+ style="display:none;">
+ {%- if enable_hook -%}
+ {% capture the_ecom_hook %}
+ {% render 'ecom_product_loop_before_cart_button', product: product %}
+ {% endcapture %}
+ {% unless the_ecom_hook contains 'Liquid error' %}
+ {{ the_ecom_hook }}
+ {% endunless %}
+ {%- endif -%}
+ {% if view_more_only %}
+ 
+ {% elsif product.has_only_default_variant == true and product.available == false %}
+ 
+ {% elsif product.has_only_default_variant %}
+ {%- if product.requires_selling_plan == true and view_more_only != true -%}
+ 
+ {%- else -%}
+ 
+ 
+ <a data-no-instant href="{{ecom_root_url}}cart/add?id={{ product.variants.first.id }}&quantity=1"
+ data-action="popup"
+ data-text-added-cart="{{ 'sections.ecom-south-african-grass-fed-beef-page.added_cart_text_9btuujiu8qj_html' | t }}"
+ data-message-added-cart="{{ 'sections.ecom-south-african-grass-fed-beef-page.added_cart_message_9btuujiu8qj_html' | t }}"
+ data-href="#"
+ data-target="_blank"
+ class="ecom-collection__product-submit ecom-collection__product-form__actions--add ecom-collection__product-simple-add-to-cart ecom-ajax-cart-simple ecom-collection__product-add-cart-icon-before ecom-child-element" 
+ data-id="{{ product.variants.first.id }}"
+ data-handle="{{ product.handle }}" data-pid="{{ product.id }}" title="{{ product.title | escape }}">
+ 
+ <span class="ecom-add-to-cart-text">
+ {%- if product.variants.first.inventory_management and product.variants.first.inventory_quantity <= 0 and product.variants.first.inventory_policy == 'continue' -%}
+ {{ 'sections.ecom-south-african-grass-fed-beef-page.pre_order_9btuujiu8qj_html' | t }}
+ {%-else-%}
+ {{ 'sections.ecom-south-african-grass-fed-beef-page.add_to_cart_9btuujiu8qj_html' | t }}
+ {%- endif -%}
+ </span>
+ </a>
+ 
+ {%- endif -%}
+ {% else %}
+ 
+ 
+ 
+ {% endif %}
+ {%- if enable_hook -%}
+ {% capture the_ecom_hook %}
+ {% render 'ecom_product_loop_after_cart_button', product: product %}
+ {% endcapture %}
+ {% unless the_ecom_hook contains 'Liquid error' %}
+ {{ the_ecom_hook }}
+ {% endunless %}
+ {%- endif -%}
+ </div>
+ </div>
+ {% endcapture %}
+ <div class="ecom-collection__product-item ecom-swiper-slide" data-product-handle="{{product.handle}}" data-style="{{product_style}}"{% unless product.has_only_default_variant %} ec-variant-init{% endunless %}>
+ <div
+ class="ecom-collection__product-item--wrapper {% if product_style == 'horizontal'%} ecom-d-flex {% else %} ecom-flex-column {% endif %}">
+ <div class="ecom-collection__product-media-wrapper ecom-enable-hover--mobile {% if product_style == 'horizontal'%} ecom-d-flex{% endif %} "
+ >
+ {%- if enable_hook -%}
+ {% capture the_ecom_hook %}
+ {% render 'ecom_product_loop_before', product: product %}
+ {% endcapture %}
+ {% unless the_ecom_hook contains 'Liquid error' %}
+ {{ the_ecom_hook }}
+ {% endunless %}
+ {%- endif -%}
+ <a href="{%- if is_collection-%}{{- product.url | within: collection -}}{% else %}{{- product.url -}}{%-endif-%}" target="" title="{{product.title | escape }}" class="ecom-collection__product-item--inner ecom-image-default">
+ {%- if product.featured_image -%}
+ {%- liquid
+ assign featured_media_aspect_ratio = product.featured_image.aspect_ratio
+ if product.featured_image.aspect_ratio == nil
+ assign featured_media_aspect_ratio = 1
+ endif
+ -%}
+ <div class="ecom-collection__product-media--container">
+ <div
+ class="ecom-child-element ecom-collection__product-media ecom-collection__product-media--adapt
+ "
+ style="padding-bottom: {{ 1 | divided_by: featured_media_aspect_ratio | times: 100 }}%;"
+ 
+ >
+ <img srcset="
+ {%- if product.featured_image.width >= 165 -%}{{ product.featured_image | image_url: width: 165 }} 165w,{%- endif -%}
+ {%- if product.featured_image.width >= 360 -%}{{ product.featured_image | image_url: width: 360 }} 360w,{%- endif -%}
+ {%- if product.featured_image.width >= 533 -%}{{ product.featured_image | image_url: width: 533 }} 533w,{%- endif -%}
+ {%- if product.featured_image.width >= 720 -%}{{ product.featured_image | image_url: width: 720 }} 720w,{%- endif -%}
+ {%- if product.featured_image.width >= 940 -%}{{ product.featured_image | image_url: width: 940 }} 940w,{%- endif -%}
+ {%- if product.featured_image.width >= 1066 -%}{{ product.featured_image | image_url: width: 1066 }} 1066w,{%- endif -%}
+ {{ product.featured_image | image_url }} {{ product.featured_image.width }}w"
+ src="{{ product.featured_image | image_url: width: 533 }}"
+ sizes="(min-width: 1100px) 535px, (min-width: 750px) calc((100vw - 130px) / 2), calc((100vw - 50px) / 2)"
+ alt="{{ product.featured_image.alt | escape }}"
+ loading='lazy'
+ class="ecom-collection__product-media-image"
+ width="{{ product.featured_image.width }}"
+ height="{{ product.featured_image.height }}"
+ />
+ 
+ </div>
+ </div>
+ {% else %}
+ <div class="ecom-collection__product-media--container">
+ <div class="ecom-child-element ecom-collection__product-media ecom-collection__product-media--adapt"
+ 
+ style="padding-bottom: 85%;"
+ >
+ {{ 'product-1' | placeholder_svg_tag: 'ecom-colection__product-svg-placeholder' }}
+ </div>
+ </div>
+ {% endif %}
+ 
+ <div class="ecom-collection__product-badge">
+ 
+ 
+ <span class="ecom-collection__product-badge--sold-out" aria-hidden="true" style="{%- if product.available == true -%}display: none; {%- endif -%}">
+ {{ 'sections.ecom-south-african-grass-fed-beef-page.sold_text_9btuujiu8qj_html' | t }}
+ </span>
+ <span class="ecom-collection__product-badge--sale" aria-hidden="true" style="{%- unless product.compare_at_price > product.price and product.available -%}display: none;{%- endunless -%}">
+ {{ 'sections.ecom-south-african-grass-fed-beef-page.sale_text_9btuujiu8qj_html' | t }}
+ </span>
+ 
+ {% if badge_tags %}
+ {% for badge in badge_tags %}
+ {% for original_tag in product.tags %}
+ {% assign tag = original_tag | replace: ' ', ' ' %}
+ {% if tag == badge %}
+ <span class="ecom-collection__product-badge--custom ecom-collection__product-badge--{{ badge | handleize}}" aria-hidden="true">
+ {{ badge }}
+ </span>
+ {% endif %}
+ {% endfor %}
+ {%- assign bad = badge | strip -%}
+ {% endfor %}
+ {% endif %}
+ 
+ {%- if product.has_only_default_variant -%}
+ {%- if product.compare_at_price != null and product.compare_at_price > product.price -%}
+ {%- assign sale = product.compare_at_price | minus: product.price | times: 100.0 | divided_by: product.compare_at_price | round -%}
+ <span class="ecom-collection__product-price--bage-sale">
+ {{ 'sections.ecom-south-african-grass-fed-beef-page.sale_badge_9btuujiu8qj_html' | t: sale:sale }}
+ </span>
+ {%- endif -%}
+ {%- else -%}
+ {%- if product.selected_or_first_available_variant.compare_at_price != null and product.selected_or_first_available_variant.compare_at_price > product.selected_or_first_available_variant.price -%}
+ {%- assign sale = product.selected_or_first_available_variant.compare_at_price | minus: product.selected_or_first_available_variant.price | times: 100.0 | divided_by: product.selected_or_first_available_variant.compare_at_price | round -%}
+ {%else%}
+ {%- assign sale = null %}
+ {%- endif -%}
+ <span class="ecom-collection__product-price--bage-sale" style="{% unless sale %}display:none{% endunless %}">
+ {{ 'sections.ecom-south-african-grass-fed-beef-page.sale_badge_9btuujiu8qj_html' | t: sale:sale }}
+ </span>
+ {%- endif -%}
+ </div>
+ </a>
+ 
+ <div class="ecom-collection__product-group-button-action " style="justify-content: start">
+ 
+ 
+ </div>
+ </div>
+ <div class="ecom-collection__product-item--information">
+ <div class="ecom-collection__product-item--information-wrapper ecom-flex ecom-column">
+ {% if product_style == 'absolute' %}
+ {{product_actions}}
+ {{ product_picker}}
+ {% endif %}
+ 
+ 
+ 
+ {%- if enable_hook -%}
+ {% capture the_ecom_hook %}
+ {% render 'ecom_product_loop_before_title', product: product %}
+ {% endcapture %}
+ {% unless the_ecom_hook contains 'Liquid error' %}
+ {{ the_ecom_hook }}
+ {% endunless %}
+ {%- endif -%}
+ <h3
+ class="ecom-collection__product-title-tag ecom-child-element"
+ 
+ >
+ <a
+ href="{%- if is_collection-%}{{- product.url | within: collection -}}{% else %}{{- product.url -}}{%-endif-%}"
+ title="{{product.title | escape }}"
+ target=""
+ class="ecom-collection__product-item-information-title "
+ >
+ {{ product.title | strip_html}}
+ </a>
+ </h3>
+ {%- if enable_hook -%}
+ {% capture the_ecom_hook %}
+ {% render 'ecom_product_loop_after_title', product: product %}
+ {% endcapture %}
+ {% unless the_ecom_hook contains 'Liquid error' %}
+ {{ the_ecom_hook }}
+ {% endunless %}
+ {%- endif -%}
+ 
+ 
+ {% assign showPriceWhenNotLogin = true %}
+ {% if undefined and customer == blank%}
+ {% assign showPriceWhenNotLogin = false %}
+ {% endif %}
+ {% if showPriceWhenNotLogin == false and undefined %}
+ {% assign showOnLive = true %}
+ {% else %}
+ {% assign showOnLive = false %}
+ {% endif %}
+ {% assign showPreview = false %}
+ {% if showOnLive or showPreview %}
+ <div class="ecom-collection__product-login-to-see">
+ undefined
+ </div>
+ {% endif %}
+ {% if true and showPriceWhenNotLogin %}
+ <div class="ecom-collection__product-prices ecom-child-element" >
+ {% capture ground_price %}
+ 
+ {% endcapture %}
+ {%- assign target = product.selected_or_first_available_variant -%}
+ 
+ {% if product.has_only_default_variant %}
+ <div class="ecom-collection__product-price-wrapper">
+ <span class="ecom-collection__product-price--regular ecom-collection__product--compare-at-price"{%- if product.compare_at_price == nil or product.compare_at_price <= product.price -%} style="display:none; content:'1'" {%- endif -%}>{% if settings.currency_code_enabled == true %} {{ product.compare_at_price_max | money_with_currency }} {% else %} {{ product.compare_at_price_max | money }} {% endif %}</span>
+ <span class="ecom-collection__product-price{% if product.compare_at_price > product.price %} ecom-collection__product-price--sale{% endif %}">{% if settings.currency_code_enabled == true %} {{product.price_min | money_with_currency }} {% else %} {{product.price_min | money }} {% endif %}</span>
+ {%- comment -%}
+ <span class="ecom-collection__product-price--bage-sale">
+ {% assign sale = product.compare_at_price_max | minus: product.price | times: 100 | divided_by: product.compare_at_price_max | times: 100 | money %}
+ {{ 'sections.ecom-south-african-grass-fed-beef-page.sale_badge_9btuujiu8qj_html' | t: sale:sale }}
+ </span>
+ {%- endcomment -%}
+ </div>
+ {{ ground_price }}
+ {% else %}
+ {% if true %}
+ <div class="ecom-collection__product-price-wrapper">
+ <span class="ecom-collection__product-price--from">
+ {{ 'sections.ecom-south-african-grass-fed-beef-page.price_from_9btuujiu8qj_html' | t }}
+ </span>
+ <span
+ class="ecom-collection__product-price--regular ecom-collection__product--compare-at-price"
+ {%- if product.compare_at_price == nil or product.compare_at_price <= product.price -%} style="display:none" {% endif %}
+ >
+ {% if settings.currency_code_enabled == true %} {{ product.compare_at_price_min | money_with_currency }} {% else %} {{ product.compare_at_price_min | money }} {% endif %}
+ </span>
+ <span class="ecom-collection__product-price{% if product.compare_at_price_min > product.price_min %} ecom-collection__product-price--sale{% endif %}">
+ {% if settings.currency_code_enabled == true %} {{product.price_min | money_with_currency }} {% else %} {{product.price_min | money }} {% endif %}
+ </span>
+ </div>
+ {{ ground_price }}
+ {%elsif false %}
+ <div class="ecom-collection__product-price-wrapper">
+ {% if product.price_max > product.price_min %}
+ <span class="ecom-collection__product-price ecom-collection__product-price-range">
+ {% if settings.currency_code_enabled == true %} {{product.price_min | money_with_currency }} - {{product.price_max | money_with_currency}} {% else %} {{product.price_min | money }} - {{product.price_max | money }}{% endif %}
+ </span>
+ {% else %}
+ <span class="ecom-collection__product-price">
+ {% if settings.currency_code_enabled == true %} {{product.price_min | money_with_currency }} {% else %} {{product.price_min | money }} {% endif %}
+ </span>
+ {%endif %}
+ </div>
+ {{ ground_price }}
+ {%else%}
+ <div class="ecom-collection__product-price-wrapper">
+ <span
+ class="ecom-collection__product-price--regular ecom-collection__product--compare-at-price"
+ {%- if product.compare_at_price == nil or product.compare_at_price <= product.price -%} style="display:none" {% endif %}
+ >
+ {% if settings.currency_code_enabled == true %} {{ target.compare_at_price | money_with_currency }} {% else %} {{ target.compare_at_price | money }} {% endif %}
+ </span>
+ <span class="ecom-collection__product-price{% if target.compare_at_price > target.price %} ecom-collection__product-price--sale{% endif %}">{% if settings.currency_code_enabled == true %} {{ target.price | money_with_currency }} {% else %} {{ target.price | money }} {% endif %}</span>
+ </div>
+ {{ ground_price }}
+ {% endif %}
+ {% endif %}
+ 
+ </div>
+ {% endif %}
+ 
+ {% if product_style != 'absolute'%}
+ {{ product_picker }}
+ {% endif %}
+ {% if product_style == 'horizontal' or product_style == 'vertical' or product_layout == 'list' %}
+ {{product_actions}}
+ {% endif %}
+ 
+ {% if product.available and product.metafields.ecomposer.countdown %}
+ <div
+ class="ecom-collection__product-countdown ecom-child-element" 
+ >
+ <div
+ class="ecom-collection__product-countdown-wrapper"
+ >
+ <div class="ecom-collection__product-countdown-wrapper--title">{{ 'sections.ecom-south-african-grass-fed-beef-page.countdown_title_9btuujiu8qj_html' | t }}</div>
+ <div class="ecom-product-single__countdown-container" >
+ {%- assign countdown_from = product.metafields.ecomposer.countdown_from -%}
+ <div data-product-id="{{product.id}}" class="ecom-collection__product-countdown-time ecom-collection__product-countdown-time--metafields" data-ecom-countdown-from="{{ countdown_from }}" data-ecom-countdown="{{product.metafields.ecomposer.countdown}}"></div>
+ </div>
+ 
+ {% if countdown_from%}
+ <div class="ecom-collection__product-countdown-progress-bar">
+ <div class="ecom-collection__product-countdown-progress-bar--wrap">
+ <div class="ecom-collection__product-countdown-progress-bar--timer ecom-product-single__countdown-progress-bar--timer"></div>
+ </div>
+ </div>
+ {% endif %}
+ 
+ </div>
+ </div>
+ {% endif %}
+ 
+ </div>
+ </div>
+ </div>
+ {%- if enable_hook -%}
+ {% capture the_ecom_hook %}
+ {% render 'ecom_product_loop_after', product: product %}
+ {% endcapture %}
+ {% unless the_ecom_hook contains 'Liquid error' %}
+ {{ the_ecom_hook }}
+ {% endunless %}
+ {%- endif -%}
+ </div>
+ {% endfor %}
+ </div>
+ {% else %}
+ <div class="ecom-collection__product--wrapper-items ecom-collection__product--no-item ecom-collection-product__layout-slider" >
+ <div class="ecom-collection__product-item" >
+ {{ 'sections.ecom-south-african-grass-fed-beef-page.no_product_item_9btuujiu8qj_html' | t }}
+ </div>
+ </div>
+ {% endif %}
+ 
+ 
+ {% assign collection = tmp_collection %}
+ {% assign product = tmp_product %}
+ </div><div class="ecom-swiper-navigation-position" style="display: none;"><button class="ecom-swiper-button ecom-swiper-button-prev" style="--ecom-position: unset; --ecom-position__tablet: unset; --ecom-position__mobile: unset;"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512" fill="currentColor"><defs><style>.fa-secondary{opacity:.4}</style></defs><path class="fa-secondary" d="M224 480c-8.188 0-16.38-3.125-22.62-9.375l-192-192c-12.5-12.5-12.5-32.75 0-45.25l192-192c12.5-12.5 32.75-12.5 45.25 0s12.5 32.75 0 45.25L77.25 256l169.4 169.4c12.5 12.5 12.5 32.75 0 45.25C240.4 476.9 232.2 480 224 480z"></path></svg></button><button class="ecom-swiper-button ecom-swiper-button-next" style="--ecom-position: unset; --ecom-position__tablet: unset; --ecom-position__mobile: unset;"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512" fill="currentColor"><defs><style>.fa-secondary{opacity:.4}</style></defs><path class="fa-secondary" d="M96 480c-8.188 0-16.38-3.125-22.62-9.375c-12.5-12.5-12.5-32.75 0-45.25L242.8 256L73.38 86.63c-12.5-12.5-12.5-32.75 0-45.25s32.75-12.5 45.25 0l192 192c12.5 12.5 12.5 32.75 0 45.25l-192 192C112.4 476.9 104.2 480 96 480z"></path></svg></button></div><div class="ecom-swiper-pagination-position ecom-swiper-pagination" style="display: none;"></div></div></div></div></div> </div></div></div></div> </div><div class="ecom-section__overlay"><div class="ecom-overlay"></div></div> </section><section class="ecom-row ecom-core ecom-section ecom-3t1n0e93xtw" data-id="ecom-3t1n0e93xtw" style="z-index: inherit;"><div data-deep="1" class="core__row--columns core__row--full"><div class="ecom-column ecom-core ecom-svz71yyghm"><div class="core__column--wrapper"><div class="ecom-column__overlay"><div class="ecom-overlay"></div></div><div class="core__blocks" index="0"><div class="core__blocks--body"><div class="ecom-block ecom-core core__block elmspace ecom-glwbsuq0i8r" data-core-is="block"><div class="ecom-element ecom-base-image" deep="1"><figure><div class="ecom-container-image ecom-image-align" data-stopdrag=""><div data-stopdrag="" class="ecom-image-content-position ecom-image-default ecom-base-image-container-overlay" style=""><picture class="ecom-image-picture"><img loading="lazy" fetchpriority="low" src="https://cdn.shopify.com/s/files/1/0821/0202/6556/files/Component_1.webp?v=1710792766" alt="Component_1" width="1260" height="921"></picture></div></div></figure></div></div> </div></div></div></div> </div><div class="ecom-section__overlay"><div class="ecom-overlay"></div></div> </section>
+</div></div>
+{% schema %}
+{
+ "name": "South African Grass-Fed B",
+ "settings": [
+ {
+ "type": "header",
+ "content": "The section was generated by [Ecomposer](https:\/\/ecomposer.io).",
+ "info": "\n EComposer is a Visual Page Builder app on Shopify AppStore.\n It provides 100+ pre-built templates in library,\n so you can build unlimited pages that you can imagine with it.\n Please don't add Shopify sections to EComposer's page in the theme customize. If you do this, Shopify sections will be deleted when you republish your page in EComposer\n "
+ },
+ {
+ "type": "header",
+ "content": "[EDIT WITH EComposer APP \u2192](https:\/\/ecomposer.app\/shop?open_builder=1&page=page&id=663d181a27edec48a308fa75&utm_source=theme-customize)",
+ "info": "(*You must install the app to start editing this section [Learn more](https:\/\/help.ecomposer.io\/docs\/getting-started\/installation\/))"
+ }
+ ],
+ "locales": {
+ "en": {
+ "badge_tags_gcy6qot0so_html": "Hot",
+ "product_option_swatch_gcy6qot0so_html": "Color",
+ "quickview_gcy6qot0so_html": "Quick Shop",
+ "added_cart_text_gcy6qot0so_html": "Added to cart",
+ "added_cart_message_gcy6qot0so_html": "Added to cart",
+ "pre_order_gcy6qot0so_html": "Pre order",
+ "add_to_cart_gcy6qot0so_html": "Add To Cart",
+ "sold_text_gcy6qot0so_html": "Sold",
+ "sale_text_gcy6qot0so_html": "Sale",
+ "sale_badge_gcy6qot0so_html": "-{{sale}}%",
+ "price_from_gcy6qot0so_html": "From",
+ "countdown_title_gcy6qot0so_html": "Hurry up! The sale will end on",
+ "no_product_item_gcy6qot0so_html": "There are no product yet!",
+ "badge_tags_9btuujiu8qj_html": "Hot",
+ "product_option_swatch_9btuujiu8qj_html": "Color",
+ "quickview_9btuujiu8qj_html": "Quick Shop",
+ "added_cart_text_9btuujiu8qj_html": "Added to cart",
+ "added_cart_message_9btuujiu8qj_html": "Added to cart",
+ "pre_order_9btuujiu8qj_html": "Pre order",
+ "add_to_cart_9btuujiu8qj_html": "Add To Cart",
+ "sold_text_9btuujiu8qj_html": "Sold",
+ "sale_text_9btuujiu8qj_html": "Sale",
+ "sale_badge_9btuujiu8qj_html": "-{{sale}}%",
+ "price_from_9btuujiu8qj_html": "From",
+ "countdown_title_9btuujiu8qj_html": "Hurry up! The sale will end on",
+ "no_product_item_9btuujiu8qj_html": "There are no product yet!",
+ "textcontent_oh73llewkeb_html": "4.5\/5 | 2000+ Reviews",
+ "headingtext_x8b16q1i9s_html": "<b> Introducing MLS South<\/b><div><b>African Grass-Fed Beef<\/b><div><\/div><\/div>",
+ "textcontent_i1jtf1ppy8m_html": " From \u2060East London Abattoir, the best in class factory in South Africa. <strong>Fresh meat delivered in two hours.<\/strong><div><div><\/div><\/div>",
+ "buttoncontent_9t9b789us3f_html": "Shop Now",
+ "headingtext_b8e7afnmnyh_html": "We offer 100% free replacements and free returns.",
+ "headingtext_dpmfywc1kt_html": "THE MLS EXPERIENCE\n",
+ "text0_efqzqm4o58_html": "<strong>2 Hours Delivery<\/strong>",
+ "text1_efqzqm4o58_html": "Delivered in a box",
+ "text2_efqzqm4o58_html": "<strong>Fresh &amp; Halal<\/strong>",
+ "text3_efqzqm4o58_html": "<strong>Hormones Free<\/strong>",
+ "text0_z5u7qr3n6aq_html": "<strong>2 Hours Delivery<\/strong>",
+ "text1_z5u7qr3n6aq_html": "Delivered in a box",
+ "text2_z5u7qr3n6aq_html": "<strong>Fresh &amp; Halal<\/strong>",
+ "headingtext_ulhp4rui7fm_html": "Why South African Beef?",
+ "textcontent_t55mgjwol0l_html": "<h5>Lean &amp; Flavorful:<br><span style=\"font-size: 14px;\">Younger cattle = less fat,<br><\/span><span style=\"font-size: 14px;\">but intense,&nbsp;natural taste.<\/span><\/h5>",
+ "textcontent_eeb4bs9hol_html": "<h6><\/h6><h5>Grass-Fed Goodness:<\/h5><div>Enjoy healthy Omega-<\/div><div>3s from cattle raised on<\/div><div>natural pastures.<\/div><div><br><\/div>",
+ "textcontent_ahkv4yt2tog_html": "<h6><\/h6><h5>Quality You Can Trust:<\/h5><div>National grading ensures<\/div><div>consistent tenderness<\/div><div>and excellence.<\/div><div><br><\/div>",
+ "buttoncontent_xxlv64vcgod_html": "View Collection",
+ "headingtext_xo3lc87i22j_html": "Why South African Beef?\n",
+ "title0_x5i7dpl71g_html": "Lean & Flavorful:",
+ "text0_x5i7dpl71g_html": "Younger Cattle = less fat,<div>but intense, natural taste.<\/div>",
+ "title1_x5i7dpl71g_html": "Grass Fed Goodness:",
+ "text1_x5i7dpl71g_html": "Enjoy healthy Omega-3s<div>from cattle raised on<\/div><div>natural pastures.<\/div>",
+ "title2_x5i7dpl71g_html": "Quality You Can Trust:",
+ "text2_x5i7dpl71g_html": "Natural grading ensures<div>consistent tenderness<\/div><div>and excellence.<\/div>",
+ "buttoncontent_tvhrfxd6f9a_html": "View Collection",
+ "textcontent_5w0cgxmm4xj_html": "<h1>We trace it, so you can trust it!<br><\/h1>MLS delivers the finest quality South African beef directly to your doorstep.",
+ "headingtext_ylo2kl25ia_html": "MLS is loved by over <br> 50,000 customers",
+ "text0_j2ccgswo08g_html": "\u201cSuper quality meat. Very professional and clean delivery. <br>Probably the best butcher in the Muscat current \u201d",
+ "name0_j2ccgswo08g_html": "Graeme S. (verified Customer)",
+ "title0_j2ccgswo08g_html": "Professional and Clean Delivery",
+ "text1_j2ccgswo08g_html": "\u201cI am a regular customer of MLS. I like the products, <br>it is always fresh\u201d",
+ "name1_j2ccgswo08g_html": "Rami M. ( verified buyer )",
+ "title1_j2ccgswo08g_html": "Very good",
+ "text2_j2ccgswo08g_html": "\u201cSimply an amazing piece of meat, good quality, taste great<br> and no after taste.... must know how to grill it\u201d",
+ "name2_j2ccgswo08g_html": "Eihab A. ( Verified customer)",
+ "title2_j2ccgswo08g_html": "Tomahawk Amazing !!!",
+ "textcontent_7jcdbx2x8p_html": "<h4>Shop Your Favourite<\/h4><h4>MLS South Africa Beef Cuts<br><\/h4>For<strong><font color=\"#a70a10\"> special requests or any customization<\/font><\/strong> in your meat, please mention in the notes in the cart.<div><br><\/div>",
+ "textcontent_1ah2p39e2sn_html": "<h4>Shop Your Favourite MLS South Africa Beef Cuts<\/h4>For<strong><font color=\"#a70a10\"> special requests or any customization<\/font><\/strong> in your meat, please mention in the notes in the cart.<div><br><\/div>",
+ "text_week_gcy6qot0so_html": "[%-W] week%!W",
+ "text_day_gcy6qot0so_html": "[%-d] day%!D",
+ "text_hour_gcy6qot0so_html": "[%-H] hr%!H",
+ "text_minute_gcy6qot0so_html": "[%-M] min%!M",
+ "text_second_gcy6qot0so_html": "[%-S] sec%!S",
+ "sale_gcy6qot0so_html": "-{{sale}}%",
+ "headingtext_5tvre1kx2rp_html": "YOU MAY ALSO LIKE",
+ "text_week_9btuujiu8qj_html": "[%-W] week%!W",
+ "text_day_9btuujiu8qj_html": "[%-d] day%!D",
+ "text_hour_9btuujiu8qj_html": "[%-H] hr%!H",
+ "text_minute_9btuujiu8qj_html": "[%-M] min%!M",
+ "text_second_9btuujiu8qj_html": "[%-S] sec%!S",
+ "sale_9btuujiu8qj_html": "-{{sale}}%"
+ }
+ }
+}
+{% endschema %}

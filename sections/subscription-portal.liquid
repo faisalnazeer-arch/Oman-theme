@@ -1,0 +1,58 @@
+
+       {% if customer %}
+               
+               <div style="text-align:center" id="Customer-portal">
+                
+                  
+               </div>
+              
+                 
+<script>
+    function sendMessage() {
+      var request = new XMLHttpRequest();
+      request.open("POST", "https://hook.eu1.make.com/87py9ofhj5y2ec7mhisgj5bcvluvky2d");
+
+      request.setRequestHeader('Content-type', 'application/json');
+
+      var params = {
+        Email: "{{customer.email | downcase }}"
+      }
+
+      request.send(JSON.stringify(params));
+      
+      request.onreadystatechange = function() {
+        if(request.readyState == 4 && request.status == 200) {
+          document.getElementById('Customer-portal').innerHTML = request.responseText;
+        }
+        else 
+        {
+          document.getElementById('Customer-portal').innerHTML = "You have no active subscriptions";
+        }
+      
+      }
+      
+    
+    }
+
+  sendMessage();
+
+ 
+  </script>
+      {% endif %}
+{% schema %}
+  {
+    "name": "subscription portal",
+    "settings": [],
+    "presets":[
+      {
+         "name": "subscription portal"
+      }
+    ]
+  }
+{% endschema %}
+
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}

@@ -1,0 +1,84 @@
+<!-- custom-cart.liquid -->
+
+{{ 'box.css' | asset_url | stylesheet_tag: preload: true }}
+
+<div id="box-drawer-bg"></div>
+<div id="box-drawer">
+   <div class="box-drawer-top">
+     <div class="container">
+      <div class="box_tittle">{{ 'subscribe-widget.box-tittle' | t }}</div>
+      <button class="cart-drawer-close-button" aria-label="Close">X</button>
+    </div>
+   </div>
+<div id="customCartContainer" class="container">
+
+  
+</div>
+    <div id ="box-drawer-mid" class="box-drawer-middle">
+       <div id="empty_box-text" class="empty_box">Your shopping box is currently empty. To proceed, please add a minimum of 2 products to your box. Happy shopping!</div>
+      <div class="box-continue-container" > <button class="box-continue-button" id="continue-byob">Conitnue Shopping</button></div>
+    </div>
+
+<div id="box-bottom" class="box-drawer-bottom">
+   <div class="container">
+  <div id ="box-total-price" class="total-price"></div>
+     
+     <div class="subscription-widget" id="byobwidget">
+       <div id="block-boxes" class="block-box">
+         
+       </div>
+       
+                 <label for="planDuration" class="plan-label">{{ 'subscribe-widget.choose-plan' | t }}</label>
+                 <select name="planDuration" style="display:block" id="boxplanDuration" class="plandropdowns">
+                  <option value="" disabled selected>{{ 'subscribe-widget.choose' | t }}</option>
+                  <option value="7">{{ 'subscribe-widget.7days' | t }}</option>
+                  <option value="15">{{ 'subscribe-widget.15days' | t }}</option>
+                  <option value="30">{{ 'subscribe-widget.30days' | t }}</option>
+                 </select>
+                  <button onclick="sendproductdata()" class="plan-buttons" style="display:none" id="build-your-box">
+                  {{ 'subscribe-widget.create-your-box' | t }}
+                  </button>
+       <div id="loader" class="loader"></div>
+                  <button style="display:none" class="plan-buttons" id="Test-your-plan">
+                  {{ 'subscribe-widget.view-your-plan' | t }}
+                  </button>
+       
+      </div>
+     <div id="box-block-texts" class="box-block-text">{{ 'subscribe-widget.box-product-limit' | t }}</div>
+   </div>
+  
+</div>
+</div>
+
+
+{% schema %}
+{
+  "name": "Custom Cart",
+  "class": "section-custom-cart",
+  "settings": [],
+  "presets": [
+      {
+        "name": "Custom Cart",
+        "settings": {},
+        "blocks": [
+        ]
+      }
+    ]
+}
+{% endschema %}
+
+<script>
+
+  function resetButtonToInitialState() {
+    var buildYourBoxButton = document.getElementById('build-your-box');
+    var buildPlan = document.getElementById('Test-your-plan')
+     var planDurationSelect = document.getElementById('boxplanDuration');
+    
+    // Assuming the initial state is hidden
+    buildYourBoxButton.style.display = 'none';
+    buildPlan.style.display = 'none';
+
+    planDurationSelect.value = "";
+}
+</script>
+

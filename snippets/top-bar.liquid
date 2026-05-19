@@ -1,0 +1,256 @@
+<style>
+  .milestone-container {
+    padding: 10px;
+    border-radius: 10px;
+    font-family: sans-serif;
+    margin-top: 0;
+    padding-top: 0;
+  }
+  .milestone-message {
+    text-align: center;
+    margin-bottom: 10px;
+    font-weight: bold;
+    font-size: 14px;
+  }
+  .milestone-bar-wrapper {
+    position: relative;
+    background: #e0e0e0;
+    border-radius: 20px;
+    height: 5px;
+    width: 100%;
+    overflow: hidden;
+  }
+  .milestone-bar-fill {
+    height: 100%;
+    background: linear-gradient(90deg, #0f9d58, #34a853);
+    width: 0%;
+    border-radius: 20px;
+    transition: width 0.5s ease-in-out;
+  }
+  .milestone-items {
+    position: relative;
+    margin-top: 0;
+    display: flex;
+    justify-content: space-between;
+    text-align: center;
+  }
+  .milestone-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 5px;
+    font-size: 12px;
+    color: #444;
+    width: auto;
+    max-width: 80%;
+    margin: 0 auto;
+    padding-top: 10px;
+  }
+  .milestone-icon {
+    width: 18px;
+    height: 18px;
+    background: #ddd;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.3s ease-in-out;
+  }
+  .milestone-icon svg {
+    width: 13px;
+    height: 13px;
+    fill: white;
+    display: none;
+  }
+  .milestone-icon.active {
+    background: #0f9d58;
+  }
+  .milestone-icon.active svg {
+    display: block;
+  }
+  .milestone-items:has(.milestone-item:only-child) {
+  justify-content: flex-end;
+}
+.milestone-items:has(.milestone-item:only-child) .milestone-item {
+    margin: 0;
+}
+.cart-drawer__summary.relative.drawer__footer.cart-drawer--checkout--sticky-true.cart-drawer--checkout--sticky-desktop-true.cart-drawer--checkout--sticky-mobile-true {
+    padding-top: 10px;
+}
+header.drawer__header.flex.justify-between.items-center {
+    padding-bottom: 20px;
+}
+
+
+
+
+
+/* Add to your theme's CSS file (e.g., base.css or theme.css) */
+.cart-alert-banner {
+  display: flex;
+  align-items: center;
+  background-color: #fcf4e0; /* Light yellow/cream background */
+  border-radius: 20px;       /* Rounded corners */
+  padding: 10px 16px;        /* Spacing inside */
+  margin: 10px;              /* Spacing around the banner */
+}
+
+.cart-alert-icon {
+  width: 18px;
+  height: 18px;
+  color: #997700;            /* Dark gold/brown icon color */
+  margin-right: 10px;        /* Space between icon and text */
+}
+
+.cart-alert-message {
+  font-family: sans-serif;   /* Or your theme's font */
+  font-size: 15px;           /* Text size */
+  color: #4a4a4a;            /* Dark gray text color */
+  line-height: 1.4;
+}
+.promo__content.relative .rte p {
+    color: #000;
+    font-size: 16px;
+    padding: 0 10px;
+}
+</style>
+{% comment %} <div class="cart-alert-banner" id="cartAlertBanner" style="display:none;">
+  <svg aria-hidden="true" focusable="false" role="presentation" viewBox="0 0 20 20" class="cart-alert-icon">
+    <path fill="currentColor" d="M10 0C4.48 0 0 4.48 0 10s4.48 10 10 10 10-4.48 10-10S15.52 0 10 0zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm-1-13h2v6H9V5zm0 8h2v2H9v-2z"></path>
+  </svg>
+  <span class="cart-alert-message" id="cartAlertMessage"></span>
+</div> {% endcomment %}
+
+{% if section.settings.show_shipping_bar %}
+<div class="milestone-container" id="milestoneProgress" style="display:none;">
+  <div id="milestoneData"
+      data-m1-value="{{ section.settings.milestone_1_value }}"
+      data-m1-label="{{ section.settings.milestone_1_label }}"
+      data-m2-value="{{ section.settings.milestone_2_value }}"
+      data-m2-label="{{ section.settings.milestone_2_label }}"
+      data-m3-value="{{ section.settings.milestone_3_value }}"
+      data-m3-label="{{ section.settings.milestone_3_label }}"
+      data-m4-value="{{ section.settings.milestone_4_value }}"
+      data-m4-label="{{ section.settings.milestone_4_label }}"
+      style="display:none;">
+  </div>
+
+  <div class="milestone-message" id="milestoneMessage">
+    Add more to unlock rewards!
+  </div>
+
+  <div class="milestone-bar-wrapper">
+    <div class="milestone-bar-fill" id="milestoneBarFill"></div>
+  </div>
+
+  <div class="milestone-items">
+  {% if section.settings.milestone_1_value != 0 %}
+    <div class="milestone-item">
+      <div class="milestone-icon" data-threshold="{{ section.settings.milestone_1_value }}">
+        <svg viewBox="0 0 24 24">
+          <path d="M20.285 6.709l-11.025 11.025-5.364-5.364 1.414-1.414 3.95 3.95 9.611-9.611z"/>
+        </svg>
+      </div>
+      <span>{{ section.settings.milestone_1_label }}</span>
+    </div>
+  {% endif %}
+
+  {% if section.settings.milestone_2_value != 0 %}
+    <div class="milestone-item">
+      <div class="milestone-icon" data-threshold="{{ section.settings.milestone_2_value }}">
+        <svg viewBox="0 0 24 24">
+          <path d="M20.285 6.709l-11.025 11.025-5.364-5.364 1.414-1.414 3.95 3.95 9.611-9.611z"/>
+        </svg>
+      </div>
+      <span>{{ section.settings.milestone_2_label }}</span>
+    </div>
+  {% endif %}
+
+  {% if section.settings.milestone_3_value != 0 %}
+    <div class="milestone-item">
+      <div class="milestone-icon" data-threshold="{{ section.settings.milestone_3_value }}">
+        <svg viewBox="0 0 24 24">
+          <path d="M20.285 6.709l-11.025 11.025-5.364-5.364 1.414-1.414 3.95 3.95 9.611-9.611z"/>
+        </svg>
+      </div>
+      <span>{{ section.settings.milestone_3_label }}</span>
+    </div>
+  {% endif %}
+
+  {% if section.settings.milestone_4_value != 0 %}
+    <div class="milestone-item">
+      <div class="milestone-icon" data-threshold="{{ section.settings.milestone_4_value }}">
+        <svg viewBox="0 0 24 24">
+          <path d="M20.285 6.709l-11.025 11.025-5.364-5.364 1.414-1.414 3.95 3.95 9.611-9.611z"/>
+        </svg>
+      </div>
+      <span>{{ section.settings.milestone_4_label }}</span>
+    </div>
+  {% endif %}
+</div>
+
+</div>
+{% endif %}
+{% comment %} <script>
+  window.cartAlertSettings = {
+    enable: {{ section.settings.enable_cart_alert | json }},
+    start_time: "{{ section.settings.cart_alert_start_time }}",
+    end_time: "{{ section.settings.cart_alert_end_time }}",
+    active_text: "{{ section.settings.cart_alert_active_text | escape }}",
+    after_text: "{{ section.settings.cart_alert_after_text | escape }}"
+  };
+</script> {% endcomment %}
+{% comment %} <script>
+(function () {
+  document.addEventListener("DOMContentLoaded", function () {
+
+    if (!window.cartAlertSettings || !cartAlertSettings.enable) return;
+
+    const banner = document.getElementById("cartAlertBanner");
+    const messageEl = document.getElementById("cartAlertMessage");
+
+    if (!banner || !messageEl) return;
+
+    function toMinutes(time) {
+      if (!time) return null;
+      const [h, m] = time.split(":").map(Number);
+      return (h * 60) + m;
+    }
+
+    // Get current time in Oman (GST = UTC+4)
+    const now = new Date();
+    const omanTime = new Date(now.toLocaleString("en-US", { timeZone: "Asia/Muscat" }));
+    const currentMinutes = omanTime.getHours() * 60 + omanTime.getMinutes();
+    console.log(omanTime, currentMinutes)
+
+    const start = toMinutes(cartAlertSettings.start_time);
+    const end = toMinutes(cartAlertSettings.end_time);
+
+    let isActive = false;
+
+    // SAME-DAY RANGE (e.g. 18:00 → 22:00)
+    if (start <= end) {
+      isActive = currentMinutes >= start && currentMinutes < end;
+    }
+    // OVERNIGHT RANGE (e.g. 18:00 → 02:00)
+    else {
+      isActive = currentMinutes >= start || currentMinutes < end;
+    }
+
+    if (isActive && cartAlertSettings.active_text) {
+      messageEl.textContent = cartAlertSettings.active_text;
+      banner.style.display = "flex";
+      return;
+    }
+
+    if (!isActive && cartAlertSettings.after_text) {
+      messageEl.textContent = cartAlertSettings.after_text;
+      banner.style.display = "flex";
+      return;
+    }
+
+    banner.style.display = "none";
+  });
+})();
+</script> {% endcomment %}
+

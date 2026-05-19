@@ -1,0 +1,80 @@
+<style>
+.cart-alert-banner {
+  display: flex;
+  align-items: center;
+  background-color: #fcf4e0;
+  border-radius: 20px;
+  padding: 10px 16px;
+  margin: 10px;
+}
+.cart-alert-icon {
+  width: 18px;
+  height: 18px;
+  color: #997700;
+  margin-right: 10px;
+}
+.cart-alert-message {
+  font-family: sans-serif;
+  font-size: 15px;
+  color: #4a4a4a;
+  line-height: 1.4;
+}
+</style>
+
+<div class="cart-alert-banner" id="cartAlertBanner" style="display:none;">
+  <svg aria-hidden="true" focusable="false" role="presentation" viewBox="0 0 20 20" class="cart-alert-icon">
+    <path fill="currentColor" d="M10 0C4.48 0 0 4.48 0 10s4.48 10 10 10 10-4.48 10-10S15.52 0 10 0zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm-1-13h2v6H9V5zm0 8h2v2H9v-2z"></path>
+  </svg>
+  <span class="cart-alert-message" id="cartAlertMessage"></span>
+</div>
+
+<script>
+  window.cartAlertSettings = {
+    enable: {{ section.settings.enable_cart_alert | json }},
+    start_time: "{{ section.settings.cart_alert_start_time }}",
+    end_time: "{{ section.settings.cart_alert_end_time }}",
+    active_text: "{{ section.settings.cart_alert_active_text | escape }}",
+    after_text: "{{ section.settings.cart_alert_after_text | escape }}"
+  };
+
+  function initCartAlert() {
+    if (!window.cartAlertSettings || !window.cartAlertSettings.enable) return;
+
+    const banner = document.getElementById("cartAlertBanner");
+    const messageEl = document.getElementById("cartAlertMessage");
+    if (!banner || !messageEl) return;
+
+    function toMinutes(time) {
+      if (!time) return null;
+      const [h, m] = time.split(":").map(Number);
+      return h * 60 + m;
+    }
+
+    const now = new Date();
+    const omanTime = new Date(now.toLocaleString("en-US", { timeZone: "Asia/Muscat" }));
+    const currentMinutes = omanTime.getHours() * 60 + omanTime.getMinutes();
+
+    const start = toMinutes(cartAlertSettings.start_time);
+    const end = toMinutes(cartAlertSettings.end_time);
+
+    let isActive = false;
+    if (start <= end) {
+      isActive = currentMinutes >= start && currentMinutes < end;
+    } else {
+      isActive = currentMinutes >= start || currentMinutes < end;
+    }
+
+    if (isActive && cartAlertSettings.active_text) {
+      messageEl.textContent = cartAlertSettings.active_text;
+      banner.style.display = "flex";
+    } else if (!isActive && cartAlertSettings.after_text) {
+      messageEl.textContent = cartAlertSettings.after_text;
+      banner.style.display = "flex";
+    } else {
+      banner.style.display = "none";
+    }
+  }
+
+  // ✅ Actually call it
+  initCartAlert();
+</script>

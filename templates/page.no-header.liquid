@@ -1,0 +1,29 @@
+{% layout 'theme' %}
+
+<style>
+  .header {
+    display: none;
+    position: relative;
+    z-index: 30;
+    padding: calc(2 * var(--space-unit)) 0;
+    background-color: rgba(var(--bg-color));
+    box-shadow: #00000014 0 0 3px 1px;
+    color: rgb(var(--text-color));
+}
+  .footer {
+    display: none;
+    position: relative;
+    z-index: 30;
+    padding: calc(2 * var(--space-unit)) 0;
+    background-color: rgba(var(--bg-color));
+    box-shadow: #00000014 0 0 3px 1px;
+    color: rgb(var(--text-color));
+}
+  .page-no-header .site-header {
+    display: none;
+  }
+</style>
+
+<div class="page-content">
+  {{ content_for_page }}
+</div>

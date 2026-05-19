@@ -1,0 +1,672 @@
+{%- liquid
+  assign collection_tab1 = collections[section.settings.collection_tab1]
+  assign collection_tab2 = collections[section.settings.collection_tab2]
+  assign collection_tab3 = collections[section.settings.collection_tab3]
+  assign collection_tab4 = collections[section.settings.collection_tab4]
+  assign collection_tab5 = collections[section.settings.collection_tab5]
+-%}
+
+{%- liquid
+  if section.settings.enable_carousel
+    assign product_limit = 20
+  else
+    assign product_limit = 200
+  endif
+  assign collection = collections[section.settings.collection]
+-%}
+
+<div class="section-id-{{ section.id }}">
+  <div
+    class="container{% if section.settings.enable_carousel %} container--not-mobile{% endif %}{% if section.settings.full_width %} container--no-max{% endif %}"
+    {% if section.settings['section-id'] != noneid %}
+      id="{{section.settings.section-id}}"
+    {% endif %}
+  >
+    <div>
+      <h2 class="hometitle h4-style align-center has-paging">
+        {% if section.settings.enable_carousel -%}
+          <a class="prev ltr-icon" href="#">{% render 'svg-chevron-left' %}</a>
+        {%- endif %}
+        <a class="has-paging__title" href="javascript:void(0);"
+          ><span>{{ section.settings.title | escape }}</span></a
+        >
+        {% if section.settings.enable_carousel -%}
+          <a class="next ltr-icon" href="#">{% render 'svg-chevron-right' %}</a>
+        {%- endif %}
+      </h2>
+
+      <div class="collection-listing">
+        <div class="product-list product-list--per-row-{{ section.settings.grid }} product-list--per-row-mob-{{ settings.prod_thumb_mob_per_row }} product-list--image-shape-{{ settings.prod_thumb_shape }} {% if section.settings.enable_carousel %}carousel{% endif %}">
+          {% if section.settings.collection == blank %}
+            {% for i in (1..product_limit) %}
+            {% endfor %}
+          {% else %}
+            {%- liquid
+              if settings.prod_thumb_shape == 'portrait-23'
+                assign chosen_aspect_ratio = 0.67
+              elsif settings.prod_thumb_shape == 'portrait-45'
+                assign chosen_aspect_ratio = 0.8
+              elsif settings.prod_thumb_shape == 'square'
+                assign chosen_aspect_ratio = 1.0
+              elsif settings.prod_thumb_shape == 'landscape-54'
+                assign chosen_aspect_ratio = 1.25
+              elsif settings.prod_thumb_shape == 'landscape-32'
+                assign chosen_aspect_ratio = 1.50
+              elsif settings.prod_thumb_shape == 'tallest'
+                assign chosen_aspect_ratio = 99
+                for product in collection.products limit: product_limit
+                  if product.featured_media.preview_image.aspect_ratio < chosen_aspect_ratio
+                    assign chosen_aspect_ratio = product.featured_media.preview_image.aspect_ratio
+                  endif
+                endfor
+              else
+                assign chosen_aspect_ratio = 0
+                for product in collection.products limit: product_limit
+                  if product.featured_media.preview_image.aspect_ratio > chosen_aspect_ratio
+                    assign chosen_aspect_ratio = product.featured_media.preview_image.aspect_ratio
+                  endif
+                endfor
+              endif
+            -%}
+
+            <div class="product-tabs">
+              <div class="l-select">
+                {%- assign input_prefix = 'annbarMobileNavvv' -%}
+
+                {%- assign form_id = 'localization_form_' | append: input_prefix -%}
+                {%- form 'localization', id: form_id, class: 'selectors-form' -%}
+                  <div class="selectors-form__itemmm">
+                    <div class="visually-hidden" id="lang-heading-{{ input_prefix }}">Language</div>
+
+                    <div class="disclosureee" data-disclosure-locale>
+                      <button
+                        type="button"
+                        class="disclosure__toggleee"
+                        aria-expanded="false"
+                        aria-controls="lang-list-{{ input_prefix }}"
+                        aria-describedby="lang-heading-{{ input_prefix }}"
+                        data-disclosure-toggle
+                      >
+                        {%- liquid
+                          assign split_endonym = localization.language.endonym_name | split: ' '
+                          for str in split_endonym
+                            if forloop.first
+                              assign capitalized_endonym = str | capitalize
+                            else
+                              assign capitalized_endonym = capitalized_endonym | append: ' ' | append: str
+                            endif
+                          endfor
+                          echo capitalized_endonym
+                        -%}
+                        <span class="disclosure__toggle-arrow" role="presentation">
+                          {%- render 'svg-chevron-down' -%}
+                        </span>
+                      </button>
+                      <ul id="lang-list-{{ input_prefix }}" class="disclosure-listtt" data-disclosure-list>
+                        {% for language in localization.available_languages %}
+                          <li class="disclosure-list__item{% if language.iso_code == localization.language.iso_code %} disclosure-list__item--current{% endif %}">
+                            <a
+                              class="disclosure-list__option"
+                              {% if language.iso_code == 'ar' %}
+                                href="https://mls.om/ar/pages/build-your-box"
+                              {% elsif language.iso_code == 'en' %}
+                                href="https://mls.om/pages/build-your-box"
+                              {% endif %}
+                              data-value="{{ language.iso_code }}"
+                              data-disclosure-option
+                            >
+                              {%- liquid
+                                assign split_endonym = language.endonym_name | split: ' '
+                                for str in split_endonym
+                                  if forloop.first
+                                    assign capitalized_endonym = str | capitalize
+                                  else
+                                    assign capitalized_endonym = capitalized_endonym | append: ' ' | append: str
+                                  endif
+                                endfor
+                                echo capitalized_endonym
+                              -%}
+                            </a>
+                          </li>
+                        {%- endfor -%}
+                      </ul>
+                      <input
+                        type="hidden"
+                        name="locale_code"
+                        value="{{ localization.language.iso_code }}"
+                        data-disclosure-input
+                      >
+                    </div>
+                  </div>
+                {%- endform -%}
+              </div>
+
+              <ul class="tab-menu">
+                <li>
+                  <a href="#tab1">{{ 'subscribe-widget.box-tab1' | t }}</a>
+                </li>
+                <li>
+                  <a href="#tab2">{{ 'subscribe-widget.box-tab2' | t }}</a>
+                </li>
+                <li>
+                  <a href="#tab3">{{ 'subscribe-widget.box-tab3' | t }}</a>
+                </li>
+                <li>
+                  <a href="#tab4">{{ 'subscribe-widget.box-tab4' | t }}</a>
+                </li>
+                <li>
+                  <a href="#tab5">{{ 'subscribe-widget.box-tab5' | t }}</a>
+                </li>
+              </ul>
+              <div id="tab1" class="tab-content active  ">
+                {% paginate collection_tab1.products by 50 %}
+                  {% for product in collection_tab1.products %}
+                    {% render 'add-to-box-product-block',
+                      product: product,
+                      collection: collection,
+                      manual_image_load: section.settings.enable_carousel,
+                      custom_aspect_ratio: chosen_aspect_ratio,
+                      no_swiping: section.settings.enable_carousel,
+                      no_quick_buy_markup: section.settings.enable_carousel
+                    %}
+                  {% endfor %}
+                  {% render 'pagination', paginate: paginate %}
+                {%- endpaginate -%}
+              </div>
+
+              <div id="tab2" class="tab-content">
+                <!-- {% paginate collection_tab2.products by 50 %} -->
+                {% for product in collection_tab2.products %}
+                  {% render 'add-to-box-product-block',
+                    product: product,
+                    collection: collection,
+                    manual_image_load: section.settings.enable_carousel,
+                    custom_aspect_ratio: chosen_aspect_ratio,
+                    no_swiping: section.settings.enable_carousel,
+                    no_quick_buy_markup: section.settings.enable_carousel
+                  %}
+                {% endfor %}
+                <!--
+                  {% render 'pagination', paginate: paginate %}
+                  {%- endpaginate -%}
+                -->
+              </div>
+
+              <div id="tab3" class="tab-content">
+                <!-- {% paginate collection_tab3.products by 50 %} -->
+                {% for product in collection_tab3.products %}
+                  {% render 'add-to-box-product-block',
+                    product: product,
+                    collection: collection,
+                    manual_image_load: section.settings.enable_carousel,
+                    custom_aspect_ratio: chosen_aspect_ratio,
+                    no_swiping: section.settings.enable_carousel,
+                    no_quick_buy_markup: section.settings.enable_carousel
+                  %}
+                {% endfor %}
+                <!--
+                  {% render 'pagination', paginate: paginate %}
+                  {%- endpaginate -%}
+                -->
+              </div>
+
+              <div id="tab4" class="tab-content">
+                <!-- {% paginate collection_tab4.products by 50 %} -->
+                {% for product in collection_tab4.products %}
+                  {% render 'add-to-box-product-block',
+                    product: product,
+                    collection: collection,
+                    manual_image_load: section.settings.enable_carousel,
+                    custom_aspect_ratio: chosen_aspect_ratio,
+                    no_swiping: section.settings.enable_carousel,
+                    no_quick_buy_markup: section.settings.enable_carousel
+                  %}
+                {% endfor %}
+                <!--
+                  {% render 'pagination', paginate: paginate %}
+                  {%- endpaginate -%}
+                -->
+              </div>
+
+              <div id="tab5" class="tab-content">
+                <!-- {% paginate collection_tab5.products by 50 %} -->
+                {% for product in collection_tab5.products %}
+                  {% render 'add-to-box-product-block',
+                    product: product,
+                    collection: collection,
+                    manual_image_load: section.settings.enable_carousel,
+                    custom_aspect_ratio: chosen_aspect_ratio,
+                    no_swiping: section.settings.enable_carousel,
+                    no_quick_buy_markup: section.settings.enable_carousel
+                  %}
+                {% endfor %}
+                <!--
+                  {% render 'pagination', paginate: paginate %}
+                  {%- endpaginate -%}
+                -->
+              </div>
+            </div>
+          {% endif %}
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Add to box",
+  "class": "section-featured-collection",
+  "settings": [
+  {
+        "type": "text",
+        "id": "section-id",
+        "label": "Extra id",
+        "default": "noneid"
+      },
+     {
+    "type": "collection",
+    "id": "collection_tab1",
+    "label": "Collection for Tab 1"
+  },
+  {
+    "type": "collection",
+    "id": "collection_tab2",
+    "label": "Collection for Tab 2"
+  },
+  {
+    "type": "collection",
+    "id": "collection_tab3",
+    "label": "Collection for Tab 3"
+  },
+  {
+    "type": "collection",
+    "id": "collection_tab4",
+    "label": "Collection for Tab 4"
+  },
+    {
+    "type": "collection",
+    "id": "collection_tab5",
+    "label": "Collection for Tab 5"
+  },
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Heading",
+      "default": "Featured collection"
+    },
+    {
+      "type": "collection",
+      "id": "collection",
+      "label": "Collection"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_vendor",
+      "label": "Show product vendor",
+      "default": false
+    },
+    {
+      "type": "checkbox",
+      "id": "enable_carousel",
+      "label": "Enable carousel",
+      "default": true
+    },
+    {
+      "type": "range",
+      "id": "grid",
+      "label": "Products per row",
+      "min": 2,
+      "max": 5,
+      "step": 1,
+      "default": 4
+    },
+    {
+      "type": "range",
+      "id": "rows",
+      "label": "Rows",
+      "info": "Does not apply to carousel layout",
+      "min": 1,
+      "max": 100,
+      "step": 1,
+      "default": 1
+    },
+    {
+      "type": "checkbox",
+      "id": "use_alt_bg",
+      "label": "Use alternate section color",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "show_view_all",
+      "label": "Show 'View all' link",
+      "default": true
+    },
+    {
+      "id": "full_width",
+      "type": "checkbox",
+      "label": "Full page width",
+      "default": true
+    }
+  ],
+  "presets": [
+    {
+      "name": "Add-to-Box",
+      "settings": {
+        "title": "Featured collection"
+      }
+    }
+  ]
+}
+{% endschema %}
+
+<style>
+  .product-tabs .tab-content.active {
+      /* display: block; */
+      display: flex;
+      flex-wrap: wrap;
+  }
+  .box-product-block {
+
+      width: 20%;
+  }
+  .product-tabs {
+      background: #f6d2d5;
+    width:100%;
+  }
+
+  .product-tabs ul li {
+      list-style: none;
+  }
+  .product-tabs .tab-menu li a:hover {
+      background-color: #a70a10;
+      color: #fff;
+      border-radius: 10px;
+  }
+  .box-popup-content {
+      text-align: center;
+  }
+    @media only screen and (max-width: 600px){
+  .box-product-block {
+      width: 50% !important;
+      padding-left: 5px;
+      padding-right: 10px;
+  }
+      .product-tabs .tab-menu a {
+      font-size: 14px;
+
+  }
+  }
+  @media only screen and (min-width: 601px) {
+  ul.tab-menu {
+      font-size: 20px;
+  }
+  }
+
+
+  .product-tabs .tab-menu li {
+    margin-right: 10px;
+  }
+
+  .product-tabs .tab-menu li a {
+    text-decoration: none;
+    color: #333;
+    padding: 10px 15px;
+    border-radius: 10px;
+    background-color: #ccc6c6;
+    font-weight: 600;
+  }
+
+  .product-tabs .tab-menu li.active a {
+    background-color: #a70a10;
+    color: #fff;
+    border-width: 4px;
+    border-color: #a70a10;
+    border-style: solid;
+  }
+
+  .product-tabs .tab-content {
+    display: none;
+  }
+
+  ul.tab-menu {
+      display: flex;
+      margin: 20px 0px 40px 0px;
+      justify-content: center;
+      /* width: 105%; */
+      /* overflow-wrap: break-word !important; */
+  }
+
+  .visuallyhidden {
+    border: 0;
+    clip: rect(0 0 0 0);
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+    padding: 0;
+    position: absolute;
+    width: 1px;
+    white-space: nowrap;
+  }
+
+  .pagination li {
+    display: inline;
+    margin: 0 5px;
+  }
+  #tab1 nav,
+    #tab2 nav,
+    #tab3 nav,
+    #tab4 nav,
+    #tab5 nav{
+      width: 100%;
+      margin-bottom: 40px;
+  }
+
+    .section-id-template--14981019205741__87213ec8-5d39-473a-a6a8-af9ea88c941d.collection-slider-row.use-alt-bg {
+      /* position: sticky; */
+      overflow: unset;
+  }
+    /*------------------------  language change button css ------------------------*/
+  .l-select {
+      height: 50px;
+      position: fixed;
+      bottom: 2%;
+      width: 150px;
+    z-index: 9999999;
+    right: 2% !important;
+
+    /* display: none; */
+  }
+    ul#lang-list-annbarMobileNavvv {
+      width: 150px;
+      background: white;
+      margin-top: -140px;
+      border: 1px solid #000 !important;
+  }
+      button.disclosure__toggleee {
+      width: 150px;
+      background: #000 !important;
+      border: 1px solid #000 !important;
+  }
+  #lang-list-annbarMobileNavvv a.disclosure-list__option {
+      border-bottom: 1px solid #000 !important;
+  }
+
+    @media(min-width: 600px)
+    {
+   .l-select {
+    display: none;
+  }
+    }
+</style>
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+  $(document).ready(function() {
+    $(".tab-menu li").click(function() {
+      var tabId = $(this).find("a").attr("href");
+      $(".tab-menu li").removeClass("active");
+      $(this).addClass("active");
+      $(".tab-content").removeClass("active");
+      $(tabId).addClass("active");
+      return false;
+    });
+  });
+</script>
+
+<script>
+  function activateTab(hash) {
+    // Deactivate all tabs and contents
+    document.querySelectorAll('.tab-menu li').forEach(li => li.classList.remove('active'));
+    document.querySelectorAll('.tab-content').forEach(div => div.classList.remove('active'));
+
+    // Activate the tab and corresponding content
+    const activeTab = document.querySelector('.tab-menu a[href="' + hash + '"]');
+    if (activeTab) {
+      activeTab.parentElement.classList.add('active');
+      document.querySelector(hash).classList.add('active');
+    }
+  }
+
+  function updatePaginationLinks(hash) {
+    // Update all pagination links to include the current hash
+    document.querySelectorAll('.pagination a').forEach(link => {
+      let href = link.getAttribute('href');
+      href = href.split('#')[0]; // Remove existing hash
+      href += hash; // Add the new hash
+      link.setAttribute('href', href);
+    });
+  }
+
+  document.addEventListener('DOMContentLoaded', function () {
+    // Activate tab and update pagination links based on URL hash
+    if (window.location.hash) {
+      activateTab(window.location.hash);
+      updatePaginationLinks(window.location.hash);
+    }
+
+    // Event listener for tab clicks
+    document.querySelectorAll('.tab-menu a').forEach(tab => {
+      tab.addEventListener('click', function(event) {
+        event.preventDefault();
+        let currentHash = this.getAttribute('href');
+        activateTab(currentHash);
+        updatePaginationLinks(currentHash);
+
+        // Navigate to the first page of the selected tab
+        window.location.href = window.location.pathname + '?page=1' + currentHash;
+      });
+    });
+  });
+</script>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+      // Find the button by its class name
+      var toggleButton = document.querySelector('.disclosure__toggleee');
+
+      // Initially hide .disclosure-list elements
+      var disclosureLists = document.querySelectorAll('.disclosure-listtt');
+      disclosureLists.forEach(function(list) {
+          list.style.visibility = 'hidden'; // Ensure visibility is hidden on load
+          list.style.opacity = '0'; // Ensure opacity is 0 on load
+      });
+
+      // Add click event listener to the button
+      toggleButton.addEventListener('click', function(event) {
+          // Prevent the document click listener from firing
+          event.stopPropagation();
+
+          // Toggle visibility and opacity of .disclosure-list elements
+          disclosureLists.forEach(function(list) {
+              var isVisible = list.style.visibility === 'visible';
+              list.style.visibility = isVisible ? 'hidden' : 'visible'; // Toggle visibility
+              list.style.opacity = isVisible ? '0' : '1'; // Toggle opacity
+
+          });
+      });
+
+      // Add click event listener to the document
+      document.addEventListener('click', function() {
+          // Hide .disclosure-list elements when clicking anywhere else
+          disclosureLists.forEach(function(list) {
+              list.style.visibility = 'hidden'; // Revert visibility
+              list.style.opacity = '0'; // Revert opacity
+          });
+      });
+  });
+</script>
+
+<style>
+  .tab-menu {
+    display: flex;
+    overflow-x: auto;
+    white-space: nowrap;
+    scrollbar-width: none; /* Firefox */
+    -ms-overflow-style: none;  /* Internet Explorer 10+ */
+  }
+
+  .tab-menu::-webkit-scrollbar {
+    display: none; /* Safari and Chrome */
+  }
+
+  .tab-menu li {
+    flex: 0 0 auto; /* Prevent items from stretching */
+    margin-right: 10px;
+  }
+
+  .tab-menu a {
+    display: block;
+    padding: 10px 15px;
+    background: #ddd;
+    border-radius: 5px;
+    text-decoration: none;
+    white-space: nowrap; /* Prevent text from breaking into multiple lines */
+    user-select: none; /* Prevent text selection on drag */
+  }
+</style>
+
+<script>
+  const tabMenu = document.querySelector('.tab-menu');
+  let isDown = false;
+  let startX;
+  let scrollLeft;
+
+  tabMenu.addEventListener('mousedown', (e) => {
+    isDown = true;
+    tabMenu.classList.add('active');
+    startX = e.pageX - tabMenu.offsetLeft;
+    scrollLeft = tabMenu.scrollLeft;
+  });
+  tabMenu.addEventListener('mouseleave', () => {
+    isDown = false;
+    tabMenu.classList.remove('active');
+  });
+  tabMenu.addEventListener('mouseup', () => {
+    isDown = false;
+    tabMenu.classList.remove('active');
+  });
+  tabMenu.addEventListener('mousemove', (e) => {
+    if (!isDown) return;
+    e.preventDefault();
+    const x = e.pageX - tabMenu.offsetLeft;
+    const walk = (x - startX) * 2; // Scroll speed
+    tabMenu.scrollLeft = scrollLeft - walk;
+  });
+
+  tabMenu.addEventListener('touchstart', (e) => {
+    isDown = true;
+    startX = e.touches[0].pageX - tabMenu.offsetLeft;
+    scrollLeft = tabMenu.scrollLeft;
+  });
+  tabMenu.addEventListener('touchend', () => {
+    isDown = false;
+  });
+  tabMenu.addEventListener('touchmove', (e) => {
+    if (!isDown) return;
+    const x = e.touches[0].pageX - tabMenu.offsetLeft;
+    const walk = (x - startX) * 2; // Scroll speed
+    tabMenu.scrollLeft = scrollLeft - walk;
+  });
+</script>

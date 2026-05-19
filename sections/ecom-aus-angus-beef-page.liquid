@@ -1,0 +1,803 @@
+{% comment %}
+ EComposer (https://ecomposer.io)
+ You SHOULD NOT modify source code in this page because
+ It is automatically generated from EComposer
+ At 2025-08-05 13:06:55
+ {% endcomment %} 
+ 
+ {% assign ecom_root_url = routes.root_url %}
+ 
+ {% if ecom_root_url != '/'%}
+ {% assign ecom_root_url = routes.root_url | append: '/' %}
+ {% endif %}
+ <link rel="stylesheet" media="print" onload="this.media='all'" id="ecom-vendors-slider_css" href="https://cdn.ecomposer.app/vendors/css/ecom-swiper@11.css" /><link rel="stylesheet" media="print" onload="this.media='all'" id="ecom-vendors-modal_css" href="https://cdn.ecomposer.app/vendors/css/ecom_modal.css" /><link rel="stylesheet" media="all" id="ecom-vendors-css_ecomposer_base" href="https://cdn.ecomposer.app/vendors/css/ecom-base.css?v=1.9" /><noscript><link rel="stylesheet" media="all" onload="this.media='all'" id="ecom-vendors-slider_css" href="https://cdn.ecomposer.app/vendors/css/ecom-swiper@11.css" /><link rel="stylesheet" media="all" onload="this.media='all'" id="ecom-vendors-modal_css" href="https://cdn.ecomposer.app/vendors/css/ecom_modal.css" /><link rel="stylesheet" media="all" id="ecom-vendors-css_ecomposer_base" href="https://cdn.ecomposer.app/vendors/css/ecom-base.css?v=1.9" /></noscript><script type="text/javascript" asyc="async" id="ecom-vendors-slider_js" src="https://cdn.ecomposer.app/vendors/js/ecom-swiper@11.0.5.js" ></script><script type="text/javascript" asyc="async" id="ecom-vendors-modal_js" src="https://cdn.ecomposer.app/vendors/js/ecom_modal_new.js" ></script><script type="text/javascript" asyc="async" id="ecom-vendors-shopify_option_selection_js" src="https://cdn.ecomposer.app/vendors/js/ecomposer_option_selection.js" ></script><script type="text/javascript" asyc="async" id="ecom-vendors-countdown_js" src="https://cdn.ecomposer.app/vendors/js/ecom-countdown.js?ver=2.0" ></script>
+{%capture section_id %}ecom-aus-angus-beef-page{% endcapture%}{% if section and section_id == section.id and headless == true %}
+{{ content_for_header }}
+{% render 'ecom_header', ECOM_THEME: true %}{% endif %}<link href="https://fonts.googleapis.com/css?family=Inter:100,200,300,400,500,600,700,800,900&display=swap" rel="stylesheet"/><link href="https://fonts.googleapis.com/css?family=Open+Sans:100,200,300,400,500,600,700,800,900&display=swap" rel="stylesheet"/><link href="https://fonts.googleapis.com/css?family=Roboto:100,200,300,400,500,600,700,800,900&display=swap" rel="stylesheet"/><link href="https://fonts.googleapis.com/css?family=Jost:100,200,300,400,500,600,700,800,900&display=swap" rel="stylesheet"/>
+{{'ecom-6400aa32ac37f8e7d20f6362.css' | asset_url | stylesheet_tag }}
+<script src="{{'ecom-6400aa32ac37f8e7d20f6362.js' | asset_url }}" defer="defer"></script>
+<script type="text/javascript" class="ecom-page-info">
+ window.EComposer = window.EComposer || {};
+ window.EComposer.TEMPLATE_ID="6400aa32ac37f8e7d20f6362";
+ window.EComposer.PAGE = {"template_id":"6400aa32ac37f8e7d20f6362","title":"AUS ANGUS BEEF","type":"page","slug":"ecom-aus-angus-beef","plan_id":4};
+ </script>
+<div class="ecom-builder" id="ecom-aus-angus-beef"><div class="ecom-sections" data-section-id="{{section.id}}">
+ {% comment %}
+ // Reactive
+ * this.data.settings.product
+ {% endcomment %}
+ {% liquid
+ unless recommendations.performed
+ if request.page_type != 'product' or product == blank
+ assign selected_product = ''
+ if selected_product == blank or selected_product == '' or all_products[selected_product] == blank
+ assign product = collections['all'].products.first
+ else
+ assign product = all_products[selected_product]
+ if product.id == blank
+ assign product = collections['all'].products.last
+ endif
+ endif
+ endif
+ endunless
+ %}
+ {%- if product != blank -%}
+ {%- capture ec_form_id -%}product_form_{{ product.id }}_ecom-ykfjopse6p{%- endcapture -%}
+ {%- form 'product', product, id: ec_form_id, class: "ecom-product-form ecom-product-form--single ecom-click", product_id: product.id, data-product_id: product.id,data-product-id: product.id, data-handle: product.handle-%}
+ <section class="ecom-row ecom-core ecom-section ecom-ykfjopse6p" data-id="ecom-ykfjopse6p" style="z-index: inherit;"><div data-deep="1" class="core__row--columns"><div class="ecom-column ecom-core ecom-33w5lxdm5lz"><div class="core__column--wrapper"><div class="ecom-column__overlay"><div class="ecom-overlay"></div></div><div class="core__blocks" index="0"><div class="core__blocks--body"><div class="ecom-block ecom-core core__block elmspace ecom-3g5ojwctemn" data-core-is="row"><div class="ecom-row ecom-core core__block ecom-h0y6os7hs3" data-id="ecom-h0y6os7hs3" style="z-index: inherit;"><div data-deep="2" class="core__row--columns core__row--full"><div class="ecom-column ecom-core ecom-8jxim25alva"><div class="core__column--wrapper"><div class="ecom-column__overlay"><div class="ecom-overlay"></div></div><div class="core__blocks" index="0"><div class="core__blocks--body"><div class="ecom-block ecom-core core__block elmspace ecom-wia7ocfcovp remove-caption" data-core-is="block"><div class="ecom-element ecom-product-single ecom-product-single__rating" deep="2"><div class="ecom-product-single__rating-wrapper" data-review-platform="
+ {%- assign review_platform = shop.metafields.ecomposer.app_review.value -%}
+ {{review_platform}}
+ "><div class="ecom-product-single__rating-container">
+ {%- if review_platform -%}
+ {%- if EComBuilderMode == true -%}
+ <div class="ecom-theme-app-extensions-skeleton">
+ <div class="ecom-app-extension-info">
+ <span class="ecom-theme-app-extension-icon">
+ <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path d="M364.2 267.2l-104.8-15.28L212.6 156.7C208.7 148.8 200.7 143.9 191.9 143.9C183.2 143.8 175.1 148.8 171.4 156.7L124.5 251.1L19.71 267.2C.9566 269.9-6.618 293.1 7.007 306.5l75.87 74l-17.1 104.6c-1.25 6.75 .5878 13.51 4.963 18.63C74.22 509 80.64 512 87.52 512c3.625 0 7.436-.9554 10.69-2.705l93.79-49.38l93.74 49.38c3.25 1.625 6.991 2.675 10.62 2.675c6.75 0 13.23-2.97 17.61-8.22c4.25-5.125 6.273-11.98 5.148-18.61L301.2 380.5l75.92-74C390.6 293 383.1 269.1 364.2 267.2zM266.7 369.3l17.62 103.1l-92.5-48.75l-92.5 48.75l17.62-103.1L42.22 296.1l103.4-15l46.38-93.88l46.13 93.88l103.5 15L266.7 369.3zM256 112h64v64C320 184.8 327.2 192 336 192S352 184.8 352 176v-64h64c8.844 0 16-7.156 16-16s-7.154-15.1-15.1-15.1L352 80v-64C352 7.156 344.8 0 336 0S320 7.156 320 16v64l-63.99 .0022C247.2 80 240 87.16 240 96S247.2 112 256 112zM496 208h-32v-32c0-8.844-7.155-15.1-15.1-15.1S432 167.2 432 176v32h-32c-8.844 0-15.1 7.162-15.1 16.01S391.2 240 400 240h32v32c0 8.844 7.158 16.01 16 16.01S464 280.8 464 272v-32h32c8.844 0 16-7.151 16-15.99S504.8 208 496 208z"/></svg>
+ </span>
+ <div class="ecom-theme-app-extension-content">
+ <span class="ecom-theme-app-extension-title">{{review_platform | replace: '_', ' ' | replace: '-', ' ' | capitalize}}</span>
+ <div class="ecom-placeholder-on-builder-mode" data-ecom-placeholder="The rating element will display when published to Online store"></div>
+ </div>
+ </div>
+ </div>
+ {%- else -%}
+ {%- case review_platform -%}
+ {%- when 'none' -%}
+ <div class="ecom-theme-app-extensions-skeleton">
+ <p>Please select the rating platform in settings</p>
+ </div>
+ {%- when 'ali-reviews' -%}
+ <div product-id="{{ product.id }}" product-handle="{{ product.handle }}" class="alireviews-review-star-rating"></div>
+ {%- when 'vital-reviews'-%}
+ <div class="bundle-aggregated_reviews"></div>
+ {%- when 'opinew-reviews' -%}
+ <div id='opinew-stars-plugin-product'>{% render 'opinew_review_stars_product' product:product %}</div>
+ {%- when 'judgeme' -%}
+ <div style='{{ jm_style }}' class='jdgm-widget jdgm-preview-badge' data-id='{{ product.id }}'>
+ {{ product.metafields.judgeme.badge }}
+ </div> 
+ {%- when 'product-reviews-addon' -%}
+ <span class="stamped-product-reviews-badge stamped-main-badge" data-id="{{ product.id }}" data-product-sku="{{ product.handle }}" style="display: inline-block;">{{- product.metafields.stamped.badge -}}</span>
+ {%- when 'areviews-aliexpress'-%}
+ <div class="areviews_header_stars"></div>
+ {%- when 'loox'-%}
+ <a href="#looxReviews">
+ <div class="loox-rating" data-id="{{ product.id }}" data-rating="{{ product.metafields.loox.avg_rating }}" data-raters="{{ product.metafields.loox.num_reviews }}"></div>
+ </a>
+ {% when 'ryviu'%}
+ {%- if EComBuilderMode == true -%}
+ <div class="ecom-theme-app-extensions-skeleton">
+ <div class="ecom-app-extension-info">
+ <span class="ecom-theme-app-extension-icon">
+ <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path d="M364.2 267.2l-104.8-15.28L212.6 156.7C208.7 148.8 200.7 143.9 191.9 143.9C183.2 143.8 175.1 148.8 171.4 156.7L124.5 251.1L19.71 267.2C.9566 269.9-6.618 293.1 7.007 306.5l75.87 74l-17.1 104.6c-1.25 6.75 .5878 13.51 4.963 18.63C74.22 509 80.64 512 87.52 512c3.625 0 7.436-.9554 10.69-2.705l93.79-49.38l93.74 49.38c3.25 1.625 6.991 2.675 10.62 2.675c6.75 0 13.23-2.97 17.61-8.22c4.25-5.125 6.273-11.98 5.148-18.61L301.2 380.5l75.92-74C390.6 293 383.1 269.1 364.2 267.2zM266.7 369.3l17.62 103.1l-92.5-48.75l-92.5 48.75l17.62-103.1L42.22 296.1l103.4-15l46.38-93.88l46.13 93.88l103.5 15L266.7 369.3zM256 112h64v64C320 184.8 327.2 192 336 192S352 184.8 352 176v-64h64c8.844 0 16-7.156 16-16s-7.154-15.1-15.1-15.1L352 80v-64C352 7.156 344.8 0 336 0S320 7.156 320 16v64l-63.99 .0022C247.2 80 240 87.16 240 96S247.2 112 256 112zM496 208h-32v-32c0-8.844-7.155-15.1-15.1-15.1S432 167.2 432 176v32h-32c-8.844 0-15.1 7.162-15.1 16.01S391.2 240 400 240h32v32c0 8.844 7.158 16.01 16 16.01S464 280.8 464 272v-32h32c8.844 0 16-7.151 16-15.99S504.8 208 496 208z"/></svg>
+ </span>
+ <div class="ecom-theme-app-extension-content">
+ <span class="ecom-theme-app-extension-title">Ryviu</span>
+ <div class="ecom-placeholder-on-builder-mode" data-ecom-placeholder="The rating element will display when published to Online store"></div>
+ </div>
+ </div>
+ {%- else -%}
+ <div class="review-widget">
+ <ryviu-widget-total
+ reviews_data="{{product.metafields.ryviu.product_reviews_info | escape }}"
+ product_id="{{product.id}}" handle="{{product.handle}}">
+ </ryviu-widget-total>
+ </div>
+ {%- endif -%}
+ {%- when 'yotpo-social-reviews' -%}
+ <div class="yotpo bottomLine" style="display:inline-block" data-product-id="{{ product.id }}"> </div>
+ {%- when 'aliexpress-reviews-importer'-%}
+ <div id="shop_booster_rate_6" product-id="{{ product.id }}"></div>
+ {%- when 'rivyo-product-review'-%}
+ <div class="wc_product_review_badge" data-handle="{{ product.handle }}" data-product_id="{{ product.id }}"></div>
+ {%-when 'growave' -%}
+ {% capture the_snippet_review_avg %}{% render 'ssw-widget-avg-rate-listing', product: product %}{% endcapture %}
+ {% unless the_snippet_review_avg contains 'Liquid error' %}
+ {{ the_snippet_review_avg }}
+ {% endunless %}
+ {%- when 'smart-aliexpress-reviews'-%}
+ <a href="#scm-reviews-importer">
+ <div id="scm-product-detail-rate" class="scm-reviews-rate" data-rate-version2= {{ product.metafields.scm_review_importer.reviewsData.reviewCountInfo | json}}>
+ </div>
+ </a>
+ {%- when 'photo-reviews' -%}
+ <div id='opinew-stars-plugin-product'>{% render 'opinew_review_stars_product' product:product %}</div>
+ {%- when 'lai-reviews' -%}
+ <div class="scm-reviews-rate" data-rate-version2="{{ product.metafields.scm_review_importer.reviewsData.reviewCountInfo | json | escape }}" data-product-id="{{ product.id }}"></div>
+ {%- when 'product-reviews' -%}
+ <span class="shopify-product-reviews-badge" data-id="{{ product.id }}"></span>
+ {%- when 'rivyo' -%}
+ <div class="wc_product_review_badge" data-handle="{{ product.handle }}" data-product_id="{{ product.id }}"></div>
+ {%- when 'sealapps-product-review' -%}
+ <div class="custom-vstar-rating-widget" product-id="{{ product.id }}"></div>
+ {%- when 'ali-product-review' -%}
+ <div product-id="{{ product.id }}" class="alr-display-review-badge"></div>
+ {%- when 'klaviyo-reviews' -%}
+ <div class="klaviyo-star-rating-widget" data-id="{{product.id}}" data-product-title="{{product.title}}" data-product-type="{{product.type}}"></div>
+ {%- when 'air-reviews' -%}
+ <div class="AirReviews-Widget AirReviews-Widget--Stars" data-review-avg="{{ product.metafields.air_reviews_product.review_avg }}" data-review-count="{{ product.metafields.air_reviews_product.review_count }}"></div>
+ {%- when 'ait-product-reviews' -%}
+ <span class="egg-product-reviews-rating" data-id="{{ product.id }}" id="{{ product.id }}"></span>
+ {%- when 'trustify-reviews' -%}
+ <div
+ class="trustify-review-stars"
+ data-review-type="product"
+ data-product-id="{{ product.id }}"
+ data-product-handle="{{ product.handle }}"
+ data-review-avg="{{ product.metafields.tr_reviews_product.review_avg }}"
+ data-review-count="{{ product.metafields.tr_reviews_product.review_count }}"
+ >
+ </div>
+ {% else %}
+ <p>The rating platform not supported</p>
+ {%-endcase-%}
+ {% endif %}
+ {%- else -%}
+ <div class="ecom-theme-app-extensions-skeleton">
+ <p>Please select the rating platform in settings</p>
+ </div>
+ {%- endif -%}
+ </div></div></div></div> <div class="ecom-block ecom-core core__block elmspace ecom-i6bkwqd53t" data-core-is="block"><div class="ecom__element ecom-element element__text" data-stopdrag="" deep="2"><div class="text-content ecom-html has-drop-cap-view-framed">{{ 'sections.ecom-aus-angus-beef-page.textcontent_i6bkwqd53t_html' | t }}</div></div></div> </div></div></div></div> </div><div class="ecom-section__overlay"><div class="ecom-overlay"></div></div> </div></div> <div class="ecom-block ecom-core core__block elmspace ecom-aqcdjufkxje" data-core-is="block"><div class="ecom__element element__heading ecom-element ecom-html" data-stopdrag="true" deep="1"><h3 class="ecom__heading ecom-db">{{ 'sections.ecom-aus-angus-beef-page.headingtext_aqcdjufkxje_html' | t }}</h3></div></div> <div class="ecom-block ecom-core core__block elmspace ecom-qurnnql73j" data-core-is="block"><div class="ecom__element ecom-element element__text" data-stopdrag="" deep="1"><div class="text-content ecom-html has-drop-cap-view-framed">{{ 'sections.ecom-aus-angus-beef-page.textcontent_qurnnql73j_html' | t }}</div></div></div> <div class="ecom-block ecom-core core__block ecom-fyptv0obkx9" data-core-is="block"><div class="ecom__element ecom-element-button ecom-button-default" deep="1"><a class="ecom__element--button ecom-flex ecom-fl_center ecom-al_center" href="#angus-products"><span class="ecom__element--button-icon-text">{{ 'sections.ecom-aus-angus-beef-page.buttoncontent_fyptv0obkx9_html' | t }}</span><span class="ecom-button-icon ecom__element--button-icon"></span></a></div></div> </div></div></div></div> </div><div class="ecom-section__overlay"><div class="ecom-overlay"></div></div> </section>
+ {% unless ecom_has_variant_picker %}
+ <input type="hidden" name="id" value="{{product.selected_or_first_available_variant.id}}" />
+ <script type="application/json" id="product-json-{{product.id}}-ecom-ykfjopse6p">
+ {%- render "ecom_product_json", product: product -%}
+ </script>
+ {% endunless %}
+ {%- endform -%}
+ {% assign ecom_has_variant_picker = false %}
+ {%- endif -%}
+ <section class="ecom-row ecom-core ecom-section ecom-shio3jm3h8" data-id="ecom-shio3jm3h8" style="z-index: inherit;"><div data-deep="1" class="core__row--columns"><div class="ecom-column ecom-core ecom-mlmk3zpu9mk"><div class="core__column--wrapper"><div class="ecom-column__overlay"><div class="ecom-overlay"></div></div><div class="core__blocks" index="0"><div class="core__blocks--body"><div class="ecom-block ecom-core core__block ecom-qrzfh4mj8np" data-core-is="block"><div class="ecom__element ecom-element element__text" data-stopdrag="" deep="1"><div class="text-content ecom-html has-drop-cap-view-framed">{{ 'sections.ecom-aus-angus-beef-page.textcontent_qrzfh4mj8np_html' | t }}</div></div></div> </div></div></div></div> </div><div class="ecom-section__overlay"><div class="ecom-overlay"></div></div> </section><section class="ecom-row ecom-core ecom-section ecom-c06cecdmp6w" data-id="ecom-c06cecdmp6w" style="z-index: inherit;"><div data-deep="1" class="core__row--columns"><div class="ecom-column ecom-core ecom-t25719kf46h"><div class="core__column--wrapper"><div class="ecom-column__overlay"><div class="ecom-overlay"></div></div><div class="core__blocks" index="0"><div class="core__blocks--body"><div class="ecom-block ecom-core core__block elmspace ecom-eu063iw4sot" data-core-is="block"><div class="ecom__element element__heading ecom-element ecom-html" data-stopdrag="true" deep="1"><h3 class="ecom__heading ecom-db">{{ 'sections.ecom-aus-angus-beef-page.headingtext_eu063iw4sot_html' | t }}</h3></div></div> <div class="ecom-block ecom-core core__block ecom-v6rmdzptkm" data-core-is="block"><div class="ecom__element ecom-element element__text" data-stopdrag="" deep="1"><div class="text-content ecom-html has-drop-cap-view-framed">{{ 'sections.ecom-aus-angus-beef-page.textcontent_v6rmdzptkm_html' | t }}</div></div></div> <div class="ecom-block ecom-core core__block elmspace ecom-pr0cfjlokjb" data-core-is="group"><div class="ecom-elements ecom-base-element ecom-elements-slider"><div class="ecom-core ecom-group core__block ecom-9jmdf5nfame"> <div class="core__group--wrapper" data-r="" style=""><div class="ecom-slider--container"><div class="ecom-element ecom-slider slider__body ecom-swiper-container" data-option-swiper="{&quot;direction&quot;:&quot;horizontal&quot;,&quot;freeMode&quot;:false,&quot;loop&quot;:false,&quot;breakpoints&quot;:{&quot;0&quot;:{&quot;slidesPerView&quot;:1},&quot;768&quot;:{&quot;slidesPerView&quot;:3},&quot;1025&quot;:{&quot;slidesPerView&quot;:3,&quot;spaceBetween&quot;:0}},&quot;autoplay&quot;:{&quot;enabled&quot;:false,&quot;delay&quot;:6000,&quot;pauseOnMouseEnter&quot;:false,&quot;disableOnInteraction&quot;:false,&quot;reverseDirection&quot;:false},&quot;speed&quot;:500,&quot;effect&quot;:&quot;slide&quot;,&quot;grabCursor&quot;:true,&quot;slideActiveClass&quot;:&quot;ecom-box-active&quot;,&quot;centeredSlides&quot;:false,&quot;watchOverflow&quot;:true,&quot;autoHeight&quot;:false,&quot;cubeEffect&quot;:{&quot;slideShadows&quot;:true,&quot;shadowOffset&quot;:20},&quot;creativeEffect&quot;:{},&quot;fadeEffect&quot;:{&quot;crossFade&quot;:true},&quot;pagination&quot;:{&quot;el&quot;:&quot;.ecom-swiper-pagination&quot;,&quot;type&quot;:&quot;bullets&quot;,&quot;clickable&quot;:true},&quot;navigation&quot;:{&quot;nextEl&quot;:&quot;.ecom-swiper-button-next&quot;,&quot;prevEl&quot;:&quot;.ecom-swiper-button-prev&quot;},&quot;slidesPerGroup&quot;:1}"><div class="ecom-swiper-wrapper"><div class="ecom-swiper-slide"><div class="ecom-content-item"><div class="ecom-content-item__container ecom-transition-undefined"><div class="core__blocks" index="0"><div class="core__blocks--body"><div class="ecom-block ecom-core core__block elmspace ecom-whn8pvk56s" data-core-is="row"><div class="ecom-row ecom-core core__block ecom-cx9mcp3ezx" data-id="ecom-cx9mcp3ezx" style="z-index: inherit;"><div data-deep="2" class="core__row--columns"><div class="ecom-column ecom-core ecom-q28xdrkyw6r"><div class="core__column--wrapper"><div class="ecom-column__overlay"><div class="ecom-overlay"></div></div><div class="core__blocks" index="0"><div class="core__blocks--body"><div class="ecom-block ecom-core core__block elmspace ecom-xyq9818hc8" data-core-is="block"><div class="ecom-element ecom-base-image" deep="2"><figure><div class="ecom-container-image ecom-image-align" data-stopdrag=""><div data-stopdrag="" class="ecom-image-content-position ecom-image-default ecom-base-image-container-overlay" style=""><picture class="ecom-image-picture"><source media="(max-width: 767px)" srcset="https://cdn.shopify.com/s/files/1/0285/3732/3629/files/Asset_23.png?v=1678008602&amp;width=200&amp;height=200&amp;crop=center"><img loading="lazy" fetchpriority="low" src="https://cdn.shopify.com/s/files/1/0285/3732/3629/files/Asset_23.png?v=1678008602&amp;width=200&amp;height=200&amp;crop=center" alt="Asset_23"></picture></div></div></figure></div></div> <div class="ecom-block ecom-core core__block ecom-pbdrz69eq0g" data-core-is="block"><div class="ecom__element element__heading ecom-element ecom-html" data-stopdrag="true" deep="2"><h2 class="ecom__heading ecom-db">{{ 'sections.ecom-aus-angus-beef-page.headingtext_pbdrz69eq0g_html' | t }}</h2></div></div> </div></div></div></div> </div><div class="ecom-section__overlay"><div class="ecom-overlay"></div></div> </div></div> </div></div></div></div></div><div class="ecom-swiper-slide"><div class="ecom-content-item"><div class="ecom-content-item__container ecom-transition-undefined"><div class="core__blocks" index="1"><div class="core__blocks--body"><div class="ecom-block ecom-core core__block elmspace ecom-wxdttd0i74" data-core-is="row"><div class="ecom-row ecom-core core__block ecom-qebtmp7tt2" data-id="ecom-qebtmp7tt2" style="z-index: inherit;"><div data-deep="2" class="core__row--columns"><div class="ecom-column ecom-core ecom-dh0939cw64k"><div class="core__column--wrapper"><div class="ecom-column__overlay"><div class="ecom-overlay"></div></div><div class="core__blocks" index="0"><div class="core__blocks--body"><div class="ecom-block ecom-core core__block elmspace ecom-krhr5feccke" data-core-is="block"><div class="ecom-element ecom-base-image" deep="2"><figure><div class="ecom-container-image ecom-image-align" data-stopdrag=""><div data-stopdrag="" class="ecom-image-content-position ecom-image-default ecom-base-image-container-overlay" style=""><picture class="ecom-image-picture"><source media="(max-width: 767px)" srcset="https://cdn.shopify.com/s/files/1/0285/3732/3629/files/Asset_2.png?v=1678008548&amp;width=200&amp;height=200&amp;crop=center"><img loading="lazy" fetchpriority="low" src="https://cdn.shopify.com/s/files/1/0285/3732/3629/files/Asset_2.png?v=1678008548&amp;width=200&amp;height=200&amp;crop=center" alt="Asset_2"></picture></div></div></figure></div></div> <div class="ecom-block ecom-core core__block ecom-7xh4mppfa3" data-core-is="block"><div class="ecom__element element__heading ecom-element ecom-html" data-stopdrag="true" deep="2"><h2 class="ecom__heading ecom-db">{{ 'sections.ecom-aus-angus-beef-page.headingtext_7xh4mppfa3_html' | t }}</h2></div></div> </div></div></div></div> </div><div class="ecom-section__overlay"><div class="ecom-overlay"></div></div> </div></div> </div></div></div></div></div><div class="ecom-swiper-slide"><div class="ecom-content-item"><div class="ecom-content-item__container ecom-transition-undefined"><div class="core__blocks" index="2"><div class="core__blocks--body"><div class="ecom-block ecom-core core__block elmspace ecom-r7wysy85ire" data-core-is="row"><div class="ecom-row ecom-core core__block ecom-o1d1dr7t12" data-id="ecom-o1d1dr7t12" style="z-index: inherit;"><div data-deep="2" class="core__row--columns"><div class="ecom-column ecom-core ecom-yen7p2n0qxj"><div class="core__column--wrapper"><div class="ecom-column__overlay"><div class="ecom-overlay"></div></div><div class="core__blocks" index="0"><div class="core__blocks--body"><div class="ecom-block ecom-core core__block elmspace ecom-iliw4y5im9i" data-core-is="block"><div class="ecom-element ecom-base-image" deep="2"><figure><div class="ecom-container-image ecom-image-align" data-stopdrag=""><div data-stopdrag="" class="ecom-image-content-position ecom-image-default ecom-base-image-container-overlay" style=""><a href="https://cdn.shopify.com/s/files/1/0285/3732/3629/files/Asset_3.png?v=1678008575&amp;width=200&amp;height=200&amp;crop=center" class="ecom-image-picture-link ecom-image-picture ecom-base-image-container-overlay ecom-flex"><picture><source media="(max-width: 767px)" srcset="https://cdn.shopify.com/s/files/1/0285/3732/3629/files/Asset_3.png?v=1678008575&amp;width=200&amp;height=200&amp;crop=center"><img loading="lazy" fetchpriority="low" src="https://cdn.shopify.com/s/files/1/0285/3732/3629/files/Asset_3.png?v=1678008575&amp;width=200&amp;height=200&amp;crop=center" alt="Asset_3"></picture></a></div></div></figure></div></div> <div class="ecom-block ecom-core core__block ecom-2rp4d05ijuu" data-core-is="block"><div class="ecom__element element__heading ecom-element ecom-html" data-stopdrag="true" deep="2"><h2 class="ecom__heading ecom-db">{{ 'sections.ecom-aus-angus-beef-page.headingtext_2rp4d05ijuu_html' | t }}</h2></div></div> </div></div></div></div> </div><div class="ecom-section__overlay"><div class="ecom-overlay"></div></div> </div></div> </div></div></div></div></div></div></div><div class="ecom-swiper-navigation-position" style="display: none;"><button type="button" class="ecom-swiper-button ecom-swiper-button-prev" data-ecnav-id="ecom-9jmdf5nfame" style="--ecom-position: unset; --ecom-position__tablet: unset; --ecom-position__mobile: unset;"><svg xmlns="http: //www.w3.org/2000/svg" width="52" height="52" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevron-left"><polyline points="15 18 9 12 15 6"></polyline></svg></button><button type="button" class="ecom-swiper-button ecom-swiper-button-next" data-ecnav-id="ecom-9jmdf5nfame" style="--ecom-position: unset; --ecom-position__tablet: unset; --ecom-position__mobile: unset;"><svg xmlns="http://www.w3.org/2000/svg" width="52" height="52" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevron-right"><polyline points="9 18 15 12 9 6"></polyline></svg></button></div><div data-position="bottom_center" data-ecnav-id="ecom-9jmdf5nfame" class="ecom-swiper-pagination-position ecom-swiper-pagination"></div></div></div> </div></div></div> </div></div></div></div> </div><div class="ecom-section__overlay"><div class="ecom-overlay"></div></div> </section><section class="ecom-row ecom-core ecom-section ecom-ppveysgae5" data-id="ecom-ppveysgae5" style="z-index: inherit;"><div data-deep="1" class="core__row--columns core__row--full"><div class="ecom-column ecom-core ecom-wosi13obbnj"><div class="core__column--wrapper"><div class="ecom-column__overlay"><div class="ecom-overlay"></div></div><div class="core__blocks" index="0"><div class="core__blocks--body"><div class="ecom-block ecom-core core__block elmspace ecom-t2kh896odve" data-core-is="block"><div class="ecom__element ecom-element__banner" deep="1"><div class="ecom-banner__hzoom ecom-masonry__nt_promotion ecom-image-default"><div class="ecom-banner__overlay ecom-overlay"></div><picture class="ecom-banner__image-picture"><source media="(max-width: 767px)" srcset="https://cdn.shopify.com/s/files/1/0285/3732/3629/files/2.jpg?v=1678199769"><img loading="lazy" fetchpriority="low" src="https://cdn.shopify.com/s/files/1/0285/3732/3629/files/1_a28b5710-55db-468e-b569-ddd589cb5b0a.jpg?v=1678199655" id="gid://shopify/MediaImage/22229733113965" name="1_a28b5710-55db-468e-b569-ddd589cb5b0a" ext="jpg" url="https://cdn.shopify.com/s/files/1/0285/3732/3629/files/1_a28b5710-55db-468e-b569-ddd589cb5b0a.jpg?v=1678199655" thumbnail="https://cdn.shopify.com/s/files/1/0285/3732/3629/files/1_a28b5710-55db-468e-b569-ddd589cb5b0a.jpg?v=1678199655" thumbnail__mobile="https://cdn.shopify.com/s/files/1/0285/3732/3629/files/2.jpg?v=1678199769" alt="1_a28b5710-55db-468e-b569-ddd589cb5b0a" style=""></picture><div class="ecom-masonry__nt_promotion_html ecom-t__0 ecom-l__0 ecom-r__0 ecom-b__0 ecom-flex ecom-w__100" style="align-items: flex-start;"><div class="ecom-banner_wrap_html_block ecom-flex ecom-column ecom-horizontal-left"><h3 class="ecom-banner__heading">{{ 'sections.ecom-aus-angus-beef-page.banner_heading_t2kh896odve_html' | t }}</h3><div class="ecom-banner__content">{{ 'sections.ecom-aus-angus-beef-page.banner_content_t2kh896odve_html' | t }}</div><a class="ecom-banner__button ecom__element--button pe_auto ecom-flex ecom-fl_center ecom-al_center" href="#angus-products"><span class="ecom-banner__button--text">{{ 'sections.ecom-aus-angus-beef-page.banner_button_title_t2kh896odve_html' | t }}</span></a></div></div></div></div></div> </div></div></div></div> </div><div class="ecom-section__overlay"><div class="ecom-overlay"></div></div> </section><section class="ecom-row ecom-core ecom-section ecom-pg0wophe0k" data-id="ecom-pg0wophe0k" style="z-index: inherit;"><div data-deep="1" class="core__row--columns"><div class="ecom-column ecom-core ecom-njp979y704c"><div class="core__column--wrapper"><div class="ecom-column__overlay"><div class="ecom-overlay"></div></div><div class="core__blocks" index="0"><div class="core__blocks--body"><div class="ecom-block ecom-core core__block elmspace ecom-e86a006su07" data-core-is="block"><div class="ecom__element element__heading ecom-element ecom-html" data-stopdrag="true" deep="1"><h3 class="ecom__heading ecom-db">{{ 'sections.ecom-aus-angus-beef-page.headingtext_e86a006su07_html' | t }}</h3></div></div> </div></div></div></div> </div><div class="ecom-section__overlay"><div class="ecom-overlay"></div></div> </section><section class="ecom-row ecom-core ecom-section ecom-8xa8p5igfzc" data-id="ecom-8xa8p5igfzc" style="z-index: inherit;"><div data-deep="1" class="core__row--columns"><div class="ecom-column ecom-core ecom-fc1u7gyks6"><div class="core__column--wrapper"><div class="ecom-column__overlay"><div class="ecom-overlay"></div></div><div class="core__blocks" index="0"><div class="core__blocks--body"><div class="ecom-block ecom-core core__block elmspace ecom-heqaqq46fo6" data-core-is="row"><div class="ecom-row ecom-core core__block ecom-xvsr9zfmpni" data-id="ecom-xvsr9zfmpni" style="z-index: inherit;"><div data-deep="2" class="core__row--columns"><div class="ecom-column ecom-core ecom-uut9gtq016l"><div class="core__column--wrapper"><div class="ecom-column__overlay"><div class="ecom-overlay"></div></div><div class="core__blocks" index="0"><div class="core__blocks--body"><div class="ecom-block ecom-core core__block elmspace ecom-33oigieht16" data-core-is="block"><div class="ecom__element element__heading ecom-element ecom-html" data-stopdrag="true" deep="2"><h3 class="ecom__heading ecom-db">{{ 'sections.ecom-aus-angus-beef-page.headingtext_33oigieht16_html' | t }}</h3></div></div> <div class="ecom-block ecom-core core__block ecom-fwrxzr0p3ws hide-on-mobile" data-core-is="block"><div class="ecom__element ecom-element element__featured ecom-html" deep="2"><div class="element__featured--wrapper"><div class="element__featured--box"><div class="ecom-image-align ecom-flex" href="#"><figure class="element__featured--box-img ecom-image-default"><img alt="Fresh_84b3fced-6007-4ce4-a560-219201541234" src="https://cdn.shopify.com/s/files/1/0821/0202/6556/files/Fresh_84b3fced-6007-4ce4-a560-219201541234.png?v=1720019726"></figure></div><div class="element__featured--box-content ecom-w__full"><h2 class="element__featured--box-title" href="#">{{ 'sections.ecom-aus-angus-beef-page.title0_fwrxzr0p3ws_html' | t }}</h2><div class="ecom-button-default"></div></div></div><div class="element__featured--box"><div class="ecom-image-align ecom-flex" href="#"><figure class="element__featured--box-img ecom-image-default"><img alt="Delivered-in-a-Box_82eb6b22-d165-4bab-a8ab-589f3bd7974f" src="https://cdn.shopify.com/s/files/1/0821/0202/6556/files/Delivered-in-a-Box_82eb6b22-d165-4bab-a8ab-589f3bd7974f.png?v=1720019726"></figure></div><div class="element__featured--box-content ecom-w__full"><h2 class="element__featured--box-title" href="#">{{ 'sections.ecom-aus-angus-beef-page.title1_fwrxzr0p3ws_html' | t }}</h2><div class="ecom-button-default"></div></div></div><div class="element__featured--box"><div class="ecom-image-align ecom-flex" href="#"><figure class="element__featured--box-img ecom-image-default"><img alt="Hormone-Free" src="https://cdn.shopify.com/s/files/1/0821/0202/6556/files/Hormone-Free.png?v=1720019726"></figure></div><div class="element__featured--box-content ecom-w__full"><h2 class="element__featured--box-title" href="#">{{ 'sections.ecom-aus-angus-beef-page.title2_fwrxzr0p3ws_html' | t }}</h2><div class="ecom-button-default"></div></div></div><div class="element__featured--box"><div class="ecom-image-align ecom-flex" href="#"><figure class="element__featured--box-img ecom-image-default"><img alt="Halal_48d3822c-dfd1-403e-a3b5-d3d9b00a74ef" src="https://cdn.shopify.com/s/files/1/0821/0202/6556/files/Halal_48d3822c-dfd1-403e-a3b5-d3d9b00a74ef.png?v=1720019726"></figure></div><div class="element__featured--box-content ecom-w__full"><h2 class="element__featured--box-title" href="#">{{ 'sections.ecom-aus-angus-beef-page.title3_fwrxzr0p3ws_html' | t }}</h2><div class="ecom-button-default"></div></div></div></div></div></div> <div class="ecom-block ecom-core core__block ecom-3jx6a9qks9e hide-on-desktop hide-on-tablet" data-core-is="block"><div class="ecom__element ecom-element element__featured ecom-html" deep="2"><div class="element__featured--wrapper"><div class="element__featured--box"><div class="ecom-image-align ecom-flex" href="#"><figure class="element__featured--box-img ecom-image-default"><img alt="Fresh_84b3fced-6007-4ce4-a560-219201541234" src="https://cdn.shopify.com/s/files/1/0821/0202/6556/files/Fresh_84b3fced-6007-4ce4-a560-219201541234.png?v=1720019726"></figure></div><div class="element__featured--box-content ecom-w__full"><h2 class="element__featured--box-title" href="#">{{ 'sections.ecom-aus-angus-beef-page.title0_3jx6a9qks9e_html' | t }}</h2><div class="ecom-button-default"></div></div></div><div class="element__featured--box"><div class="ecom-image-align ecom-flex" href="#"><figure class="element__featured--box-img ecom-image-default"><img alt="Delivered-in-a-Box_82eb6b22-d165-4bab-a8ab-589f3bd7974f" src="https://cdn.shopify.com/s/files/1/0821/0202/6556/files/Delivered-in-a-Box_82eb6b22-d165-4bab-a8ab-589f3bd7974f.png?v=1720019726"></figure></div><div class="element__featured--box-content ecom-w__full"><h2 class="element__featured--box-title" href="#">{{ 'sections.ecom-aus-angus-beef-page.title1_3jx6a9qks9e_html' | t }}</h2><div class="ecom-button-default"></div></div></div><div class="element__featured--box"><div class="ecom-image-align ecom-flex" href="#"><figure class="element__featured--box-img ecom-image-default"><img alt="Halal_48d3822c-dfd1-403e-a3b5-d3d9b00a74ef" src="https://cdn.shopify.com/s/files/1/0821/0202/6556/files/Halal_48d3822c-dfd1-403e-a3b5-d3d9b00a74ef.png?v=1720019726"></figure></div><div class="element__featured--box-content ecom-w__full"><h2 class="element__featured--box-title" href="#">{{ 'sections.ecom-aus-angus-beef-page.title2_3jx6a9qks9e_html' | t }}</h2><div class="ecom-button-default"></div></div></div></div></div></div> </div></div></div></div> </div><div class="ecom-section__overlay"><div class="ecom-overlay"></div></div> </div></div> </div></div></div></div> </div><div class="ecom-section__overlay"><div class="ecom-overlay"></div></div> </section><section class="ecom-row ecom-core ecom-section ecom-u202lspkrh9" data-id="ecom-u202lspkrh9" style="z-index: inherit;"><div data-deep="1" class="core__row--columns core__row--full"><div class="ecom-column ecom-core ecom-1zxmcm5pgia"><div class="core__column--wrapper"><div class="ecom-column__overlay"><div class="ecom-overlay"></div></div><div class="core__blocks" index="0"><div class="core__blocks--body"><div class="ecom-block ecom-core core__block elmspace ecom-49lw97qyv75" data-core-is="block"><div class="ecom__element element__heading ecom-element ecom-html" data-stopdrag="true" deep="1"><h3 class="ecom__heading ecom-db">{{ 'sections.ecom-aus-angus-beef-page.headingtext_49lw97qyv75_html' | t }}</h3></div></div> <div class="ecom-block ecom-core core__block elmspace ecom-j270q5zfrcb" data-core-is="group"><div class="ecom-elements ecom-base-element ecom-elements-slider"><div class="ecom-core ecom-group core__block ecom-s2wbnt8x2gj"> <div class="core__group--wrapper" data-r="" style=""><div class="ecom-slider--container"><div class="ecom-element ecom-slider slider__body ecom-swiper-container ecom-slider-not-custom-height" data-option-swiper="{&quot;direction&quot;:&quot;horizontal&quot;,&quot;freeMode&quot;:false,&quot;loop&quot;:false,&quot;breakpoints&quot;:{&quot;0&quot;:{},&quot;768&quot;:{},&quot;1025&quot;:{}},&quot;autoplay&quot;:{&quot;enabled&quot;:false,&quot;delay&quot;:6000,&quot;pauseOnMouseEnter&quot;:false,&quot;disableOnInteraction&quot;:false,&quot;reverseDirection&quot;:false},&quot;speed&quot;:500,&quot;effect&quot;:&quot;slide&quot;,&quot;grabCursor&quot;:true,&quot;slideActiveClass&quot;:&quot;ecom-box-active&quot;,&quot;centeredSlides&quot;:false,&quot;watchOverflow&quot;:true,&quot;autoHeight&quot;:true,&quot;cubeEffect&quot;:{&quot;slideShadows&quot;:true,&quot;shadowOffset&quot;:20},&quot;creativeEffect&quot;:{},&quot;fadeEffect&quot;:{&quot;crossFade&quot;:true},&quot;pagination&quot;:{&quot;el&quot;:&quot;.ecom-swiper-pagination&quot;,&quot;type&quot;:&quot;bullets&quot;,&quot;clickable&quot;:true},&quot;navigation&quot;:{&quot;nextEl&quot;:&quot;.ecom-swiper-button-next&quot;,&quot;prevEl&quot;:&quot;.ecom-swiper-button-prev&quot;},&quot;slidesPerView&quot;:1,&quot;slidesPerGroup&quot;:1}"><div class="ecom-swiper-wrapper"><div class="ecom-swiper-slide"><div class="ecom-content-item"><div class="ecom-content-item__container ecom-transition-undefined"><div class="core__blocks" index="0"><div class="core__blocks--body"><div class="ecom-block ecom-core core__block ecom-46mqf4nxc77" data-core-is="block"><div class="ecom__element element__video ecom-element" deep="1"><div class="ecom-element_video-iframe ecom-element-overlay"><video id="ecom-elements__popup-video-ecom-46mqf4nxc77" class="ecom_video" controls="" autoplay="" playsinline="true" preload="true" muted="" style="display: flex !important;"><source src="https://cdn.shopify.com/videos/c/o/v/3224f02914db4d79a6c38acc056d1d22.mp4#t=," data-source="https://cdn.shopify.com/videos/c/o/v/3224f02914db4d79a6c38acc056d1d22.mp4#t=,"></video></div></div></div> </div></div></div></div></div></div></div><div class="ecom-swiper-navigation-position" data-position="center"><button type="button" class="ecom-swiper-button ecom-swiper-button-prev" data-ecnav-id="ecom-s2wbnt8x2gj" style="--ecom-position: absolute; --ecom-position__tablet: absolute; --ecom-position__mobile: absolute;"><svg xmlns="http: //www.w3.org/2000/svg" width="52" height="52" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevron-left"><polyline points="15 18 9 12 15 6"></polyline></svg></button><button type="button" class="ecom-swiper-button ecom-swiper-button-next" data-ecnav-id="ecom-s2wbnt8x2gj" style="--ecom-position: absolute; --ecom-position__tablet: absolute; --ecom-position__mobile: absolute;"><svg xmlns="http://www.w3.org/2000/svg" width="52" height="52" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevron-right"><polyline points="9 18 15 12 9 6"></polyline></svg></button></div><div data-position="bottom_center" data-ecnav-id="ecom-s2wbnt8x2gj" class="ecom-swiper-pagination-position ecom-swiper-pagination"></div></div></div> </div></div></div> <div class="ecom-block ecom-core core__block ecom-vrwx8fgjef" data-core-is="block"><div class="ecom__element ecom-element element__text" data-stopdrag="" deep="1"><div class="text-content ecom-html has-drop-cap-view-framed">{{ 'sections.ecom-aus-angus-beef-page.textcontent_vrwx8fgjef_html' | t }}</div></div></div> </div></div></div></div> </div><div class="ecom-section__overlay"><div class="ecom-overlay"></div></div> </section><section class="ecom-row ecom-core ecom-section ecom-z4iqrt7w8y" data-id="ecom-z4iqrt7w8y" style="z-index: inherit;"><div data-deep="1" class="core__row--columns core__row--full"><div class="ecom-column ecom-core ecom-zyqt5zom7c"><div class="core__column--wrapper"><div class="ecom-column__overlay"><div class="ecom-overlay"></div></div><div class="core__blocks" index="0"><div class="core__blocks--body"><div class="ecom-block ecom-core core__block elmspace ecom-5h207m2sghk" data-core-is="block"><div class="ecom__element element__heading ecom-element ecom-html" data-stopdrag="true" deep="1"><h3 class="ecom__heading ecom-db">{{ 'sections.ecom-aus-angus-beef-page.headingtext_5h207m2sghk_html' | t }}</h3></div></div> <div class="ecom-block ecom-core core__block ecom-ixm289283em" data-core-is="block"><div class="ecom__element ecom-element ecom-testimonials" deep="1"><div class="ecom-testimonials--container"><div class="ecom__testimonials ecom-html ecom-swiper-container ecom-d-hide" data-option-swiper="{&quot;direction&quot;:&quot;horizontal&quot;,&quot;freeMode&quot;:false,&quot;loop&quot;:true,&quot;breakpoints&quot;:{&quot;0&quot;:{&quot;slidesPerView&quot;:1,&quot;spaceBetween&quot;:0},&quot;768&quot;:{&quot;slidesPerView&quot;:1,&quot;spaceBetween&quot;:30},&quot;1025&quot;:{&quot;slidesPerView&quot;:1,&quot;spaceBetween&quot;:100}},&quot;autoplay&quot;:{&quot;enabled&quot;:false,&quot;delay&quot;:4000,&quot;pauseOnMouseEnter&quot;:true,&quot;disableOnInteraction&quot;:false,&quot;reverseDirection&quot;:false},&quot;speed&quot;:500,&quot;effect&quot;:&quot;slide&quot;,&quot;grabCursor&quot;:true,&quot;slideActiveClass&quot;:&quot;ecom-box-active&quot;,&quot;centeredSlides&quot;:false,&quot;watchOverflow&quot;:true,&quot;autoHeight&quot;:true,&quot;cubeEffect&quot;:{&quot;slideShadows&quot;:true,&quot;shadowOffset&quot;:20},&quot;creativeEffect&quot;:{},&quot;fadeEffect&quot;:{&quot;crossFade&quot;:true},&quot;pagination&quot;:{&quot;el&quot;:&quot;.ecom-swiper-pagination&quot;,&quot;type&quot;:&quot;bullets&quot;,&quot;clickable&quot;:true},&quot;navigation&quot;:{&quot;nextEl&quot;:&quot;.ecom-swiper-button-next&quot;,&quot;prevEl&quot;:&quot;.ecom-swiper-button-prev&quot;}}"><div class="ecom-swiper-wrapper ecom__testimonials-slider-horizontal"><div class="ecom-swiper-slide"><div class="testimonial-content" style=""><div class="testimonial-content-prag" style="order: 3;">{{ 'sections.ecom-aus-angus-beef-page.text0_ixm289283em_html' | t }}</div><div class="testimonial-rating ecom-icon-list" style="order: 1;"><span class="ecom-icon-active"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512" fill="currentColor"><path d="M381.2 150.3L524.9 171.5C536.8 173.2 546.8 181.6 550.6 193.1C554.4 204.7 551.3 217.3 542.7 225.9L438.5 328.1L463.1 474.7C465.1 486.7 460.2 498.9 450.2 506C440.3 513.1 427.2 514 416.5 508.3L288.1 439.8L159.8 508.3C149 514 135.9 513.1 126 506C116.1 498.9 111.1 486.7 113.2 474.7L137.8 328.1L33.58 225.9C24.97 217.3 21.91 204.7 25.69 193.1C29.46 181.6 39.43 173.2 51.42 171.5L195 150.3L259.4 17.97C264.7 6.954 275.9-.0391 288.1-.0391C300.4-.0391 311.6 6.954 316.9 17.97L381.2 150.3z"></path></svg></span><span class="ecom-icon-active"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512" fill="currentColor"><path d="M381.2 150.3L524.9 171.5C536.8 173.2 546.8 181.6 550.6 193.1C554.4 204.7 551.3 217.3 542.7 225.9L438.5 328.1L463.1 474.7C465.1 486.7 460.2 498.9 450.2 506C440.3 513.1 427.2 514 416.5 508.3L288.1 439.8L159.8 508.3C149 514 135.9 513.1 126 506C116.1 498.9 111.1 486.7 113.2 474.7L137.8 328.1L33.58 225.9C24.97 217.3 21.91 204.7 25.69 193.1C29.46 181.6 39.43 173.2 51.42 171.5L195 150.3L259.4 17.97C264.7 6.954 275.9-.0391 288.1-.0391C300.4-.0391 311.6 6.954 316.9 17.97L381.2 150.3z"></path></svg></span><span class="ecom-icon-active"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512" fill="currentColor"><path d="M381.2 150.3L524.9 171.5C536.8 173.2 546.8 181.6 550.6 193.1C554.4 204.7 551.3 217.3 542.7 225.9L438.5 328.1L463.1 474.7C465.1 486.7 460.2 498.9 450.2 506C440.3 513.1 427.2 514 416.5 508.3L288.1 439.8L159.8 508.3C149 514 135.9 513.1 126 506C116.1 498.9 111.1 486.7 113.2 474.7L137.8 328.1L33.58 225.9C24.97 217.3 21.91 204.7 25.69 193.1C29.46 181.6 39.43 173.2 51.42 171.5L195 150.3L259.4 17.97C264.7 6.954 275.9-.0391 288.1-.0391C300.4-.0391 311.6 6.954 316.9 17.97L381.2 150.3z"></path></svg></span><span class="ecom-icon-active"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512" fill="currentColor"><path d="M381.2 150.3L524.9 171.5C536.8 173.2 546.8 181.6 550.6 193.1C554.4 204.7 551.3 217.3 542.7 225.9L438.5 328.1L463.1 474.7C465.1 486.7 460.2 498.9 450.2 506C440.3 513.1 427.2 514 416.5 508.3L288.1 439.8L159.8 508.3C149 514 135.9 513.1 126 506C116.1 498.9 111.1 486.7 113.2 474.7L137.8 328.1L33.58 225.9C24.97 217.3 21.91 204.7 25.69 193.1C29.46 181.6 39.43 173.2 51.42 171.5L195 150.3L259.4 17.97C264.7 6.954 275.9-.0391 288.1-.0391C300.4-.0391 311.6 6.954 316.9 17.97L381.2 150.3z"></path></svg></span><span class="ecom-icon-active"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512" fill="currentColor"><path d="M381.2 150.3L524.9 171.5C536.8 173.2 546.8 181.6 550.6 193.1C554.4 204.7 551.3 217.3 542.7 225.9L438.5 328.1L463.1 474.7C465.1 486.7 460.2 498.9 450.2 506C440.3 513.1 427.2 514 416.5 508.3L288.1 439.8L159.8 508.3C149 514 135.9 513.1 126 506C116.1 498.9 111.1 486.7 113.2 474.7L137.8 328.1L33.58 225.9C24.97 217.3 21.91 204.7 25.69 193.1C29.46 181.6 39.43 173.2 51.42 171.5L195 150.3L259.4 17.97C264.7 6.954 275.9-.0391 288.1-.0391C300.4-.0391 311.6 6.954 316.9 17.97L381.2 150.3z"></path></svg></span></div><div class="testimonial-info ecom-column-center" style="order: 2;"><div class="testimonial-info-avatar ecom-image-align"></div><div><h3 class="testimonial-content-name">{{ 'sections.ecom-aus-angus-beef-page.name0_ixm289283em_html' | t }}</h3><h4 class="testimonial-content-title">{{ 'sections.ecom-aus-angus-beef-page.title0_ixm289283em_html' | t }}</h4></div></div></div></div><div class="ecom-swiper-slide"><div class="testimonial-content" style=""><div class="testimonial-content-prag" style="order: 3;">{{ 'sections.ecom-aus-angus-beef-page.text1_ixm289283em_html' | t }}</div><div class="testimonial-rating ecom-icon-list" style="order: 1;"><span class="ecom-icon-active"><svg version="1.1" id="lni_lni-star-fill" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 64 64" style="enable-background:new 0 0 64 64;" xml:space="preserve" fill="currentColor">
+<path d="M59.7,23.9l-18.1-2.8L33.4,3.9c-0.6-1.2-2.2-1.2-2.8,0l-8.2,17.3L4.4,23.9c-1.3,0.2-1.8,1.9-0.8,2.8l13.1,13.5l-3.1,18.9
+	c-0.2,1.3,1.1,2.4,2.3,1.6l16.3-8.9l16.2,8.9c1.1,0.6,2.5-0.4,2.2-1.6l-3.1-18.9l13.1-13.5C61.4,25.8,61,24.1,59.7,23.9z"></path>
+</svg></span><span class="ecom-icon-active"><svg version="1.1" id="lni_lni-star-fill" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 64 64" style="enable-background:new 0 0 64 64;" xml:space="preserve" fill="currentColor">
+<path d="M59.7,23.9l-18.1-2.8L33.4,3.9c-0.6-1.2-2.2-1.2-2.8,0l-8.2,17.3L4.4,23.9c-1.3,0.2-1.8,1.9-0.8,2.8l13.1,13.5l-3.1,18.9
+	c-0.2,1.3,1.1,2.4,2.3,1.6l16.3-8.9l16.2,8.9c1.1,0.6,2.5-0.4,2.2-1.6l-3.1-18.9l13.1-13.5C61.4,25.8,61,24.1,59.7,23.9z"></path>
+</svg></span><span class="ecom-icon-active"><svg version="1.1" id="lni_lni-star-fill" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 64 64" style="enable-background:new 0 0 64 64;" xml:space="preserve" fill="currentColor">
+<path d="M59.7,23.9l-18.1-2.8L33.4,3.9c-0.6-1.2-2.2-1.2-2.8,0l-8.2,17.3L4.4,23.9c-1.3,0.2-1.8,1.9-0.8,2.8l13.1,13.5l-3.1,18.9
+	c-0.2,1.3,1.1,2.4,2.3,1.6l16.3-8.9l16.2,8.9c1.1,0.6,2.5-0.4,2.2-1.6l-3.1-18.9l13.1-13.5C61.4,25.8,61,24.1,59.7,23.9z"></path>
+</svg></span><span class="ecom-icon-active"><svg version="1.1" id="lni_lni-star-fill" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 64 64" style="enable-background:new 0 0 64 64;" xml:space="preserve" fill="currentColor">
+<path d="M59.7,23.9l-18.1-2.8L33.4,3.9c-0.6-1.2-2.2-1.2-2.8,0l-8.2,17.3L4.4,23.9c-1.3,0.2-1.8,1.9-0.8,2.8l13.1,13.5l-3.1,18.9
+	c-0.2,1.3,1.1,2.4,2.3,1.6l16.3-8.9l16.2,8.9c1.1,0.6,2.5-0.4,2.2-1.6l-3.1-18.9l13.1-13.5C61.4,25.8,61,24.1,59.7,23.9z"></path>
+</svg></span><span class="ecom-icon-active"><svg version="1.1" id="lni_lni-star-fill" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 64 64" style="enable-background:new 0 0 64 64;" xml:space="preserve" fill="currentColor">
+<path d="M59.7,23.9l-18.1-2.8L33.4,3.9c-0.6-1.2-2.2-1.2-2.8,0l-8.2,17.3L4.4,23.9c-1.3,0.2-1.8,1.9-0.8,2.8l13.1,13.5l-3.1,18.9
+	c-0.2,1.3,1.1,2.4,2.3,1.6l16.3-8.9l16.2,8.9c1.1,0.6,2.5-0.4,2.2-1.6l-3.1-18.9l13.1-13.5C61.4,25.8,61,24.1,59.7,23.9z"></path>
+</svg></span></div><div class="testimonial-info ecom-column-center" style="order: 2;"><div class="testimonial-info-avatar ecom-image-align"></div><div><h3 class="testimonial-content-name">{{ 'sections.ecom-aus-angus-beef-page.name1_ixm289283em_html' | t }}</h3><h4 class="testimonial-content-title">{{ 'sections.ecom-aus-angus-beef-page.title1_ixm289283em_html' | t }}</h4></div></div></div></div><div class="ecom-swiper-slide"><div class="testimonial-content" style=""><div class="testimonial-content-prag" style="order: 3;">{{ 'sections.ecom-aus-angus-beef-page.text2_ixm289283em_html' | t }}</div><div class="testimonial-rating ecom-icon-list" style="order: 1;"><span class="ecom-icon-active"><svg version="1.1" id="lni_lni-star-fill" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 64 64" style="enable-background:new 0 0 64 64;" xml:space="preserve" fill="currentColor">
+<path d="M59.7,23.9l-18.1-2.8L33.4,3.9c-0.6-1.2-2.2-1.2-2.8,0l-8.2,17.3L4.4,23.9c-1.3,0.2-1.8,1.9-0.8,2.8l13.1,13.5l-3.1,18.9
+	c-0.2,1.3,1.1,2.4,2.3,1.6l16.3-8.9l16.2,8.9c1.1,0.6,2.5-0.4,2.2-1.6l-3.1-18.9l13.1-13.5C61.4,25.8,61,24.1,59.7,23.9z"></path>
+</svg></span><span class="ecom-icon-active"><svg version="1.1" id="lni_lni-star-fill" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 64 64" style="enable-background:new 0 0 64 64;" xml:space="preserve" fill="currentColor">
+<path d="M59.7,23.9l-18.1-2.8L33.4,3.9c-0.6-1.2-2.2-1.2-2.8,0l-8.2,17.3L4.4,23.9c-1.3,0.2-1.8,1.9-0.8,2.8l13.1,13.5l-3.1,18.9
+	c-0.2,1.3,1.1,2.4,2.3,1.6l16.3-8.9l16.2,8.9c1.1,0.6,2.5-0.4,2.2-1.6l-3.1-18.9l13.1-13.5C61.4,25.8,61,24.1,59.7,23.9z"></path>
+</svg></span><span class="ecom-icon-active"><svg version="1.1" id="lni_lni-star-fill" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 64 64" style="enable-background:new 0 0 64 64;" xml:space="preserve" fill="currentColor">
+<path d="M59.7,23.9l-18.1-2.8L33.4,3.9c-0.6-1.2-2.2-1.2-2.8,0l-8.2,17.3L4.4,23.9c-1.3,0.2-1.8,1.9-0.8,2.8l13.1,13.5l-3.1,18.9
+	c-0.2,1.3,1.1,2.4,2.3,1.6l16.3-8.9l16.2,8.9c1.1,0.6,2.5-0.4,2.2-1.6l-3.1-18.9l13.1-13.5C61.4,25.8,61,24.1,59.7,23.9z"></path>
+</svg></span><span class="ecom-icon-active"><svg version="1.1" id="lni_lni-star-fill" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 64 64" style="enable-background:new 0 0 64 64;" xml:space="preserve" fill="currentColor">
+<path d="M59.7,23.9l-18.1-2.8L33.4,3.9c-0.6-1.2-2.2-1.2-2.8,0l-8.2,17.3L4.4,23.9c-1.3,0.2-1.8,1.9-0.8,2.8l13.1,13.5l-3.1,18.9
+	c-0.2,1.3,1.1,2.4,2.3,1.6l16.3-8.9l16.2,8.9c1.1,0.6,2.5-0.4,2.2-1.6l-3.1-18.9l13.1-13.5C61.4,25.8,61,24.1,59.7,23.9z"></path>
+</svg></span><span class="ecom-icon-active"><svg version="1.1" id="lni_lni-star-fill" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 64 64" style="enable-background:new 0 0 64 64;" xml:space="preserve" fill="currentColor">
+<path d="M59.7,23.9l-18.1-2.8L33.4,3.9c-0.6-1.2-2.2-1.2-2.8,0l-8.2,17.3L4.4,23.9c-1.3,0.2-1.8,1.9-0.8,2.8l13.1,13.5l-3.1,18.9
+	c-0.2,1.3,1.1,2.4,2.3,1.6l16.3-8.9l16.2,8.9c1.1,0.6,2.5-0.4,2.2-1.6l-3.1-18.9l13.1-13.5C61.4,25.8,61,24.1,59.7,23.9z"></path>
+</svg></span></div><div class="testimonial-info ecom-column-center" style="order: 2;"><div class="testimonial-info-avatar ecom-image-align"></div><div><h3 class="testimonial-content-name">{{ 'sections.ecom-aus-angus-beef-page.name2_ixm289283em_html' | t }}</h3><h4 class="testimonial-content-title">{{ 'sections.ecom-aus-angus-beef-page.title2_ixm289283em_html' | t }}</h4></div></div></div></div></div></div><div class="ecom-swiper-navigation-position" style="display: none;"><button class="ecom-swiper-button ecom-swiper-button-prev" style="--ecom-position: unset; --ecom-position__tablet: unset; --ecom-position__mobile: unset;"><svg xmlns="http://www.w3.org/2000/svg" width="52" height="52" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevron-left"><polyline points="15 18 9 12 15 6"></polyline></svg></button><button class="ecom-swiper-button ecom-swiper-button-next" style="--ecom-position: unset; --ecom-position__tablet: unset; --ecom-position__mobile: unset;"><svg xmlns="http://www.w3.org/2000/svg" width="52" height="52" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevron-right"><polyline points="9 18 15 12 9 6"></polyline></svg></button></div><div class="ecom-swiper-pagination-position ecom-swiper-pagination" data-ecnav-id="ecom-ixm289283em"></div></div></div></div> </div></div></div></div> </div><div class="ecom-section__overlay"><div class="ecom-overlay"></div></div> </section><section class="ecom-row ecom-core ecom-section ecom-wqtatjoiuq" data-id="ecom-wqtatjoiuq" style="z-index: inherit;"><div data-deep="1" class="core__row--columns"><div class="ecom-column ecom-core ecom-asfrcvfymvc"><div class="core__column--wrapper"><div class="ecom-column__overlay"><div class="ecom-overlay"></div></div><div class="core__blocks" index="0"><div class="core__blocks--body"><div class="ecom-block ecom-core core__block elmspace ecom-3g6no77acvh" data-core-is="row"><div class="ecom-row ecom-core core__block ecom-z2lw3q1gcet" data-id="ecom-z2lw3q1gcet" style="z-index: inherit;"><div data-deep="2" class="core__row--columns"><div class="ecom-column ecom-core ecom-pk2q0zmb6j"><div class="core__column--wrapper"><div class="ecom-column__overlay"><div class="ecom-overlay"></div></div><div class="core__blocks" index="0"><div class="core__blocks--body"><div class="ecom-block ecom-core core__block elmspace ecom-rez6qjavw1" data-core-is="block"><div class="ecom-element ecom-base-image" deep="2"><figure><div class="ecom-container-image ecom-image-align" data-stopdrag=""><div data-stopdrag="" class="ecom-image-content-position ecom-image-default ecom-base-image-container-overlay" style=""><picture class="ecom-image-picture"><img loading="lazy" fetchpriority="low" src="https://cdn.shopify.com/s/files/1/0285/3732/3629/files/Group_4.png?v=1708334840" alt="Group_4" width="1234" height="358"></picture></div></div></figure></div></div> <div class="ecom-block ecom-core core__block elmspace ecom-kjk0ntzusc" data-core-is="block"><div class="ecom-row ecom-core core__block ecom-bcvgx6r6d7t" data-id="ecom-bcvgx6r6d7t" style="z-index: inherit;"><div data-deep="3" class="core__row--columns"><div class="ecom-column ecom-core ecom-tdjf10ziao"><div class="core__column--wrapper"><div class="ecom-column__overlay"><div class="ecom-overlay"></div></div><div class="core__blocks" index="0"><div class="core__blocks--body"><div class="ecom-block ecom-core core__block elmspace ecom-xomsxw08t0l" data-core-is="block"><div class="ecom__element element__heading ecom-element ecom-html" data-stopdrag="true" deep="3"><h3 class="ecom__heading ecom-db">{{ 'sections.ecom-aus-angus-beef-page.headingtext_xomsxw08t0l_html' | t }}</h3></div></div> </div></div></div></div> <div class="ecom-column ecom-core ecom-29w1kdathq5"><div class="core__column--wrapper"><div class="ecom-column__overlay"><div class="ecom-overlay"></div></div><div class="core__blocks" index="1"><div class="core__blocks--body"><div class="ecom-block ecom-core core__block elmspace ecom-i4fs0u2w2l" data-core-is="block"><div class="ecom__element element__heading ecom-element ecom-html" data-stopdrag="true" deep="3"><h3 class="ecom__heading ecom-db">{{ 'sections.ecom-aus-angus-beef-page.headingtext_i4fs0u2w2l_html' | t }}</h3></div></div> </div></div></div></div> </div><div class="ecom-section__overlay"><div class="ecom-overlay"></div></div> </div></div> </div></div></div></div> </div><div class="ecom-section__overlay"><div class="ecom-overlay"></div></div> </div></div> <div class="ecom-block ecom-core core__block elmspace ecom-268t8s5gfus" data-core-is="row"><div class="ecom-row ecom-core core__block ecom-nl0ahapvj4i" data-id="ecom-nl0ahapvj4i" style="z-index: inherit;"><div data-deep="2" class="core__row--columns"><div class="ecom-column ecom-core ecom-q6g0w7oi5qb"><div class="core__column--wrapper"><div class="ecom-column__overlay"><div class="ecom-overlay"></div></div><div class="core__blocks" index="0"><div class="core__blocks--body"><div class="ecom-block ecom-core core__block elmspace ecom-656hyx8oy6s" data-core-is="block"><div class="ecom-row ecom-core core__block ecom-qqrr4lvv558" data-id="ecom-qqrr4lvv558" style="z-index: inherit;"><div data-deep="3" class="core__row--columns"><div class="ecom-column ecom-core ecom-3mnc11258eo"><div class="core__column--wrapper"><div class="ecom-column__overlay"><div class="ecom-overlay"></div></div><div class="core__blocks" index="0"><div class="core__blocks--body"><div class="ecom-block ecom-core core__block elmspace ecom-jtbuvdkq9i" data-core-is="block"><div class="ecom-element ecom-icon ecom-flex" deep="3"><span class="ecom-icon--container ecom-in_flex"><svg width="48" height="36" viewBox="0 0 48 36" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M16.1728 34.811L0.697302 19.3356C-0.232434 18.4058 -0.232434 16.8984 0.697302 15.9685L4.06424 12.6015C4.99397 11.6717 6.50153 11.6717 7.43126 12.6015L17.8563 23.0264L40.1855 0.697302C41.1152 -0.232434 42.6228 -0.232434 43.5525 0.697302L46.9194 4.06433C47.8492 4.99407 47.8492 6.50153 46.9194 7.43136L19.5398 34.8111C18.61 35.7408 17.1025 35.7408 16.1728 34.811Z" fill="#31B83E"></path></svg></span></div></div> </div></div></div></div> <div class="ecom-column ecom-core ecom-7upfd3l5xcr"><div class="core__column--wrapper"><div class="ecom-column__overlay"><div class="ecom-overlay"></div></div><div class="core__blocks" index="1"><div class="core__blocks--body"><div class="ecom-block ecom-core core__block ecom-i8tazstbuh" data-core-is="block"><div class="ecom__element element__heading ecom-element ecom-html" data-stopdrag="true" deep="3"><h1 class="ecom__heading ecom-db">{{ 'sections.ecom-aus-angus-beef-page.headingtext_i8tazstbuh_html' | t }}</h1></div></div> </div></div></div></div> </div><div class="ecom-section__overlay"><div class="ecom-overlay"></div></div> </div></div> <div class="ecom-block ecom-core core__block elmspace ecom-bze7xhfdzgr" data-core-is="block"><div class="ecom-row ecom-core core__block ecom-pym7r82dv6f" data-id="ecom-pym7r82dv6f" style="z-index: inherit;"><div data-deep="3" class="core__row--columns"><div class="ecom-column ecom-core ecom-e45f1aw7gb"><div class="core__column--wrapper"><div class="ecom-column__overlay"><div class="ecom-overlay"></div></div><div class="core__blocks" index="0"><div class="core__blocks--body"><div class="ecom-block ecom-core core__block elmspace ecom-09731wpvjdye" data-core-is="block"><div class="ecom-element ecom-icon ecom-flex" deep="3"><span class="ecom-icon--container ecom-in_flex"><svg width="48" height="36" viewBox="0 0 48 36" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M16.1728 34.811L0.697302 19.3356C-0.232434 18.4058 -0.232434 16.8984 0.697302 15.9685L4.06424 12.6015C4.99397 11.6717 6.50153 11.6717 7.43126 12.6015L17.8563 23.0264L40.1855 0.697302C41.1152 -0.232434 42.6228 -0.232434 43.5525 0.697302L46.9194 4.06433C47.8492 4.99407 47.8492 6.50153 46.9194 7.43136L19.5398 34.8111C18.61 35.7408 17.1025 35.7408 16.1728 34.811Z" fill="#31B83E"></path></svg></span></div></div> </div></div></div></div> <div class="ecom-column ecom-core ecom-8ksyvioakug"><div class="core__column--wrapper"><div class="ecom-column__overlay"><div class="ecom-overlay"></div></div><div class="core__blocks" index="1"><div class="core__blocks--body"><div class="ecom-block ecom-core core__block ecom-dkj9vqsx4w7" data-core-is="block"><div class="ecom__element element__heading ecom-element ecom-html" data-stopdrag="true" deep="3"><h1 class="ecom__heading ecom-db">{{ 'sections.ecom-aus-angus-beef-page.headingtext_dkj9vqsx4w7_html' | t }}</h1></div></div> </div></div></div></div> </div><div class="ecom-section__overlay"><div class="ecom-overlay"></div></div> </div></div> <div class="ecom-block ecom-core core__block elmspace ecom-d7ba08ieg08" data-core-is="block"><div class="ecom-row ecom-core core__block ecom-g9a0eq9bx26" data-id="ecom-g9a0eq9bx26" style="z-index: inherit;"><div data-deep="3" class="core__row--columns"><div class="ecom-column ecom-core ecom-wkc56rotco"><div class="core__column--wrapper"><div class="ecom-column__overlay"><div class="ecom-overlay"></div></div><div class="core__blocks" index="0"><div class="core__blocks--body"><div class="ecom-block ecom-core core__block elmspace ecom-usz6ywo39is" data-core-is="block"><div class="ecom-element ecom-icon ecom-flex" deep="3"><span class="ecom-icon--container ecom-in_flex"><svg width="48" height="36" viewBox="0 0 48 36" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M16.1728 34.811L0.697302 19.3356C-0.232434 18.4058 -0.232434 16.8984 0.697302 15.9685L4.06424 12.6015C4.99397 11.6717 6.50153 11.6717 7.43126 12.6015L17.8563 23.0264L40.1855 0.697302C41.1152 -0.232434 42.6228 -0.232434 43.5525 0.697302L46.9194 4.06433C47.8492 4.99407 47.8492 6.50153 46.9194 7.43136L19.5398 34.8111C18.61 35.7408 17.1025 35.7408 16.1728 34.811Z" fill="#31B83E"></path></svg></span></div></div> </div></div></div></div> <div class="ecom-column ecom-core ecom-vxw5obmap8"><div class="core__column--wrapper"><div class="ecom-column__overlay"><div class="ecom-overlay"></div></div><div class="core__blocks" index="1"><div class="core__blocks--body"><div class="ecom-block ecom-core core__block ecom-9cxpi54nlhd" data-core-is="block"><div class="ecom__element element__heading ecom-element ecom-html" data-stopdrag="true" deep="3"><h1 class="ecom__heading ecom-db">{{ 'sections.ecom-aus-angus-beef-page.headingtext_9cxpi54nlhd_html' | t }}</h1></div></div> </div></div></div></div> </div><div class="ecom-section__overlay"><div class="ecom-overlay"></div></div> </div></div> <div class="ecom-block ecom-core core__block elmspace ecom-voxox5fbfx" data-core-is="block"><div class="ecom-row ecom-core core__block ecom-msdxny289g" data-id="ecom-msdxny289g" style="z-index: inherit;"><div data-deep="3" class="core__row--columns"><div class="ecom-column ecom-core ecom-z4nbrps5ye"><div class="core__column--wrapper"><div class="ecom-column__overlay"><div class="ecom-overlay"></div></div><div class="core__blocks" index="0"><div class="core__blocks--body"><div class="ecom-block ecom-core core__block elmspace ecom-pum656dhpnn" data-core-is="block"><div class="ecom-element ecom-icon ecom-flex" deep="3"><span class="ecom-icon--container ecom-in_flex"><svg width="48" height="36" viewBox="0 0 48 36" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M16.1728 34.811L0.697302 19.3356C-0.232434 18.4058 -0.232434 16.8984 0.697302 15.9685L4.06424 12.6015C4.99397 11.6717 6.50153 11.6717 7.43126 12.6015L17.8563 23.0264L40.1855 0.697302C41.1152 -0.232434 42.6228 -0.232434 43.5525 0.697302L46.9194 4.06433C47.8492 4.99407 47.8492 6.50153 46.9194 7.43136L19.5398 34.8111C18.61 35.7408 17.1025 35.7408 16.1728 34.811Z" fill="#31B83E"></path></svg></span></div></div> </div></div></div></div> <div class="ecom-column ecom-core ecom-6x0pu0kolhi"><div class="core__column--wrapper"><div class="ecom-column__overlay"><div class="ecom-overlay"></div></div><div class="core__blocks" index="1"><div class="core__blocks--body"><div class="ecom-block ecom-core core__block ecom-50hp749v3jr" data-core-is="block"><div class="ecom__element element__heading ecom-element ecom-html" data-stopdrag="true" deep="3"><h1 class="ecom__heading ecom-db">{{ 'sections.ecom-aus-angus-beef-page.headingtext_50hp749v3jr_html' | t }}</h1></div></div> </div></div></div></div> </div><div class="ecom-section__overlay"><div class="ecom-overlay"></div></div> </div></div> <div class="ecom-block ecom-core core__block elmspace ecom-ov6cwxlic5" data-core-is="block"><div class="ecom-row ecom-core core__block ecom-phrtevi1kkf" data-id="ecom-phrtevi1kkf" style="z-index: inherit;"><div data-deep="3" class="core__row--columns"><div class="ecom-column ecom-core ecom-ahdwxsbovd"><div class="core__column--wrapper"><div class="ecom-column__overlay"><div class="ecom-overlay"></div></div><div class="core__blocks" index="0"><div class="core__blocks--body"><div class="ecom-block ecom-core core__block elmspace ecom-3y10b9nuump" data-core-is="block"><div class="ecom-element ecom-icon ecom-flex" deep="3"><span class="ecom-icon--container ecom-in_flex"><svg width="48" height="36" viewBox="0 0 48 36" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M16.1728 34.811L0.697302 19.3356C-0.232434 18.4058 -0.232434 16.8984 0.697302 15.9685L4.06424 12.6015C4.99397 11.6717 6.50153 11.6717 7.43126 12.6015L17.8563 23.0264L40.1855 0.697302C41.1152 -0.232434 42.6228 -0.232434 43.5525 0.697302L46.9194 4.06433C47.8492 4.99407 47.8492 6.50153 46.9194 7.43136L19.5398 34.8111C18.61 35.7408 17.1025 35.7408 16.1728 34.811Z" fill="#31B83E"></path></svg></span></div></div> </div></div></div></div> <div class="ecom-column ecom-core ecom-rgugd9t7rrc"><div class="core__column--wrapper"><div class="ecom-column__overlay"><div class="ecom-overlay"></div></div><div class="core__blocks" index="1"><div class="core__blocks--body"><div class="ecom-block ecom-core core__block ecom-i29jgl3ocnj" data-core-is="block"><div class="ecom__element element__heading ecom-element ecom-html" data-stopdrag="true" deep="3"><h1 class="ecom__heading ecom-db">{{ 'sections.ecom-aus-angus-beef-page.headingtext_i29jgl3ocnj_html' | t }}</h1></div></div> </div></div></div></div> </div><div class="ecom-section__overlay"><div class="ecom-overlay"></div></div> </div></div> </div></div></div></div> <div class="ecom-column ecom-core ecom-rinmr45rdtq"><div class="core__column--wrapper"><div class="ecom-column__overlay"><div class="ecom-overlay"></div></div><div class="core__blocks" index="1"><div class="core__blocks--body"><div class="ecom-block ecom-core core__block elmspace ecom-ooxyf8uap2" data-core-is="block"><div class="ecom-row ecom-core core__block ecom-0ac64lzvotib" data-id="ecom-0ac64lzvotib" style="z-index: inherit;"><div data-deep="3" class="core__row--columns"><div class="ecom-column ecom-core ecom-zapi04fw8k"><div class="core__column--wrapper"><div class="ecom-column__overlay"><div class="ecom-overlay"></div></div><div class="core__blocks" index="0"><div class="core__blocks--body"><div class="ecom-block ecom-core core__block elmspace ecom-ys4643zma4t" data-core-is="block"><div class="ecom-element ecom-icon ecom-flex" deep="3"><span class="ecom-icon--container ecom-in_flex"><svg width="36" height="36" viewBox="0 0 36 36" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M24.587 17.8284L34.7239 7.69155C35.9678 6.44761 35.9678 4.43077 34.7239 3.18582L32.471 0.932953C31.2271 -0.310984 29.2103 -0.310984 27.9653 0.932953L17.8284 11.0698L7.69155 0.932953C6.44761 -0.310984 4.43077 -0.310984 3.18582 0.932953L0.932953 3.18582C-0.310984 4.42976 -0.310984 6.4466 0.932953 7.69155L11.0698 17.8284L0.932953 27.9653C-0.310984 29.2092 -0.310984 31.2261 0.932953 32.471L3.18582 34.7239C4.42976 35.9678 6.44761 35.9678 7.69155 34.7239L17.8284 24.587L27.9653 34.7239C29.2092 35.9678 31.2271 35.9678 32.471 34.7239L34.7239 32.471C35.9678 31.2271 35.9678 29.2103 34.7239 27.9653L24.587 17.8284Z" fill="#A70A10"></path></svg></span></div></div> </div></div></div></div> <div class="ecom-column ecom-core ecom-ez5x4zm2lz"><div class="core__column--wrapper"><div class="ecom-column__overlay"><div class="ecom-overlay"></div></div><div class="core__blocks" index="1"><div class="core__blocks--body"><div class="ecom-block ecom-core core__block ecom-u9cod0xuz8e" data-core-is="block"><div class="ecom__element element__heading ecom-element ecom-html" data-stopdrag="true" deep="3"><h1 class="ecom__heading ecom-db">{{ 'sections.ecom-aus-angus-beef-page.headingtext_u9cod0xuz8e_html' | t }}</h1></div></div> </div></div></div></div> </div><div class="ecom-section__overlay"><div class="ecom-overlay"></div></div> </div></div> <div class="ecom-block ecom-core core__block elmspace ecom-4sizneb4zn" data-core-is="block"><div class="ecom-row ecom-core core__block ecom-vtgomf7oqab" data-id="ecom-vtgomf7oqab" style="z-index: inherit;"><div data-deep="3" class="core__row--columns"><div class="ecom-column ecom-core ecom-q9u1scctj1"><div class="core__column--wrapper"><div class="ecom-column__overlay"><div class="ecom-overlay"></div></div><div class="core__blocks" index="0"><div class="core__blocks--body"><div class="ecom-block ecom-core core__block elmspace ecom-9ve1ri21b3g" data-core-is="block"><div class="ecom-element ecom-icon ecom-flex" deep="3"><span class="ecom-icon--container ecom-in_flex"><svg width="36" height="36" viewBox="0 0 36 36" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M24.587 17.8284L34.7239 7.69155C35.9678 6.44761 35.9678 4.43077 34.7239 3.18582L32.471 0.932953C31.2271 -0.310984 29.2103 -0.310984 27.9653 0.932953L17.8284 11.0698L7.69155 0.932953C6.44761 -0.310984 4.43077 -0.310984 3.18582 0.932953L0.932953 3.18582C-0.310984 4.42976 -0.310984 6.4466 0.932953 7.69155L11.0698 17.8284L0.932953 27.9653C-0.310984 29.2092 -0.310984 31.2261 0.932953 32.471L3.18582 34.7239C4.42976 35.9678 6.44761 35.9678 7.69155 34.7239L17.8284 24.587L27.9653 34.7239C29.2092 35.9678 31.2271 35.9678 32.471 34.7239L34.7239 32.471C35.9678 31.2271 35.9678 29.2103 34.7239 27.9653L24.587 17.8284Z" fill="#A70A10"></path></svg></span></div></div> </div></div></div></div> <div class="ecom-column ecom-core ecom-x4hnxzrv7i"><div class="core__column--wrapper"><div class="ecom-column__overlay"><div class="ecom-overlay"></div></div><div class="core__blocks" index="1"><div class="core__blocks--body"><div class="ecom-block ecom-core core__block ecom-ngfts9du5ae" data-core-is="block"><div class="ecom__element element__heading ecom-element ecom-html" data-stopdrag="true" deep="3"><h1 class="ecom__heading ecom-db">{{ 'sections.ecom-aus-angus-beef-page.headingtext_ngfts9du5ae_html' | t }}</h1></div></div> </div></div></div></div> </div><div class="ecom-section__overlay"><div class="ecom-overlay"></div></div> </div></div> <div class="ecom-block ecom-core core__block elmspace ecom-niazp9lj4ec" data-core-is="block"><div class="ecom-row ecom-core core__block ecom-zxj5m87xt0q" data-id="ecom-zxj5m87xt0q" style="z-index: inherit;"><div data-deep="3" class="core__row--columns"><div class="ecom-column ecom-core ecom-f4bqwikec8q"><div class="core__column--wrapper"><div class="ecom-column__overlay"><div class="ecom-overlay"></div></div><div class="core__blocks" index="0"><div class="core__blocks--body"><div class="ecom-block ecom-core core__block elmspace ecom-pvagyn5f13" data-core-is="block"><div class="ecom-element ecom-icon ecom-flex" deep="3"><span class="ecom-icon--container ecom-in_flex"><svg width="36" height="36" viewBox="0 0 36 36" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M24.587 17.8284L34.7239 7.69155C35.9678 6.44761 35.9678 4.43077 34.7239 3.18582L32.471 0.932953C31.2271 -0.310984 29.2103 -0.310984 27.9653 0.932953L17.8284 11.0698L7.69155 0.932953C6.44761 -0.310984 4.43077 -0.310984 3.18582 0.932953L0.932953 3.18582C-0.310984 4.42976 -0.310984 6.4466 0.932953 7.69155L11.0698 17.8284L0.932953 27.9653C-0.310984 29.2092 -0.310984 31.2261 0.932953 32.471L3.18582 34.7239C4.42976 35.9678 6.44761 35.9678 7.69155 34.7239L17.8284 24.587L27.9653 34.7239C29.2092 35.9678 31.2271 35.9678 32.471 34.7239L34.7239 32.471C35.9678 31.2271 35.9678 29.2103 34.7239 27.9653L24.587 17.8284Z" fill="#A70A10"></path></svg></span></div></div> </div></div></div></div> <div class="ecom-column ecom-core ecom-aj3xpolirx"><div class="core__column--wrapper"><div class="ecom-column__overlay"><div class="ecom-overlay"></div></div><div class="core__blocks" index="1"><div class="core__blocks--body"><div class="ecom-block ecom-core core__block ecom-s6xliydovrc" data-core-is="block"><div class="ecom__element element__heading ecom-element ecom-html" data-stopdrag="true" deep="3"><h1 class="ecom__heading ecom-db">{{ 'sections.ecom-aus-angus-beef-page.headingtext_s6xliydovrc_html' | t }}</h1></div></div> </div></div></div></div> </div><div class="ecom-section__overlay"><div class="ecom-overlay"></div></div> </div></div> <div class="ecom-block ecom-core core__block elmspace ecom-l31zqup2hxe" data-core-is="block"><div class="ecom-row ecom-core core__block ecom-ljydjebv3d8" data-id="ecom-ljydjebv3d8" style="z-index: inherit;"><div data-deep="3" class="core__row--columns"><div class="ecom-column ecom-core ecom-8orq09gjvdt"><div class="core__column--wrapper"><div class="ecom-column__overlay"><div class="ecom-overlay"></div></div><div class="core__blocks" index="0"><div class="core__blocks--body"><div class="ecom-block ecom-core core__block elmspace ecom-a7gcymap71f" data-core-is="block"><div class="ecom-element ecom-icon ecom-flex" deep="3"><span class="ecom-icon--container ecom-in_flex"><svg width="36" height="36" viewBox="0 0 36 36" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M24.587 17.8284L34.7239 7.69155C35.9678 6.44761 35.9678 4.43077 34.7239 3.18582L32.471 0.932953C31.2271 -0.310984 29.2103 -0.310984 27.9653 0.932953L17.8284 11.0698L7.69155 0.932953C6.44761 -0.310984 4.43077 -0.310984 3.18582 0.932953L0.932953 3.18582C-0.310984 4.42976 -0.310984 6.4466 0.932953 7.69155L11.0698 17.8284L0.932953 27.9653C-0.310984 29.2092 -0.310984 31.2261 0.932953 32.471L3.18582 34.7239C4.42976 35.9678 6.44761 35.9678 7.69155 34.7239L17.8284 24.587L27.9653 34.7239C29.2092 35.9678 31.2271 35.9678 32.471 34.7239L34.7239 32.471C35.9678 31.2271 35.9678 29.2103 34.7239 27.9653L24.587 17.8284Z" fill="#A70A10"></path></svg></span></div></div> </div></div></div></div> <div class="ecom-column ecom-core ecom-rtj5phegz69"><div class="core__column--wrapper"><div class="ecom-column__overlay"><div class="ecom-overlay"></div></div><div class="core__blocks" index="1"><div class="core__blocks--body"><div class="ecom-block ecom-core core__block ecom-nn35agnw0y" data-core-is="block"><div class="ecom__element element__heading ecom-element ecom-html" data-stopdrag="true" deep="3"><h1 class="ecom__heading ecom-db">{{ 'sections.ecom-aus-angus-beef-page.headingtext_nn35agnw0y_html' | t }}</h1></div></div> </div></div></div></div> </div><div class="ecom-section__overlay"><div class="ecom-overlay"></div></div> </div></div> <div class="ecom-block ecom-core core__block elmspace ecom-p8vq1dv365e" data-core-is="block"><div class="ecom-row ecom-core core__block ecom-fu1enr3c4wu" data-id="ecom-fu1enr3c4wu" style="z-index: inherit;"><div data-deep="3" class="core__row--columns"><div class="ecom-column ecom-core ecom-4xfyy1f7436"><div class="core__column--wrapper"><div class="ecom-column__overlay"><div class="ecom-overlay"></div></div><div class="core__blocks" index="0"><div class="core__blocks--body"><div class="ecom-block ecom-core core__block elmspace ecom-1g5908dl38u" data-core-is="block"><div class="ecom-element ecom-icon ecom-flex" deep="3"><span class="ecom-icon--container ecom-in_flex"><svg width="36" height="36" viewBox="0 0 36 36" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M24.587 17.8284L34.7239 7.69155C35.9678 6.44761 35.9678 4.43077 34.7239 3.18582L32.471 0.932953C31.2271 -0.310984 29.2103 -0.310984 27.9653 0.932953L17.8284 11.0698L7.69155 0.932953C6.44761 -0.310984 4.43077 -0.310984 3.18582 0.932953L0.932953 3.18582C-0.310984 4.42976 -0.310984 6.4466 0.932953 7.69155L11.0698 17.8284L0.932953 27.9653C-0.310984 29.2092 -0.310984 31.2261 0.932953 32.471L3.18582 34.7239C4.42976 35.9678 6.44761 35.9678 7.69155 34.7239L17.8284 24.587L27.9653 34.7239C29.2092 35.9678 31.2271 35.9678 32.471 34.7239L34.7239 32.471C35.9678 31.2271 35.9678 29.2103 34.7239 27.9653L24.587 17.8284Z" fill="#A70A10"></path></svg></span></div></div> </div></div></div></div> <div class="ecom-column ecom-core ecom-7ywqcuvlrfa"><div class="core__column--wrapper"><div class="ecom-column__overlay"><div class="ecom-overlay"></div></div><div class="core__blocks" index="1"><div class="core__blocks--body"><div class="ecom-block ecom-core core__block ecom-fzpw3zge3sw" data-core-is="block"><div class="ecom__element element__heading ecom-element ecom-html" data-stopdrag="true" deep="3"><h1 class="ecom__heading ecom-db">{{ 'sections.ecom-aus-angus-beef-page.headingtext_fzpw3zge3sw_html' | t }}</h1></div></div> </div></div></div></div> </div><div class="ecom-section__overlay"><div class="ecom-overlay"></div></div> </div></div> </div></div></div></div> </div><div class="ecom-section__overlay"><div class="ecom-overlay"></div></div> </div></div> </div></div></div></div> </div><div class="ecom-section__overlay"><div class="ecom-overlay"></div></div> </section><section class="ecom-row ecom-core ecom-section ecom-xdyrwszsy4k" data-id="ecom-xdyrwszsy4k" id="angus-products" style="z-index: inherit;"><div data-deep="1" class="core__row--columns"><div class="ecom-column ecom-core ecom-jkmiudo73u9"><div class="core__column--wrapper"><div class="ecom-column__overlay"><div class="ecom-overlay"></div></div><div class="core__blocks" index="0"><div class="core__blocks--body"><div class="ecom-block ecom-core core__block elmspace ecom-5m30gfp1i2k" data-core-is="block"><div class="ecom__element element__heading ecom-element ecom-html" data-stopdrag="true" deep="1"><h3 class="ecom__heading ecom-db">{{ 'sections.ecom-aus-angus-beef-page.headingtext_5m30gfp1i2k_html' | t }}</h3></div></div> <div class="ecom-block ecom-core core__block elmspace ecom-sc1atk4md5" data-core-is="block"><div class="ecom-element ecom-collection ecom-collection__product" deep="1"><div class="ecom-collection__product-wrapper"><div class="ecom-collection__product-container ecom-collection__product-container_featured"><div class="ecom-collection__product-main ecom-collection_product_template_featured" data-option-swiper="{&quot;direction&quot;:&quot;horizontal&quot;,&quot;freeMode&quot;:false,&quot;breakpoints&quot;:{&quot;0&quot;:{&quot;slidesPerView&quot;:2},&quot;768&quot;:{&quot;slidesPerView&quot;:2},&quot;1025&quot;:{&quot;slidesPerView&quot;:4}},&quot;autoplay&quot;:{&quot;enabled&quot;:false,&quot;delay&quot;:0,&quot;pauseOnMouseEnter&quot;:false,&quot;disableOnInteraction&quot;:false,&quot;reverseDirection&quot;:false},&quot;speed&quot;:200,&quot;grabCursor&quot;:true,&quot;slideActiveClass&quot;:&quot;ecom-box-active&quot;,&quot;centeredSlides&quot;:false,&quot;watchOverflow&quot;:true,&quot;autoHeight&quot;:true,&quot;cubeEffect&quot;:{&quot;slideShadows&quot;:true,&quot;shadowOffset&quot;:20},&quot;creativeEffect&quot;:{},&quot;fadeEffect&quot;:{&quot;crossFade&quot;:true},&quot;pagination&quot;:{&quot;el&quot;:&quot;.ecom-swiper-pagination&quot;,&quot;type&quot;:&quot;bullets&quot;,&quot;clickable&quot;:true},&quot;navigation&quot;:{&quot;nextEl&quot;:&quot;.ecom-swiper-button-next&quot;,&quot;prevEl&quot;:&quot;.ecom-swiper-button-prev&quot;},&quot;spaceBetween&quot;:10}" data-week="{{ 'sections.ecom-aus-angus-beef-page.text_week_sc1atk4md5_html' | t }}" data-day="{{ 'sections.ecom-aus-angus-beef-page.text_day_sc1atk4md5_html' | t }}" data-hour="{{ 'sections.ecom-aus-angus-beef-page.text_hour_sc1atk4md5_html' | t }}" data-minute="{{ 'sections.ecom-aus-angus-beef-page.text_minute_sc1atk4md5_html' | t }}" data-second="{{ 'sections.ecom-aus-angus-beef-page.text_second_sc1atk4md5_html' | t }}" data-sale="{{ 'sections.ecom-aus-angus-beef-page.sale_sc1atk4md5_html' | t }}" data-review-platform="{%- assign review_platform = shop.metafields.ecomposer.app_review.value -%}{{-review_platform-}}" data-countdown-shows="day,hour,minute,second" data-translate="true">
+ {%- capture badge_tags -%}{{ 'sections.ecom-aus-angus-beef-page.badge_tags_sc1atk4md5_html' | t }}{%- endcapture -%}
+ {%- liquid
+ assign colors = shop.metafields.ecomposer.colors
+ assign badge_tags = badge_tags | strip | split: ','
+ assign tmp_collection = collection
+ assign tmp_product = product
+ assign enable_hook = shop.metafields.ecomposer.enable_hook.value
+ -%}
+ 
+ 
+ {%- capture limit-%}16{% endcapture %}
+ {%- if limit == blank -%}
+ {% assign limit = 12 %}
+ {% else %}
+ {% assign limit = limit | plus: 0 %}
+ {%- endif-%}
+ 
+ {%- capture handle_collection -%}australian-black-angus-beef{% endcapture%}
+ {% assign collection = collections[handle_collection] %}
+ {%- if handle_collection and collection.handle != blank -%}
+ {% assign products = collection.products %}
+ {% else %}
+ {% assign products = collections.all.products %}
+ {% assign collection = collections.all%}
+ {%- endif -%}
+ {% assign is_collection = true %}
+ 
+ {% if false and featured == product %}
+ {% if true %}
+ {% assign products = blank %}
+ {% endif %}
+ {%- if recommendations.performed? and recommendations.products_count > 0 -%}
+ {% assign products = recommendations.products %}
+ {%- endif -%}
+ {% endif %}
+ {% capture quickshop_layout%}full{% endcapture %}
+ {% capture product_style%}vertical{% endcapture%}
+ {%- assign view_more_only = false -%}
+ {% capture product_layout %}grid{% endcapture %}
+ {% assign check_min = 0%}
+ {% if products and products.size > check_min and products != blank %}
+ <div class="
+ ecom-collection__product--wrapper-items ecom-collection-product__layout-grid
+ "
+ data-grid-column="4"
+ data-grid-column-tablet="2"
+ data-grid-column-mobile="2"
+ 
+ 
+ >
+ {% assign ecom_count = 0 %}
+ {% for p in products %}
+ {% assign product = p %}
+ {% if p.handle %}
+ {% assign product = p %}
+ {% else %}
+ {% assign product = all_products[p] %}
+ {% endif %}
+ {% if product.url == blank %} {% continue %} {% endif %}
+ {% if ecom_count >= limit %}{% break %}{% endif %}
+ 
+ 
+ {% assign ecom_count = ecom_count | plus: 1 %}
+ {%- capture swatch_option -%}{{ 'sections.ecom-aus-angus-beef-page.product_option_swatch_sc1atk4md5_html' | t }}{%- endcapture -%}
+ {% assign hide_quickshop = true %}
+ {% assign other_option_layout = 'radio' %}
+ {% capture product_picker%}
+ 
+ {% endcapture%}
+ {% capture product_actions%}
+ <div class="ecom-collection__product--actions" data-layout="{{quickshop_layout}}">
+ 
+ {%- assign quickview_app = shop.metafields.ecomposer.app_quickview.value -%}
+ <div
+ class="ecom-collection__product--quickview-wrapper"
+ 
+ data-quickview-app="{{quickview_app}}"
+ >
+ {%- if quickview_app -%}
+ {% case quickview_app %}
+ {% when 'intergrated' %}
+ <a href="{{ product.url }}" title="{{ product.title }}" class="ecom-product-quickview" data-handle="{{product.handle}}" data-id="{{product.id}}">
+ <svg xmlns="http://www.w3.org/2000/svg" width="52" height="52" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-zoom-in"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line><line x1="11" y1="8" x2="11" y2="14"></line><line x1="8" y1="11" x2="14" y2="11"></line></svg>
+ <span class="ecom-product-quickview--text">
+ {{ 'sections.ecom-aus-angus-beef-page.quickview_sc1atk4md5_html' | t }}
+ </span>
+ </a>
+ {% endcase %}
+ {% endif %}
+ </div>
+ 
+ <div
+ class="ecom-button-default ecom-collection__product-form__actions "
+ 
+ style="display:none;">
+ {%- if enable_hook -%}
+ {% capture the_ecom_hook %}
+ {% render 'ecom_product_loop_before_cart_button', product: product %}
+ {% endcapture %}
+ {% unless the_ecom_hook contains 'Liquid error' %}
+ {{ the_ecom_hook }}
+ {% endunless %}
+ {%- endif -%}
+ {% if view_more_only %}
+ 
+ {% elsif product.has_only_default_variant == true and product.available == false %}
+ 
+ {% elsif product.has_only_default_variant %}
+ {%- if product.requires_selling_plan == true and view_more_only != true -%}
+ 
+ {%- else -%}
+ 
+ 
+ <a data-no-instant href="{{ecom_root_url}}cart/add?id={{ product.variants.first.id }}&quantity=1"
+ data-action="popup"
+ data-text-added-cart="{{ 'sections.ecom-aus-angus-beef-page.added_cart_text_sc1atk4md5_html' | t }}"
+ data-message-added-cart="{{ 'sections.ecom-aus-angus-beef-page.added_cart_message_sc1atk4md5_html' | t }}"
+ data-href="#"
+ data-target="_blank"
+ class="ecom-collection__product-submit ecom-collection__product-form__actions--add ecom-collection__product-simple-add-to-cart ecom-ajax-cart-simple ecom-collection__product-add-cart-icon-before ecom-child-element" 
+ data-id="{{ product.variants.first.id }}"
+ data-handle="{{ product.handle }}" data-pid="{{ product.id }}" title="{{ product.title | escape }}">
+ 
+ <span class="ecom-add-to-cart-text">
+ {%- if product.variants.first.inventory_management and product.variants.first.inventory_quantity <= 0 and product.variants.first.inventory_policy == 'continue' -%}
+ 
+ {%-else-%}
+ {{ 'sections.ecom-aus-angus-beef-page.add_to_cart_sc1atk4md5_html' | t }}
+ {%- endif -%}
+ </span>
+ </a>
+ 
+ {%- endif -%}
+ {% else %}
+ 
+ 
+ 
+ {% endif %}
+ {%- if enable_hook -%}
+ {% capture the_ecom_hook %}
+ {% render 'ecom_product_loop_after_cart_button', product: product %}
+ {% endcapture %}
+ {% unless the_ecom_hook contains 'Liquid error' %}
+ {{ the_ecom_hook }}
+ {% endunless %}
+ {%- endif -%}
+ </div>
+ </div>
+ {% endcapture %}
+ <div class="ecom-collection__product-item " data-product-handle="{{product.handle}}" data-style="{{product_style}}"{% unless product.has_only_default_variant %} ec-variant-init{% endunless %}>
+ <div
+ class="ecom-collection__product-item--wrapper {% if product_style == 'horizontal'%} ecom-d-flex {% else %} ecom-flex-column {% endif %}">
+ <div class="ecom-collection__product-media-wrapper ecom-enable-hover--mobile {% if product_style == 'horizontal'%} ecom-d-flex{% endif %} "
+ >
+ {%- if enable_hook -%}
+ {% capture the_ecom_hook %}
+ {% render 'ecom_product_loop_before', product: product %}
+ {% endcapture %}
+ {% unless the_ecom_hook contains 'Liquid error' %}
+ {{ the_ecom_hook }}
+ {% endunless %}
+ {%- endif -%}
+ <a href="{%- if is_collection-%}{{- product.url | within: collection -}}{% else %}{{- product.url -}}{%-endif-%}" target="" title="{{product.title | escape }}" class="ecom-collection__product-item--inner ecom-image-default">
+ {%- if product.featured_image -%}
+ {%- liquid
+ assign featured_media_aspect_ratio = product.featured_image.aspect_ratio
+ if product.featured_image.aspect_ratio == nil
+ assign featured_media_aspect_ratio = 1
+ endif
+ -%}
+ <div class="ecom-collection__product-media--container">
+ <div
+ class="ecom-child-element ecom-collection__product-media ecom-collection__product-media--adapt
+ "
+ style="padding-bottom: {{ 1 | divided_by: featured_media_aspect_ratio | times: 100 }}%;"
+ 
+ >
+ <img srcset="
+ {%- if product.featured_image.width >= 165 -%}{{ product.featured_image | image_url: width: 165 }} 165w,{%- endif -%}
+ {%- if product.featured_image.width >= 360 -%}{{ product.featured_image | image_url: width: 360 }} 360w,{%- endif -%}
+ {%- if product.featured_image.width >= 533 -%}{{ product.featured_image | image_url: width: 533 }} 533w,{%- endif -%}
+ {%- if product.featured_image.width >= 720 -%}{{ product.featured_image | image_url: width: 720 }} 720w,{%- endif -%}
+ {%- if product.featured_image.width >= 940 -%}{{ product.featured_image | image_url: width: 940 }} 940w,{%- endif -%}
+ {%- if product.featured_image.width >= 1066 -%}{{ product.featured_image | image_url: width: 1066 }} 1066w,{%- endif -%}
+ {{ product.featured_image | image_url }} {{ product.featured_image.width }}w"
+ src="{{ product.featured_image | image_url: width: 533 }}"
+ sizes="(min-width: 1100px) 535px, (min-width: 750px) calc((100vw - 130px) / 2), calc((100vw - 50px) / 2)"
+ alt="{{ product.featured_image.alt | escape }}"
+ loading='lazy'
+ class="ecom-collection__product-media-image"
+ width="{{ product.featured_image.width }}"
+ height="{{ product.featured_image.height }}"
+ />
+ 
+ </div>
+ </div>
+ {% else %}
+ <div class="ecom-collection__product-media--container">
+ <div class="ecom-child-element ecom-collection__product-media ecom-collection__product-media--adapt"
+ 
+ style="padding-bottom: 85%;"
+ >
+ {{ 'product-1' | placeholder_svg_tag: 'ecom-colection__product-svg-placeholder' }}
+ </div>
+ </div>
+ {% endif %}
+ 
+ <div class="ecom-collection__product-badge">
+ 
+ 
+ <span class="ecom-collection__product-badge--sold-out" aria-hidden="true" style="{%- if product.available == true -%}display: none; {%- endif -%}">
+ {{ 'sections.ecom-aus-angus-beef-page.sold_text_sc1atk4md5_html' | t }}
+ </span>
+ <span class="ecom-collection__product-badge--sale" aria-hidden="true" style="{%- unless product.compare_at_price > product.price and product.available -%}display: none;{%- endunless -%}">
+ {{ 'sections.ecom-aus-angus-beef-page.sale_text_sc1atk4md5_html' | t }}
+ </span>
+ 
+ {% if badge_tags %}
+ {% for badge in badge_tags %}
+ {% for original_tag in product.tags %}
+ {% assign tag = original_tag | replace: ' ', ' ' %}
+ {% if tag == badge %}
+ <span class="ecom-collection__product-badge--custom ecom-collection__product-badge--{{ badge | handleize}}" aria-hidden="true">
+ {{ badge }}
+ </span>
+ {% endif %}
+ {% endfor %}
+ {%- assign bad = badge | strip -%}
+ {% endfor %}
+ {% endif %}
+ 
+ {%- if product.has_only_default_variant -%}
+ {%- if product.compare_at_price != null and product.compare_at_price > product.price -%}
+ {%- assign sale = product.compare_at_price | minus: product.price | times: 100.0 | divided_by: product.compare_at_price | round -%}
+ <span class="ecom-collection__product-price--bage-sale">
+ {{ 'sections.ecom-aus-angus-beef-page.sale_badge_sc1atk4md5_html' | t: sale:sale }}
+ </span>
+ {%- endif -%}
+ {%- else -%}
+ {%- if product.selected_or_first_available_variant.compare_at_price != null and product.selected_or_first_available_variant.compare_at_price > product.selected_or_first_available_variant.price -%}
+ {%- assign sale = product.selected_or_first_available_variant.compare_at_price | minus: product.selected_or_first_available_variant.price | times: 100.0 | divided_by: product.selected_or_first_available_variant.compare_at_price | round -%}
+ {%else%}
+ {%- assign sale = null %}
+ {%- endif -%}
+ <span class="ecom-collection__product-price--bage-sale" style="{% unless sale %}display:none{% endunless %}">
+ {{ 'sections.ecom-aus-angus-beef-page.sale_badge_sc1atk4md5_html' | t: sale:sale }}
+ </span>
+ {%- endif -%}
+ </div>
+ </a>
+ 
+ <div class="ecom-collection__product-group-button-action " style="justify-content: start">
+ 
+ 
+ </div>
+ </div>
+ <div class="ecom-collection__product-item--information">
+ <div class="ecom-collection__product-item--information-wrapper ecom-flex ecom-column">
+ {% if product_style == 'absolute' %}
+ {{product_actions}}
+ {{ product_picker}}
+ {% endif %}
+ 
+ 
+ 
+ {%- if enable_hook -%}
+ {% capture the_ecom_hook %}
+ {% render 'ecom_product_loop_before_title', product: product %}
+ {% endcapture %}
+ {% unless the_ecom_hook contains 'Liquid error' %}
+ {{ the_ecom_hook }}
+ {% endunless %}
+ {%- endif -%}
+ <h3
+ class="ecom-collection__product-title-tag {% if review_platform and review_platform == 'vital-reviews' %}card__heading{% endif %} ecom-child-element"
+ 
+ >
+ <a
+ href="{%- if is_collection-%}{{- product.url | within: collection -}}{% else %}{{- product.url -}}{%-endif-%}"
+ title="{{product.title | escape }}"
+ target=""
+ class="ecom-collection__product-item-information-title "
+ >
+ {{ product.title | strip_html}}
+ </a>
+ </h3>
+ {%- if enable_hook -%}
+ {% capture the_ecom_hook %}
+ {% render 'ecom_product_loop_after_title', product: product %}
+ {% endcapture %}
+ {% unless the_ecom_hook contains 'Liquid error' %}
+ {{ the_ecom_hook }}
+ {% endunless %}
+ {%- endif -%}
+ 
+ <div
+ class="ecom-collection__product-rating-wrapper ecom-child-element"
+ 
+ data-rating-platform="{{review_platform}}"
+ >
+ {%- if review_platform -%}
+ {%- case review_platform -%}
+ {%- when 'none' -%}
+ {%- when 'ali-reviews' -%}
+ <div product-id="{{ product.id }}" product-handle="{{ product.handle }}" class="alireviews-review-star-rating"></div>
+ {%- when 'opinew-reviews' -%}
+ <div class='opinew-stars-plugin-product-list'>{% render 'opinew_review_stars_lists' product:product %}</div>
+ {%- when 'judgeme' -%}
+ <div style='{{ jm_style }}' class='jdgm-widget jdgm-preview-badge' data-id='{{ product.id }}'>
+ {{ product.metafields.judgeme.badge }}
+ </div>
+ {%- when 'product-reviews-addon' -%}
+ <span class=" stamped-product-reviews-badge" data-product-sku="{{ product.handle }}" data-id="{{ product.id }}" style="display:block;">{{- product.metafields.stamped.badge -}}</span>
+ {%- when 'areviews-aliexpress'-%}
+ <div class="areviews_product_item areviews_stars{{ product.id }}" data-product-id="{{ product.id }}"></div>
+ {%- when 'loox'-%}
+ <div class="loox-rating" data-id="{{ product.id }}" data-rating="{{ product.metafields.loox.avg_rating }}" data-raters="{{ product.metafields.loox.num_reviews }}"></div>
+ {% when 'ryviu'%}
+ <div class="ryviu-collection">
+ <ryviu-widget-total collection=1
+ reviews_data="{{product.metafields.ryviu.product_reviews_info | escape }}"
+ product_id="{{product.id}}" handle="{{product.handle}}">
+ </ryviu-widget-total>
+ </div>
+ {%- when 'yotpo-social-reviews' -%}
+ <div class="yotpo bottomLine" style="display:inline-block" data-product-id="{{ product.id }}"> </div>
+ {%- when 'vital-reviews' -%}
+ <div></div>
+ {%- when 'aliexpress-reviews-importer'-%}
+ <div class="shop-booster-content shop-booster-col-rat" id="shop-booster-pid-d-{{ product.id }}" ></div>
+ {%- when 'rivyo-product-review'-%}
+ <div class="wc_product_review_badge" data-handle="{{ product.handle }}" data-product_id="{{ product.id }}"></div>
+ {%-when 'growave' -%}
+ {% capture the_snippet_review_avg %}{% render 'ssw-widget-avg-rate-listing', product: product %}{% endcapture %}
+ {% unless the_snippet_review_avg contains 'Liquid error' %}
+ {{ the_snippet_review_avg }}
+ {% endunless %}
+ {%- when 'smart-aliexpress-reviews'-%}
+ <div class="scm-reviews-rate" data-rate-version2= {{ product.metafields.scm_review_importer.reviewsData.reviewCountInfo | json}}>
+ </div>
+ {%- when 'photo-reviews' -%}
+ <div class='opinew-stars-plugin-product-list'>{% render 'opinew_review_stars_lists' product:product %}</div>
+ {%- when 'product-reviews' -%}
+ <span class="shopify-product-reviews-badge" data-id="{{ product.id }}"></span>
+ {%- when 'lai-reviews' -%}
+ {%- if EComBuilderMode -%}
+ <div class="ecom-placeholder-on-builder-mode" data-ecom-placeholder="Lai star rating"></div>
+ {%- endif -%}
+ <div class="scm-reviews-rate" data-rate-version2="{{ product.metafields.scm_review_importer.reviewsData.reviewCountInfo | json | escape }}" data-product-id="{{ product.id }}"></div>
+ {%- when 'sealapps-product-review' -%}
+ <div class="ecom-star-rating-sealapp" product-id="{{ product.id }}"></div>
+ {%- when 'rivyo' -%}
+ <div class="wc_product_review_badge" data-handle="{{ product.handle }}" data-product_id="{{ product.id }}"></div>
+ {%- when 'klaviyo-reviews' -%}
+ <div class="klaviyo-star-rating-widget" data-id="{{product.id}}" data-product-title="{{product.title}}" data-product-type="{{product.type}}"></div>
+ {%- when 'air-reviews' -%}
+ <div class="AirReviews-Widget AirReviews-Widget--Stars" data-review-avg="{{ product.metafields.air_reviews_product.review_avg }}" data-review-count="{{ product.metafields.air_reviews_product.review_count }}"></div>
+ {%- when 'ait-product-reviews' -%}
+ <span class="egg-product-reviews-rating" data-id="{{ product.id }}" id="{{ product.id }}"></span>
+ {%- when 'trustify-reviews' -%}
+ <div
+ class="trustify-review-stars-collection"
+ data-review-type="collection"
+ data-review-avg="{{ product.metafields.tr_reviews_product.review_avg }}"
+ data-review-count="{{ product.metafields.tr_reviews_product.review_count }}"
+ >
+ </div>
+ {% else %}
+ <p>The rating platform not supported</p>
+ {%-endcase-%}
+ {%- else -%}
+ <p>Please select the rating platform in settings</p>
+ {%- endif -%}
+ </div>
+ 
+ 
+ {% assign showPriceWhenNotLogin = true %}
+ {% if undefined and customer == blank%}
+ {% assign showPriceWhenNotLogin = false %}
+ {% endif %}
+ {% if showPriceWhenNotLogin == false and undefined %}
+ {% assign showOnLive = true %}
+ {% else %}
+ {% assign showOnLive = false %}
+ {% endif %}
+ {% assign showPreview = false %}
+ {% if showOnLive or showPreview %}
+ <div class="ecom-collection__product-login-to-see">
+ undefined
+ </div>
+ {% endif %}
+ {% if true and showPriceWhenNotLogin %}
+ <div class="ecom-collection__product-prices ecom-child-element" >
+ {% capture ground_price %}
+ 
+ {% endcapture %}
+ {%- assign target = product.selected_or_first_available_variant -%}
+ 
+ {% if product.has_only_default_variant %}
+ <div class="ecom-collection__product-price-wrapper">
+ <span class="ecom-collection__product-price--regular ecom-collection__product--compare-at-price"{%- if product.compare_at_price == nil or product.compare_at_price <= product.price -%} style="display:none; content:'1'" {%- endif -%}>{% if settings.currency_code_enabled == true %} {{ product.compare_at_price_max | money_with_currency }} {% else %} {{ product.compare_at_price_max | money }} {% endif %}</span>
+ <span class="ecom-collection__product-price{% if product.compare_at_price > product.price %} ecom-collection__product-price--sale{% endif %}">{% if settings.currency_code_enabled == true %} {{product.price_min | money_with_currency }} {% else %} {{product.price_min | money }} {% endif %}</span>
+ {%- comment -%}
+ <span class="ecom-collection__product-price--bage-sale">
+ {% assign sale = product.compare_at_price_max | minus: product.price | times: 100 | divided_by: product.compare_at_price_max | times: 100 | money %}
+ {{ 'sections.ecom-aus-angus-beef-page.sale_badge_sc1atk4md5_html' | t: sale:sale }}
+ </span>
+ {%- endcomment -%}
+ </div>
+ {{ ground_price }}
+ {% else %}
+ {% if true %}
+ <div class="ecom-collection__product-price-wrapper">
+ <span class="ecom-collection__product-price--from">
+ {{ 'sections.ecom-aus-angus-beef-page.price_from_sc1atk4md5_html' | t }}
+ </span>
+ <span
+ class="ecom-collection__product-price--regular ecom-collection__product--compare-at-price"
+ {%- if product.compare_at_price == nil or product.compare_at_price <= product.price -%} style="display:none" {% endif %}
+ >
+ {% if settings.currency_code_enabled == true %} {{ product.compare_at_price_min | money_with_currency }} {% else %} {{ product.compare_at_price_min | money }} {% endif %}
+ </span>
+ <span class="ecom-collection__product-price{% if product.compare_at_price_min > product.price_min %} ecom-collection__product-price--sale{% endif %}">
+ {% if settings.currency_code_enabled == true %} {{product.price_min | money_with_currency }} {% else %} {{product.price_min | money }} {% endif %}
+ </span>
+ </div>
+ {{ ground_price }}
+ {%elsif false %}
+ <div class="ecom-collection__product-price-wrapper">
+ {% if product.price_max > product.price_min %}
+ <span class="ecom-collection__product-price ecom-collection__product-price-range">
+ {% if settings.currency_code_enabled == true %} {{product.price_min | money_with_currency }} - {{product.price_max | money_with_currency}} {% else %} {{product.price_min | money }} - {{product.price_max | money }}{% endif %}
+ </span>
+ {% else %}
+ <span class="ecom-collection__product-price">
+ {% if settings.currency_code_enabled == true %} {{product.price_min | money_with_currency }} {% else %} {{product.price_min | money }} {% endif %}
+ </span>
+ {%endif %}
+ </div>
+ {{ ground_price }}
+ {%else%}
+ <div class="ecom-collection__product-price-wrapper">
+ <span
+ class="ecom-collection__product-price--regular ecom-collection__product--compare-at-price"
+ {%- if product.compare_at_price == nil or product.compare_at_price <= product.price -%} style="display:none" {% endif %}
+ >
+ {% if settings.currency_code_enabled == true %} {{ target.compare_at_price | money_with_currency }} {% else %} {{ target.compare_at_price | money }} {% endif %}
+ </span>
+ <span class="ecom-collection__product-price{% if target.compare_at_price > target.price %} ecom-collection__product-price--sale{% endif %}">{% if settings.currency_code_enabled == true %} {{ target.price | money_with_currency }} {% else %} {{ target.price | money }} {% endif %}</span>
+ </div>
+ {{ ground_price }}
+ {% endif %}
+ {% endif %}
+ 
+ </div>
+ {% endif %}
+ 
+ {% if product_style != 'absolute'%}
+ {{ product_picker }}
+ {% endif %}
+ {% if product_style == 'horizontal' or product_style == 'vertical' or product_layout == 'list' %}
+ {{product_actions}}
+ {% endif %}
+ 
+ {% if product.available and product.metafields.ecomposer.countdown %}
+ <div
+ class="ecom-collection__product-countdown ecom-child-element" 
+ >
+ <div
+ class="ecom-collection__product-countdown-wrapper"
+ >
+ <div class="ecom-collection__product-countdown-wrapper--title">{{ 'sections.ecom-aus-angus-beef-page.countdown_title_sc1atk4md5_html' | t }}</div>
+ <div class="ecom-product-single__countdown-container" >
+ {%- assign countdown_from = product.metafields.ecomposer.countdown_from -%}
+ <div data-product-id="{{product.id}}" class="ecom-collection__product-countdown-time ecom-collection__product-countdown-time--metafields" data-ecom-countdown-from="{{ countdown_from }}" data-ecom-countdown="{{product.metafields.ecomposer.countdown}}"></div>
+ </div>
+ 
+ {% if countdown_from%}
+ <div class="ecom-collection__product-countdown-progress-bar">
+ <div class="ecom-collection__product-countdown-progress-bar--wrap">
+ <div class="ecom-collection__product-countdown-progress-bar--timer ecom-product-single__countdown-progress-bar--timer"></div>
+ </div>
+ </div>
+ {% endif %}
+ 
+ </div>
+ </div>
+ {% endif %}
+ 
+ </div>
+ </div>
+ </div>
+ {%- if enable_hook -%}
+ {% capture the_ecom_hook %}
+ {% render 'ecom_product_loop_after', product: product %}
+ {% endcapture %}
+ {% unless the_ecom_hook contains 'Liquid error' %}
+ {{ the_ecom_hook }}
+ {% endunless %}
+ {%- endif -%}
+ </div>
+ {% endfor %}
+ </div>
+ {% else %}
+ <div class="ecom-collection__product--wrapper-items ecom-collection__product--no-item ecom-collection-product__layout-grid" >
+ <div class="ecom-collection__product-item" >
+ {{ 'sections.ecom-aus-angus-beef-page.no_product_item_sc1atk4md5_html' | t }}
+ </div>
+ </div>
+ {% endif %}
+ 
+ 
+ {% assign collection = tmp_collection %}
+ {% assign product = tmp_product %}
+ </div></div></div></div></div> </div></div></div></div> </div><div class="ecom-section__overlay"><div class="ecom-overlay"></div></div> </section>
+</div></div>
+{% schema %}
+{
+ "name": "AUS ANGUS BEEF",
+ "settings": [
+ {
+ "type": "header",
+ "content": "The section was generated by [Ecomposer](https:\/\/ecomposer.io).",
+ "info": "\n EComposer is a Visual Page Builder app on Shopify AppStore.\n It provides 100+ pre-built templates in library,\n so you can build unlimited pages that you can imagine with it.\n Please don't add Shopify sections to EComposer's page in the theme customize. If you do this, Shopify sections will be deleted when you republish your page in EComposer\n "
+ },
+ {
+ "type": "header",
+ "content": "[EDIT WITH EComposer APP \u2192](https:\/\/ecomposer.app\/shop?open_builder=1&page=page&id=6400aa32ac37f8e7d20f6362&utm_source=theme-customize)",
+ "info": "(*You must install the app to start editing this section [Learn more](https:\/\/help.ecomposer.io\/docs\/getting-started\/installation\/))"
+ }
+ ],
+ "locales": {
+ "en": {
+ "textcontent_i6bkwqd53t_html": "4.5\/5 | 2000+ Reviews",
+ "headingtext_aqcdjufkxje_html": "Tender, Juicy <br>&amp;Flavorful",
+ "textcontent_qurnnql73j_html": "MLS brings pure Australian Black\nAngus beef for genuine meat lovers",
+ "buttoncontent_fyptv0obkx9_html": "Shop Now",
+ "textcontent_qrzfh4mj8np_html": "First retailer in Oman to deliver fresh Angus<br> beef from Australia within 2 hours.",
+ "headingtext_eu063iw4sot_html": "MLS brings award-winning <br>Angus beef to your plate",
+ "textcontent_v6rmdzptkm_html": "Sourced from Rosedale Farms in Australia",
+ "headingtext_pbdrz69eq0g_html": "2019 World Steak Challenge",
+ "headingtext_7xh4mppfa3_html": "Australian Beef Farmer of the Year",
+ "headingtext_2rp4d05ijuu_html": "World Steak Challenge",
+ "banner_heading_t2kh896odve_html": "Things You Need To Know",
+ "banner_content_t2kh896odve_html": "From boneless to bone-in, from quality to the ultimate beef experience, MLS got you covered! So why settle for less? Treat your tastebuds to the finest beef on the market. <br>",
+ "banner_button_title_t2kh896odve_html": "Order Now",
+ "headingtext_e86a006su07_html": "<b>For special requests or any customization in your meat, please mention in the notes in the cart.<\/b><b><\/b>",
+ "headingtext_33oigieht16_html": "THE MLS EXPERIENCE",
+ "title0_fwrxzr0p3ws_html": "2HRS FRESH DELIVERY",
+ "title1_fwrxzr0p3ws_html": "DELIEVERED IN FRESH BOX",
+ "title2_fwrxzr0p3ws_html": "HORMONES FREE",
+ "title3_fwrxzr0p3ws_html": "FRESH & HALAL",
+ "title0_3jx6a9qks9e_html": "2HRS FRESH DELIVERY",
+ "title1_3jx6a9qks9e_html": "DELIEVERED IN FRESH BOX",
+ "title2_3jx6a9qks9e_html": "FRESH & HALAL",
+ "headingtext_49lw97qyv75_html": "Savor the flavors- Presenting MLS Black Angus beef",
+ "textcontent_vrwx8fgjef_html": "From pasture to your plate, discover the journey of premium MLS Australian Angus beef and get ready to savor every bite. ",
+ "headingtext_5h207m2sghk_html": "MLS is loved by over <br> 50,000 customers",
+ "text0_ixm289283em_html": "\u201cSuper quality meat. Very professional and clean delivery. Probably the best butcher in the Muscat current \u201d",
+ "name0_ixm289283em_html": "Graeme S. (verified Customer)",
+ "title0_ixm289283em_html": "Professional and Clean Delivery",
+ "text1_ixm289283em_html": "\u201cI am a regular customer of MLS. I like the products , it is always fresh\u201d",
+ "name1_ixm289283em_html": "Rami M. ( verified buyer )",
+ "title1_ixm289283em_html": "Very good",
+ "text2_ixm289283em_html": "\u201cSimply an amazing piece of meat, good quality, taste great and no after taste.... must know how to grill it\u201d",
+ "name2_ixm289283em_html": "Eihab A. ( Verified customer)",
+ "title2_ixm289283em_html": "Tomahawk Amazing !!!",
+ "headingtext_xomsxw08t0l_html": "MLS",
+ "headingtext_i4fs0u2w2l_html": "THEM",
+ "headingtext_i8tazstbuh_html": "Fresh Meat",
+ "headingtext_dkj9vqsx4w7_html": "No smell",
+ "headingtext_9cxpi54nlhd_html": "Eco-friendly Packaging",
+ "headingtext_50hp749v3jr_html": "Clean &amp; Hygienic Stores",
+ "headingtext_i29jgl3ocnj_html": "Fast Delivery",
+ "headingtext_u9cod0xuz8e_html": "Fresh Meat",
+ "headingtext_ngfts9du5ae_html": "Bad smell",
+ "headingtext_s6xliydovrc_html": "Plastic Bags",
+ "headingtext_nn35agnw0y_html": "Unhygienic Stores",
+ "headingtext_fzpw3zge3sw_html": "The convenience",
+ "headingtext_5m30gfp1i2k_html": "Shop Your Favourite <br>MLS Angus Beef Cuts",
+ "badge_tags_sc1atk4md5_html": "Hot",
+ "product_option_swatch_sc1atk4md5_html": "Color",
+ "quickview_sc1atk4md5_html": "Quick Shop",
+ "added_cart_text_sc1atk4md5_html": "Added to cart",
+ "added_cart_message_sc1atk4md5_html": "Added to cart",
+ "add_to_cart_sc1atk4md5_html": "Add To Cart",
+ "sold_text_sc1atk4md5_html": "Sold",
+ "sale_text_sc1atk4md5_html": "Sale",
+ "sale_badge_sc1atk4md5_html": "-{{sale}}%",
+ "price_from_sc1atk4md5_html": "From",
+ "countdown_title_sc1atk4md5_html": "Hurry up! The sale will end on",
+ "no_product_item_sc1atk4md5_html": "There are no product yet!",
+ "text_week_sc1atk4md5_html": "[%-W] week%!W",
+ "text_day_sc1atk4md5_html": "[%-d] day%!D",
+ "text_hour_sc1atk4md5_html": "[%-H] hr%!H",
+ "text_minute_sc1atk4md5_html": "[%-M] min%!M",
+ "text_second_sc1atk4md5_html": "[%-S] sec%!S",
+ "sale_sc1atk4md5_html": "-{{sale}}%"
+ }
+ }
+}
+{% endschema %}

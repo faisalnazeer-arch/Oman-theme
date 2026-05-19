@@ -1,0 +1,325 @@
+{% doc %}
+  @prompt
+    "Create a horizontal scrolling marquee section (infinite slider) with a deep maroon background (#800000). The text should be in a bold, white, sans-serif font (like Helvetica or Inter) in all caps.
+    
+    The content should repeat seamlessly and include:
+    'LOVED BY 50,000 MEAT LOVERS • DUBAI’S MOST TRUSTED MEAT BRAND • 100% HALAL & FRESH'.
+    
+    Add a bullet point or dot separator between each phrase. The scrolling speed should be slow and smooth. Ensure the section has tight padding (low height) to look like a sleek announcement bar."Color: If the maroon in the video is specific, you can use the Hex code #7D1A1A.
+    
+    Font: If the AI doesn't get the font right, tell it to use "Roboto" or "Montserrat" for that clean, modern look seen in your video.
+    
+    Behavior: If the AI builder supports it, specify that the scroll should pause on hover., bg width option add and top padding ottom padding also add, radius option add 
+{% enddoc %}
+{% assign ai_gen_id = block.id | replace: '_', '' | downcase %}
+
+{% style %}
+  .ai-marquee-outer-{{ ai_gen_id }} {
+    display: block;
+    width: 100%;
+    padding-top: {{ block.settings.padding_top }}px;
+    padding-bottom: {{ block.settings.padding_bottom }}px;
+  }
+
+  .ai-marquee-container-{{ ai_gen_id }} {
+    display: block;
+    width: {{ block.settings.desktop_width_percent }}%;
+    max-width: 100%;
+    margin: 0 auto;
+    background-color: {{ block.settings.background_color }};
+    overflow: hidden;
+    padding: {{ block.settings.padding_vertical }}px 0;
+    border-radius: {{ block.settings.border_radius }}px;
+  }
+
+  .ai-marquee-wrapper-{{ ai_gen_id }} {
+    display: flex;
+    width: 100%;
+    position: relative;
+  }
+
+  .ai-marquee-content-{{ ai_gen_id }} {
+    display: flex;
+    align-items: center;
+    white-space: nowrap;
+    animation: ai-marquee-scroll-{{ ai_gen_id }} {{ block.settings.scroll_speed }}s linear infinite;
+    will-change: transform;
+  }
+
+  {% if block.settings.pause_on_hover %}
+    .ai-marquee-content-{{ ai_gen_id }}:hover {
+      animation-play-state: paused;
+    }
+  {% endif %}
+
+  .ai-marquee-item-{{ ai_gen_id }} {
+    display: inline-flex;
+    align-items: center;
+    font-family: {{ block.settings.font_family.family }}, {{ block.settings.font_family.fallback_families }};
+    font-weight: {{ block.settings.font_family.weight }};
+    font-size: {{ block.settings.font_size }}px;
+    color: {{ block.settings.text_color }};
+    text-transform: uppercase;
+    letter-spacing: {{ block.settings.letter_spacing }}px;
+    padding: 0 {{ block.settings.item_spacing }}px;
+  }
+
+  .ai-marquee-separator-{{ ai_gen_id }} {
+    display: inline-block;
+    width: {{ block.settings.separator_size }}px;
+    height: {{ block.settings.separator_size }}px;
+    background-color: {{ block.settings.text_color }};
+    border-radius: 50%;
+    margin: 0 {{ block.settings.separator_spacing }}px;
+  }
+
+  @keyframes ai-marquee-scroll-{{ ai_gen_id }} {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(-50%);
+    }
+  }
+
+  @media screen and (max-width: 749px) {
+    .ai-marquee-item-{{ ai_gen_id }} {
+      font-size: {{ block.settings.font_size | times: 0.8 }}px;
+    }
+  }
+{% endstyle %}
+
+<marquee-banner-{{ ai_gen_id }}
+  class="ai-marquee-outer-{{ ai_gen_id }}"
+  {{ block.shopify_attributes }}
+>
+  <div class="ai-marquee-container-{{ ai_gen_id }}">
+    <div class="ai-marquee-wrapper-{{ ai_gen_id }}">
+      <div class="ai-marquee-content-{{ ai_gen_id }}">
+        {% for i in (1..2) %}
+          {% if block.settings.text_1 != blank %}
+            <span class="ai-marquee-item-{{ ai_gen_id }}">{{ block.settings.text_1 }}</span>
+            <span class="ai-marquee-separator-{{ ai_gen_id }}"></span>
+          {% endif %}
+          {% if block.settings.text_2 != blank %}
+            <span class="ai-marquee-item-{{ ai_gen_id }}">{{ block.settings.text_2 }}</span>
+            <span class="ai-marquee-separator-{{ ai_gen_id }}"></span>
+          {% endif %}
+          {% if block.settings.text_3 != blank %}
+            <span class="ai-marquee-item-{{ ai_gen_id }}">{{ block.settings.text_3 }}</span>
+            <span class="ai-marquee-separator-{{ ai_gen_id }}"></span>
+          {% endif %}
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+</marquee-banner-{{ ai_gen_id }}>
+
+<script>
+  (function() {
+    class MarqueeBanner{{ ai_gen_id }} extends HTMLElement {
+      constructor() {
+        super();
+      }
+
+      connectedCallback() {
+        this.duplicateContent();
+      }
+
+      duplicateContent() {
+        const content = this.querySelector('.ai-marquee-content-{{ ai_gen_id }}');
+        if (!content) return;
+
+        const clone = content.cloneNode(true);
+        content.parentElement.appendChild(clone);
+      }
+    }
+
+    customElements.define('marquee-banner-{{ ai_gen_id }}', MarqueeBanner{{ ai_gen_id }});
+  })();
+</script>
+
+{% schema %}
+{
+  "name": "Scrolling marquee",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Content"
+    },
+    {
+      "type": "text",
+      "id": "text_1",
+      "label": "Text 1",
+      "default": "LOVED BY 50,000 MEAT LOVERS"
+    },
+    {
+      "type": "text",
+      "id": "text_2",
+      "label": "Text 2",
+      "default": "DUBAI'S MOST TRUSTED MEAT BRAND"
+    },
+    {
+      "type": "text",
+      "id": "text_3",
+      "label": "Text 3",
+      "default": "100% HALAL & FRESH"
+    },
+    {
+      "type": "header",
+      "content": "Layout"
+    },
+    {
+      "type": "range",
+      "id": "desktop_width_percent",
+      "label": "Desktop width",
+      "min": 50,
+      "max": 100,
+      "step": 5,
+      "unit": "%",
+      "default": 100
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "label": "Top padding",
+      "min": 0,
+      "max": 100,
+      "step": 5,
+      "unit": "px",
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "label": "Bottom padding",
+      "min": 0,
+      "max": 100,
+      "step": 5,
+      "unit": "px",
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "padding_vertical",
+      "label": "Internal vertical padding",
+      "min": 8,
+      "max": 40,
+      "step": 2,
+      "unit": "px",
+      "default": 12
+    },
+    {
+      "type": "header",
+      "content": "Style"
+    },
+    {
+      "type": "color",
+      "id": "background_color",
+      "label": "Background color",
+      "default": "#7D1A1A"
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "Text color",
+      "default": "#ffffff"
+    },
+    {
+      "type": "range",
+      "id": "border_radius",
+      "label": "Border radius",
+      "min": 0,
+      "max": 50,
+      "step": 2,
+      "unit": "px",
+      "default": 0
+    },
+    {
+      "type": "font_picker",
+      "id": "font_family",
+      "label": "Font",
+      "default": "helvetica_n7"
+    },
+    {
+      "type": "range",
+      "id": "font_size",
+      "label": "Font size",
+      "min": 12,
+      "max": 32,
+      "step": 1,
+      "unit": "px",
+      "default": 16
+    },
+    {
+      "type": "range",
+      "id": "letter_spacing",
+      "label": "Letter spacing",
+      "min": 0,
+      "max": 5,
+      "step": 0.5,
+      "unit": "px",
+      "default": 1
+    },
+    {
+      "type": "header",
+      "content": "Separator"
+    },
+    {
+      "type": "range",
+      "id": "separator_size",
+      "label": "Separator size",
+      "min": 4,
+      "max": 12,
+      "step": 1,
+      "unit": "px",
+      "default": 6
+    },
+    {
+      "type": "range",
+      "id": "separator_spacing",
+      "label": "Separator spacing",
+      "min": 10,
+      "max": 50,
+      "step": 5,
+      "unit": "px",
+      "default": 30
+    },
+    {
+      "type": "range",
+      "id": "item_spacing",
+      "label": "Item spacing",
+      "min": 10,
+      "max": 50,
+      "step": 5,
+      "unit": "px",
+      "default": 30
+    },
+    {
+      "type": "header",
+      "content": "Animation"
+    },
+    {
+      "type": "range",
+      "id": "scroll_speed",
+      "label": "Scroll speed",
+      "min": 10,
+      "max": 60,
+      "step": 5,
+      "unit": "s",
+      "default": 30
+    },
+    {
+      "type": "checkbox",
+      "id": "pause_on_hover",
+      "label": "Pause on hover",
+      "default": true
+    }
+  ],
+  "presets": [
+    {
+      "name": "Scrolling marquee"
+    }
+  ]
+}
+{% endschema %}

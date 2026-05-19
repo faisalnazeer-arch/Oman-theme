@@ -1,0 +1,547 @@
+{%- comment -%}
+  This file has been modified by the Yoast SEO for Shopify app.
+  You can learn more about this (and learn how to cleanly revert these changes) at https://yoa.st/removing-theme-changes.
+{%- endcomment -%}
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {%- comment -%}Auto-disabled. Yoast plugin is taking care of SEO output.{%- endcomment -%}
+    {%- if disabled_by_yoast_seo -%}
+      <title>Tabbed Carousel</title>
+      {%- comment -%} End Yoast auto-disable. {%- endcomment -%}
+    {%- endif -%}
+  </head>
+  <body>
+    <div style="text-align:center;">
+      <h2 style="margin-top:30px;">SHOP BY ORIGIN</h2>
+      <h4>14+ worldwide origins under one roof.</h4>
+    </div>
+    <div class="custom-tab-container">
+      <button class="tab-button active" onclick="showCarousel(1)">BEEF</button>
+      <button class="tab-button" onclick="showCarousel(2)">LAMB</button>
+    </div>
+
+    <!--
+      <div class="custom-carousel-container" id="carousel1">
+        <div class="custom-carousel-wrapper">
+          <div class="custom-carousel" >
+            {% for block in section.blocks %}
+          {% if block.type == 'beef' %}
+            <div class="custom-carousel-item " onclick="location.href='{{ block.settings.link }}';">
+              <div class="custom-image-container">
+            <img data-class="LazyLoad" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" data-src="{{ block.settings.image | img_url: '300x300' }}" alt="{{ block.settings.text }}">
+              </div>
+            <p class="shopByOriginP">{{ block.settings.text }}</p>
+          </div>
+                  {% endif %}
+        {% endfor %}
+
+          </div>
+        </div>
+      </div>
+
+      <div class="custom-carousel-container" id="carousel2" style="display:none;">
+        <div class="custom-carousel-wrapper">
+          <div class="custom-carousel" >
+             {% for block in section.blocks %}
+          {% if block.type == 'lamb' %}
+            <div class="custom-carousel-item " onclick="location.href='{{ block.settings.link }}';">
+              <div class="custom-image-container">
+            <img data-class="LazyLoad" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" data-src="{{ block.settings.image | img_url: '300x300' }}" alt="{{ block.settings.text }}">
+              </div>
+            <p class="shopByOriginP">{{ block.settings.text }}</p>
+          </div>
+                  {% endif %}
+        {% endfor %}
+          </div>
+        </div>
+      </div>
+    -->
+
+    <div class="custom-carousel-container" id="carousel1">
+      <div class="carousel-arrow left-arrow" onclick="scrollCarousel('carousel1', 'left')">&#10094;</div>
+      <div class="custom-carousel-wrapper">
+        <div class="custom-carousel">
+          {% for block in section.blocks %}
+            {% if block.type == 'beef' %}
+              <div class="custom-carousel-item" onclick="location.href='{{ block.settings.link }}';">
+                <div class="custom-image-container">
+                  <img
+                    data-class="LazyLoad"
+                    src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII="
+                    data-src="{{ block.settings.image | img_url: '300x300' }}"
+                    alt="{{ block.settings.text }}"
+                  >
+                </div>
+                <p>{{ block.settings.text }}</p>
+              </div>
+            {% endif %}
+          {% endfor %}
+        </div>
+      </div>
+      <div class="carousel-arrow right-arrow" onclick="scrollCarousel('carousel1', 'right')">&#10095;</div>
+    </div>
+
+    <div class="custom-carousel-container" id="carousel2" style="display:none;">
+      <div class="carousel-arrow left-arrow" onclick="scrollCarousel('carousel2', 'left')">&#10094;</div>
+      <div class="custom-carousel-wrapper">
+        <div class="custom-carousel">
+          {% for block in section.blocks %}
+            {% if block.type == 'lamb' %}
+              <div class="custom-carousel-item" onclick="location.href='{{ block.settings.link }}';">
+                <div class="custom-image-container">
+                  <img
+                    data-class="LazyLoad"
+                    src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII="
+                    data-src="{{ block.settings.image | img_url: '300x300' }}"
+                    alt="{{ block.settings.text }}"
+                  >
+                </div>
+                <p>{{ block.settings.text }}</p>
+              </div>
+            {% endif %}
+          {% endfor %}
+        </div>
+      </div>
+      <div class="carousel-arrow right-arrow" onclick="scrollCarousel('carousel2', 'right')">&#10095;</div>
+    </div>
+  </body>
+</html>
+
+{% schema %}
+{
+  "name": "Shop by Origin",
+  "settings": [],
+  "blocks": [
+    {
+      "type": "lamb",
+      "name": "Lamb",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Image"
+        },
+        {
+          "type": "text",
+          "id": "text",
+          "label": "Text"
+        },
+        {
+          "type": "url",
+          "id": "link",
+          "label": "Link"
+        }
+      ]
+    },
+    {
+      "type": "beef",
+      "name": "Beef",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Image"
+        },
+        {
+          "type": "text",
+          "id": "text",
+          "label": "Text"
+        },
+        {
+          "type": "url",
+          "id": "link",
+          "label": "Link"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Shop by Origin",
+      "category": "Custom"
+    }
+  ]
+}
+{% endschema %}
+
+<style>
+  body {
+    /* font-family: Arial, sans-serif; */
+    margin: 0;
+    padding: 0;
+  /*   background:#fbebec; */
+  /*   margin-top:20px; */
+  }
+
+  .custom-tab-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+    margin-bottom:20px;
+  }
+  .custom-carousel-item{
+    cursor: pointer;
+  }
+  /* .custom-carousel-item:hover {
+    transform: scale(1.05);
+  } */
+
+  .tab-button {
+    padding: 5px 30px;
+    margin: 0 5px;
+    cursor: pointer;
+    background-color: transparent;
+    color: black;
+    border: 2px solid #a70a10;
+    outline: none;
+    font-size: 14px;
+    transition: background-color 0.3s, color 0.3s;
+    border-radius: 10px;
+  }
+
+  .tab-button.active {
+    background-color: #a70a10;
+    color: white;
+    border-color: #a70a10;
+  }
+
+  .custom-carousel-container {
+    display: grid;
+  /*   grid-template-columns: 4fr 4fr 4fr 4fr 4fr 4fr  !important; */
+    align-items: center;
+    width: 90% !important;
+    overflow: hidden;
+    position: relative;
+    padding-bottom: 0px;
+    margin: 0 auto;
+  /*   margin:0px; */
+  }
+  @media(min-width:769px)
+    {
+      h2{
+        font-size: var(--h4-font-size) !important;
+      }
+      /* .custom-carousel-container {
+      width: 60% !important;
+      } */
+      .custom-carousel-item {
+    height: 250px !important;
+      }
+      .custom-image-container {
+    height: 170px !important;
+      }
+      .custom-carousel-item img {
+    max-height: 150px !important;
+      }
+      .shopByOriginP p{
+    font-size: 14px !important;
+          font-weight: 600 !important;
+  }
+    }
+  .custom-carousel-wrapper {
+    grid-column: 2 / span 4;
+    overflow: hidden;
+  /*   width: 100%; */
+    margin: 0;
+    padding:0;
+  }
+
+  .custom-carousel {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+    width: 100%;
+    align-items: center;
+    overflow-x: scroll;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none; /* Firefox */
+  }
+
+  .custom-carousel::-webkit-scrollbar {
+    display: none; /* Safari and Chrome */
+  }
+
+  .custom-carousel-item {
+    padding-top:10px;
+    height: 150px;
+    flex: 1 0 20%; /* Show 4 items */
+    box-sizing: border-box;
+    /* padding: 0px 2px; */
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+  /*   align-items: center; */
+  }
+
+  .custom-image-container {
+    height: 80px; /* Set a fixed height for the image container */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 5px;
+  }
+
+  .custom-carousel-item img {
+    max-width: 100%;
+    max-height: 80px; /* Ensure images fit within the container */
+    object-fit: contain;
+  /*   filter: drop-shadow(0px 10px 8px #000000); */
+  }
+
+  .custom-carousel-item p {
+    font-size: 11px;
+    margin: 0;
+    padding-top: 5px;
+    font-weight: 600;
+  }
+
+  @media (max-width: 768px) {
+    .custom-carousel-item {
+      flex: 1 0 50%; /* Show 2 items */
+    }
+    h2{
+    font-size: 1.5em !important;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .custom-carousel-item {
+      flex: 1 0 29%; /* Show 1 item */
+    }
+  }
+  h2{
+    font-size: 1.3em;
+    margin:0px;
+    padding: 0px;
+    margin-top:25px;
+  }
+  h4{
+
+    margin:0px;
+    padding: 0px;
+    font-size:14px !important;
+    font-weight:400 !important;;
+  }
+  .shopByOriginP p{
+    line-height:1.2em;
+  }
+
+
+  .custom-carousel.active {
+      cursor: grabbing;
+  }
+
+    .carousel-arrow {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      color: black;
+      font-size: 18px;
+          padding: 10px 18px;
+      cursor: pointer;
+      border-radius: 50%;
+      z-index: 2;
+      user-select: none;
+  }
+
+  .left-arrow {
+      left: 10px;
+  }
+
+  .right-arrow {
+      right: 10px;
+  }
+
+  .carousel-arrow:hover {
+      background-color: rgba(0, 0, 0, 0.3);
+  }
+  @media(max-width:670px)
+        {
+  .carousel-arrow {
+    display: none;
+  }
+        }
+</style>
+
+<!--
+  <script>
+
+
+  // function scrollCarousel(carouselId, direction) {
+  //     const carousel = document.getElementById(carouselId);
+  //     const scrollAmount = carousel.offsetWidth / 3.5 * direction;
+  //     carousel.scrollBy({ left: scrollAmount, behavior: 'smooth' });
+  // }
+
+  document.addEventListener('DOMContentLoaded', () => {
+      const carousels = document.querySelectorAll('.carousel');
+
+      carousels.forEach(carousel => {
+          let isDown = false;
+          let startX;
+          let scrollLeft;
+
+          carousel.addEventListener('mousedown', (e) => {
+              isDown = true;
+              carousel.classList.add('active');
+              startX = e.pageX - carousel.offsetLeft;
+              scrollLeft = carousel.scrollLeft;
+          });
+
+          carousel.addEventListener('mouseleave', () => {
+              isDown = false;
+              carousel.classList.remove('active');
+          });
+
+          carousel.addEventListener('mouseup', () => {
+              isDown = false;
+              carousel.classList.remove('active');
+          });
+
+          carousel.addEventListener('mousemove', (e) => {
+              if (!isDown) return;
+              e.preventDefault();
+              const x = e.pageX - carousel.offsetLeft;
+              const walk = (x - startX) * 1; //scroll-fast
+              carousel.scrollLeft = scrollLeft - walk;
+          });
+
+          carousel.addEventListener('touchstart', (e) => {
+              isDown = true;
+              startX = e.touches[0].pageX - carousel.offsetLeft;
+              scrollLeft = carousel.scrollLeft;
+          });
+
+          carousel.addEventListener('touchend', () => {
+              isDown = false;
+          });
+
+          carousel.addEventListener('touchmove', (e) => {
+              if (!isDown) return;
+              const x = e.touches[0].pageX - carousel.offsetLeft;
+              const walk = (x - startX) * 1; //scroll-fast
+              carousel.scrollLeft = scrollLeft - walk;
+          });
+      });
+
+      // Automatically run this function to show the first carousel and hide the second one by default
+      (function initializeCarousel() {
+          document.getElementById('carousel1').style.display = 'block';
+          document.getElementById('carousel2').style.display = 'none';
+          document.querySelector('.tab-button:nth-child(1)').classList.add('active');
+          document.querySelector('.tab-button:nth-child(2)').classList.remove('active');
+      })();
+  });
+
+  function showCarousel(carouselId) {
+      if (carouselId === 1) {
+          document.getElementById('carousel1').style.display = 'block';
+          document.getElementById('carousel2').style.display = 'none';
+      } else {
+          document.getElementById('carousel1').style.display = 'none';
+          document.getElementById('carousel2').style.display = 'block';
+      }
+
+      document.querySelectorAll('.tab-button').forEach((button, index) => {
+          button.classList.toggle('active', index === carouselId - 1);
+      });
+  }
+
+
+
+  </script>
+-->
+
+<script>
+   document.addEventListener('DOMContentLoaded', () => {
+      const carousels = document.querySelectorAll('.custom-carousel');
+
+      carousels.forEach(carousel => {
+          let isDown = false;
+          let startX;
+          let scrollLeft;
+
+          // Mouse event listeners
+          carousel.addEventListener('mousedown', (e) => {
+              isDown = true;
+              carousel.classList.add('active');
+              startX = e.pageX - carousel.offsetLeft;
+              scrollLeft = carousel.scrollLeft;
+          });
+
+          carousel.addEventListener('mouseleave', () => {
+              isDown = false;
+              carousel.classList.remove('active');
+          });
+
+          carousel.addEventListener('mouseup', () => {
+              isDown = false;
+              carousel.classList.remove('active');
+          });
+
+          carousel.addEventListener('mousemove', (e) => {
+              if (!isDown) return;
+              e.preventDefault();
+              const x = e.pageX - carousel.offsetLeft;
+              const walk = (x - startX) * 2; // Adjust scroll speed here if needed
+              carousel.scrollLeft = scrollLeft - walk;
+          });
+
+          // Touch event listeners
+          carousel.addEventListener('touchstart', (e) => {
+              isDown = true;
+              startX = e.touches[0].pageX - carousel.offsetLeft;
+              scrollLeft = carousel.scrollLeft;
+          });
+
+          carousel.addEventListener('touchend', () => {
+              isDown = false;
+          });
+
+          carousel.addEventListener('touchmove', (e) => {
+              if (!isDown) return;
+              const x = e.touches[0].pageX - carousel.offsetLeft;
+              const walk = (x - startX) * 1; // Adjust scroll speed here if needed
+              carousel.scrollLeft = scrollLeft - walk;
+          });
+      });
+
+      // Automatically show the first carousel and hide the second one by default
+      (function initializeCarousel() {
+          document.getElementById('carousel1').style.display = 'block';
+          document.getElementById('carousel2').style.display = 'none';
+          document.querySelector('.tab-button:nth-child(1)').classList.add('active');
+          document.querySelector('.tab-button:nth-child(2)').classList.remove('active');
+      })();
+  });
+
+  function showCarousel(carouselId) {
+      if (carouselId === 1) {
+          document.getElementById('carousel1').style.display = 'block';
+          document.getElementById('carousel2').style.display = 'none';
+      } else {
+          document.getElementById('carousel1').style.display = 'none';
+          document.getElementById('carousel2').style.display = 'block';
+      }
+
+      document.querySelectorAll('.tab-button').forEach((button, index) => {
+          button.classList.toggle('active', index === carouselId - 1);
+      });
+  }
+</script>
+<script>
+function scrollCarousel(carouselId, direction) {
+    const carousel = document.querySelector(`#${carouselId} .custom-carousel`);
+    const scrollAmount = carousel.clientWidth * 1; // Adjust this value for how far the scroll should move
+
+    if (direction === 'left') {
+        carousel.scrollBy({ left: -scrollAmount, behavior: 'smooth' });
+    } else {
+        carousel.scrollBy({ left: scrollAmount, behavior: 'smooth' });
+    }
+}
+</script>
