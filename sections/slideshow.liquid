@@ -153,9 +153,11 @@
         #{{ section.id }}_{{ forloop.index }} .slide-img--desktop { display: none !important; }
         #{{ section.id }}_{{ forloop.index }} .slide-img--tablet { display: block !important; }
       }
-      @media (min-width: 1024px) {
-        #{{ section.id }}_{{ forloop.index }} .slide-img--tablet { display: none !important; }
-      }
+      {%- if block.settings.image_desktop != blank -%}
+        @media (min-width: 1024px) {
+          #{{ section.id }}_{{ forloop.index }} .slide-img--tablet { display: none !important; }
+        }
+      {%- endif -%}
       @media (max-width: 599px) {
         #{{ section.id }}_{{ forloop.index }} .slide-img--tablet { display: none !important; }
       }
