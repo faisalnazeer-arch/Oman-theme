@@ -74,49 +74,48 @@
   {%- elsif section.settings.height_mode == 'auto' -%}
     {%- liquid
       if section.blocks.first.settings.image_desktop != blank
-        assign img_padding = 1 | divided_by: section.blocks.first.settings.image_desktop.aspect_ratio | times: 100 | append: '%'
+        assign img_ratio = section.blocks.first.settings.image_desktop.aspect_ratio
       elsif section.blocks.first.settings.image_tablet != blank
-        assign img_padding = 1 | divided_by: section.blocks.first.settings.image_tablet.aspect_ratio | times: 100 | append: '%'
+        assign img_ratio = section.blocks.first.settings.image_tablet.aspect_ratio
       else
-        assign img_padding = '56.25%'
+        assign img_ratio = 1.7778
       endif
 
       if section.blocks.first.settings.image_tablet != blank
-        assign t_img_padding = 1 | divided_by: section.blocks.first.settings.image_tablet.aspect_ratio | times: 100 | append: '%'
+        assign t_img_ratio = section.blocks.first.settings.image_tablet.aspect_ratio
       else
-        assign t_img_padding = img_padding
+        assign t_img_ratio = img_ratio
       endif
 
       if section.blocks.first.settings.image_mobile != blank
-        assign m_img_padding = 1 | divided_by: section.blocks.first.settings.image_mobile.aspect_ratio | times: 100 | append: '%'
+        assign m_img_ratio = section.blocks.first.settings.image_mobile.aspect_ratio
       else
-        assign m_img_padding = img_padding
+        assign m_img_ratio = img_ratio
       endif
+
+      assign m_img_padding = 100.0 | divided_by: m_img_ratio | append: '%'
     -%}
 
-    #{{ section.id }} .image-banner::after,
-    #{{ section.id }} .media::after { content: ''; padding-top: {{ img_padding }}; }
+    #{{ section.id }} .image-banner.auto-height {
+      position: relative;
+      aspect-ratio: {{ img_ratio }};
+    }
+    #{{ section.id }} .image-banner.auto-height::after { display: none; }
 
     {%- if section.blocks.first.settings.image_tablet != blank -%}
       @media (min-width: 600px) and (max-width: 1023px) {
-        #{{ section.id }} .image-banner::after,
-        #{{ section.id }} .media::after { content: ''; padding-top: {{ t_img_padding }}; }
+        #{{ section.id }} .image-banner.auto-height { aspect-ratio: {{ t_img_ratio }}; }
       }
     {%- endif -%}
 
     {%- if section.settings.mobile_stacked -%}
       @media (max-width: {{ breakpoint_sm }}px) {
+        #{{ section.id }} .image-banner.auto-height { aspect-ratio: auto; }
         #{{ section.id }} { --image-height: {{ m_img_padding }}; }
-        #{{ section.id }} .image-banner::after,
-        #{{ section.id }} .media::after {
-          content: '';
-          padding-top: 0;
-        }
       }
-    {%- elsif section.blocks.first.settings.image_mobile != blank -%}
+    {%- else -%}
       @media (max-width: {{ breakpoint_sm }}px) {
-        #{{ section.id }} .image-banner::after,
-        #{{ section.id }} .media::after { content: ''; padding-top: {{ m_img_padding }}; }
+        #{{ section.id }} .image-banner.auto-height { aspect-ratio: {{ m_img_ratio }}; }
       }
     {%- endif -%}
   {%- endif -%}
