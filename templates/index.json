@@ -20,7 +20,7 @@
             "mobile_video_url": "",
             "autoplay": true,
             "image_desktop": "shopify://shop_images/EID-WEB.jpg",
-            "image_tablet": "shopify://shop_images/chicken_d39dbaa9-6705-4845-956c-123f47d645d1.png",
+            "image_tablet": "shopify://shop_images/EID-TAB-786-x-400_6359f871-d33b-44d1-8c83-32110c60319f.jpg",
             "image_mobile": "shopify://shop_images/EID-APP-AR.jpg",
             "url": "shopify://pages/eid-al-adha-sale-2026",
             "overlay_position": "justify-center items-center",
@@ -1249,6 +1249,7 @@
       "settings": {
         "height_mode": "auto",
         "fixed_height_desktop": 400,
+        "fixed_height_tablet": 500,
         "fixed_height_mobile": 360,
         "mobile_stacked": false,
         "nav_style": "slideshow_nav_dots",
