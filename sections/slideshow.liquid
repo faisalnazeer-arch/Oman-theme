@@ -64,20 +64,27 @@
       #{{ section.id }} .image-banner { min-height: {{ section.settings.fixed_height_mobile }}px; }
     {%- endif -%}
 
-    @media (min-width: {{ breakpoint_sm }}px) {
-      #{{ section.id }} .image-banner {
-        min-height: calc({{ section.settings.fixed_height_mobile }}px + ({{ section.settings.fixed_height_desktop }} - {{ section.settings.fixed_height_mobile }}) * ((100vw - {{ breakpoint_sm }}px) / {{ breakpoint_xxl | minus: breakpoint_sm }}));
-      }
+    @media (min-width: 600px) and (max-width: 1023px) {
+      #{{ section.id }} .image-banner { min-height: {{ section.settings.fixed_height_tablet }}px; }
     }
-    @media (min-width: {{ breakpoint_page }}px) {
+
+    @media (min-width: 1024px) {
       #{{ section.id }} .image-banner { min-height: {{ section.settings.fixed_height_desktop }}px; }
     }
   {%- elsif section.settings.height_mode == 'auto' -%}
     {%- liquid
       if section.blocks.first.settings.image_desktop != blank
         assign img_padding = 1 | divided_by: section.blocks.first.settings.image_desktop.aspect_ratio | times: 100 | append: '%'
+      elsif section.blocks.first.settings.image_tablet != blank
+        assign img_padding = 1 | divided_by: section.blocks.first.settings.image_tablet.aspect_ratio | times: 100 | append: '%'
       else
         assign img_padding = '56.25%'
+      endif
+
+      if section.blocks.first.settings.image_tablet != blank
+        assign t_img_padding = 1 | divided_by: section.blocks.first.settings.image_tablet.aspect_ratio | times: 100 | append: '%'
+      else
+        assign t_img_padding = img_padding
       endif
 
       if section.blocks.first.settings.image_mobile != blank
@@ -89,6 +96,13 @@
 
     #{{ section.id }} .image-banner::after,
     #{{ section.id }} .media::after { content: ''; padding-top: {{ img_padding }}; }
+
+    {%- if section.blocks.first.settings.image_tablet != blank -%}
+      @media (min-width: 600px) and (max-width: 1023px) {
+        #{{ section.id }} .image-banner::after,
+        #{{ section.id }} .media::after { content: ''; padding-top: {{ t_img_padding }}; }
+      }
+    {%- endif -%}
 
     {%- if section.settings.mobile_stacked -%}
       @media (max-width: {{ breakpoint_sm }}px) {
@@ -734,17 +748,27 @@
       "max": 1000,
       "step": 10,
       "unit": "px",
-      "label": "Minimum fixed height on large screens",
+      "label": "Fixed height on desktop (1024px+)",
       "default": 640
     },
     {
       "type": "range",
-      "id": "fixed_height_mobile",
-      "min": 250,
-      "max": 500,
+      "id": "fixed_height_tablet",
+      "min": 200,
+      "max": 800,
       "step": 10,
       "unit": "px",
-      "label": "Minimum fixed height on mobile",
+      "label": "Fixed height on tablet (600px–1023px)",
+      "default": 500
+    },
+    {
+      "type": "range",
+      "id": "fixed_height_mobile",
+      "min": 150,
+      "max": 600,
+      "step": 10,
+      "unit": "px",
+      "label": "Fixed height on mobile (below 600px)",
       "default": 350
     },
     {
