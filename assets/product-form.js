@@ -155,6 +155,15 @@ if (!customElements.get('product-form')) {
       this.submitBtn.classList.add('is-loading');
 
       const formData = new FormData(this.form);
+
+      // Remove empty line item properties (e.g. a blank "Special Request" custom
+      // option) so they aren't added to the cart and saved on the order.
+      Array.from(formData.entries()).forEach(([key, value]) => {
+        if (key.startsWith('properties[') && typeof value === 'string' && value.trim() === '') {
+          formData.delete(key);
+        }
+      });
+
       let sections = 'cart-icon-bubble';
       if (this.cartDrawer) {
         sections += `,${this.cartDrawer.closest('.shopify-section').id.replace('shopify-section-', '')}`;
