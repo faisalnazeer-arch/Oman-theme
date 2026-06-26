@@ -403,9 +403,9 @@
       <script src="{{ 'subsbase-plans.js' | asset_url }}" defer="defer"></script>
       <script src="{{ 'box.js' | asset_url }}" defer="defer"></script>
     {% else %}
-      <script> src="{{ 'main.js' | asset_url }}" </script>
-      <script> {{ 'subsbase-plans.js' | asset_url }}</script>
-      <script> {{ 'box.js' | asset_url }}</script>
+      <script type="lazyload_int" data-src="{{ 'main.js' | asset_url }}"></script>
+      <script type="lazyload_int" data-src="{{ 'subsbase-plans.js' | asset_url }}"></script>
+      <script type="lazyload_int" data-src="{{ 'box.js' | asset_url }}"></script>
     {% endif %}
 
     
@@ -429,7 +429,7 @@
       {% capture content_for_header2 %}{{ content_for_header }}{% endcapture %}
       {{
         content_for_header2
-        | replace: ' defer="defer" ', 
+        | replace: ' defer="defer" ', ' type="lazyload_int" '
         | replace: ' src=', ' data-src='
         | replace: 'DOMContentLoaded', 'w3-DOMContentLoaded'
         | replace: "window.addEventListener('load', asyncLoad, false);",
@@ -687,7 +687,7 @@
     </script>
 
     {%- if request.design_mode == false and settings.preload_links -%}
-      <script> {{ 'instant-page.js' | asset_url }}" data-w3-type="module"></script>
+      <script type="lazyload_int" data-src="{{ 'instant-page.js' | asset_url }}" data-w3-type="module"></script>
     {%- endif -%}
 
     
