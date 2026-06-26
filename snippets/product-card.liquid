@@ -403,7 +403,7 @@
           <product-form class="block relative{% if settings.prod_card_text_align == 'center' %} text-center{% endif %}" data-variant-id="{{ current_variant.id }}" data-show-quantity-selector="{% if settings.enable_quick_quantity and cart_item %}true{% else %}false{% endif %}">
             <div class="alert mb-8 bg-error-bg text-error-text js-form-error text-start" role="alert" hidden></div>
             {%- form 'product', product, class: 'js-product-form', id: product_form_id, novalidate: 'novalidate' -%}
-              <input type="hidden" name="id" value="{{ current_variant.id }}" disabled>
+              <input type="hidden" name="id" value="{{ current_variant.id }}">
 
               {%- capture button_text -%}
                 {%- if product.template_suffix contains 'preorder' -%}
@@ -496,7 +496,7 @@
                   hidden
                 ></div>
                 {%- form 'product', product, class: 'js-product-form', id: product_form_id, novalidate: 'novalidate' -%}
-                  <input type="hidden" name="id" value="{{ current_variant.id }}" disabled>
+                  <input type="hidden" name="id" value="{{ current_variant.id }}">
 
                   {%- capture button_text -%}
               {%- if product.template_suffix contains 'preorder' -%}

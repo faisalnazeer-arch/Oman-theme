@@ -84,7 +84,7 @@
         <product-form{% unless wide_card %} class="mt-2"{% endunless %}>
           <div class="alert mb-8 bg-error-bg text-error-text js-form-error text-start" role="alert" hidden></div>
           {%- form 'product', product, class: 'js-product-form', id: item_form_id, novalidate: 'novalidate' -%}
-            <input type="hidden" name="id" value="{{ product.selected_or_first_available_variant.id }}" disabled>
+            <input type="hidden" name="id" value="{{ product.selected_or_first_available_variant.id }}">
 
             <button class="btn btn--secondary btn--sm btn--icon tap-target" name="add" aria-haspopup="dialog" aria-label="{{- 'products.product.add_to_cart' | t | escape -}}"
                     {%- if product.selected_or_first_available_variant.available == false %}disabled{%- endif %}>
