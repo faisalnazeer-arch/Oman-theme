@@ -20,11 +20,11 @@
 	{% else %}
         {%- if settings.enable_quick_add -%}
           <link rel="stylesheet" href="{{ 'quick-add.css' | asset_url }}" media="print" onload="this.media='all'">
-          <script type="lazyload_int" data-src="{{ 'quick-add.js' | asset_url }}"></script>
-          <script type="lazyload_int" data-src="{{ 'variant-picker.js' | asset_url }}"></script>
-          <script type="lazyload_int" data-src="{{ 'product-form.js' | asset_url }}"></script>
-          <script type="lazyload_int" data-src="{{ 'custom-select.js' | asset_url }}"></script>
-          <script type="lazyload_int" data-src="{{ 'quick-order-list.js' | asset_url }}"></script>
+          <script src="{{ 'quick-add.js' | asset_url }}" defer="defer"></script>
+          <script src="{{ 'variant-picker.js' | asset_url }}" defer="defer"></script>
+          <script src="{{ 'product-form.js' | asset_url }}" defer="defer"></script>
+          <script src="{{ 'custom-select.js' | asset_url }}" defer="defer"></script>
+          <script src="{{ 'quick-order-list.js' | asset_url }}" defer="defer"></script>
         {%- endif -%}
         
         {%- if settings.pagination_style == "modern" or settings.pagination_infinite -%}

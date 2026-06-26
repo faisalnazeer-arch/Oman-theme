@@ -403,9 +403,15 @@
       <script src="{{ 'subsbase-plans.js' | asset_url }}" defer="defer"></script>
       <script src="{{ 'box.js' | asset_url }}" defer="defer"></script>
     {% else %}
-      <script type="lazyload_int" data-src="{{ 'main.js' | asset_url }}"></script>
-      <script type="lazyload_int" data-src="{{ 'subsbase-plans.js' | asset_url }}"></script>
-      <script type="lazyload_int" data-src="{{ 'box.js' | asset_url }}"></script>
+      {%- comment -%}
+        Core theme bundle + cart JS must NOT be interaction-gated (lazyload_int):
+        on touch devices the first interaction is often the Add-to-Cart tap itself,
+        which then submits the form natively before the JS has loaded (broken drawer
+        / 404). Load eagerly with defer so the handlers are always ready.
+      {%- endcomment -%}
+      <script src="{{ 'main.js' | asset_url }}" defer="defer"></script>
+      <script src="{{ 'subsbase-plans.js' | asset_url }}" defer="defer"></script>
+      <script src="{{ 'box.js' | asset_url }}" defer="defer"></script>
     {% endif %}
 
     
