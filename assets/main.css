@@ -6999,3 +6999,7 @@ body.page-no-header-footer {
 .sca_aff_customer_refer_invite_button {
   background-color: #a70a10 !important;
 }
+.shopify-payment-button__skeleton,
+.shopify-payment-button {
+  display: none !important;
+}

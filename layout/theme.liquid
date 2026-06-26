@@ -32,6 +32,10 @@
 
   <head>
     
+{% render 'local-business-schema' %}
+    
+    <!-- SEOAnt Speed Up Script -->{%- if shop.metafields.seoantAppSiteSpeedUpV2.switch == 1 -%}{% include 'SEOAnt-SpeedUp' %}{%- endif -%}<!-- /SEOAnt Speed Up Script -->
+    
 
 
     
@@ -399,32 +403,12 @@
       <script src="{{ 'subsbase-plans.js' | asset_url }}" defer="defer"></script>
       <script src="{{ 'box.js' | asset_url }}" defer="defer"></script>
     {% else %}
-      <script type="lazyload_int" data-src="{{ 'main.js' | asset_url }}"></script>
-      <script type="lazyload_int" data-src="{{ 'subsbase-plans.js' | asset_url }}"></script>
-      <script type="lazyload_int" data-src="{{ 'box.js' | asset_url }}"></script>
+      <script> src="{{ 'main.js' | asset_url }}" </script>
+      <script> {{ 'subsbase-plans.js' | asset_url }}</script>
+      <script> {{ 'box.js' | asset_url }}</script>
     {% endif %}
 
-    {%- unless settings.body_font.system? -%}
-      <link
-        rel="preload"
-        href="{{ settings.body_font | font_url }}"
-        as="font"
-        type="font/woff2"
-        crossorigin
-        fetchpriority="high"
-      >
-    {%- endunless -%}
-
-    {%- unless settings.heading_font.system? -%}
-      <link
-        rel="preload"
-        href="{{ settings.heading_font | font_url }}"
-        as="font"
-        type="font/woff2"
-        crossorigin
-        fetchpriority="high"
-      >
-    {%- endunless -%}
+    
 
     {%- if dock_cart_drawer -%}
       <link rel="stylesheet" href="{{ 'dockable-side-drawer.css' | asset_url }}">
@@ -445,7 +429,7 @@
       {% capture content_for_header2 %}{{ content_for_header }}{% endcapture %}
       {{
         content_for_header2
-        | replace: ' defer="defer" ', ' type="lazyload_int" '
+        | replace: ' defer="defer" ', 
         | replace: ' src=', ' data-src='
         | replace: 'DOMContentLoaded', 'w3-DOMContentLoaded'
         | replace: "window.addEventListener('load', asyncLoad, false);",
@@ -703,23 +687,10 @@
     </script>
 
     {%- if request.design_mode == false and settings.preload_links -%}
-      <script type="lazyload_int" data-src="{{ 'instant-page.js' | asset_url }}" data-w3-type="module"></script>
+      <script> {{ 'instant-page.js' | asset_url }}" data-w3-type="module"></script>
     {%- endif -%}
 
-    <!-- Stamped -->
-    <script
-      type="lazyload_int"
-      data-api-key="pubkey-28ch30x4dbn9u9t3P0DD24t81qapRK"
-      id="stamped-script-widget"
-      data-src="https://cdn1.stamped.io/files/widget.min.js"
-    ></script>
-
-    <style>
-        .stamped-full-page-tabs ul li.active {
-          display: none !important;
-      }
-    </style>
-    <!-- End Stamped -->
+    
 
     <script>
       var site_nav_link_burger = true;
@@ -901,14 +872,14 @@ observer.observe(document.body, { attributes: true, subtree: true });
             // Target product titles (normalized for comparison)
             const targetProductTitles = [
               
-              normalizeText("Abu Dhabi - 10 steaks offer AUS Grass-Fed Beef Ribeye 250gm x 10"),
+              normalizeText("Abu Dhabi - 10 steaks offer AUS Grass-Fed Beef Ribeye 250gm x 10"),
               normalizeText("Abu Dhabi - 10 steaks offer AUS Grass-Fed Beef Striploin 250gm x 10"),
               normalizeText("Abu Dhabi - 10kg AUS Grass-Fed Mutton Bone-in Cubes Box"),
               normalizeText("Abu Dhabi - 4 steaks offer AUS Angus Beef Tenderloin 250gm x 4"),
               normalizeText("Abu Dhabi - AUS Grass-Fed Mutton Mishkak Barbecue Cubes Offer 1kg"),
               normalizeText("Abu Dhabi - Freshly Slaughtered Australian Lamb Whole Carcass 18 Kg"),
               normalizeText("Abu Dhabi - MLS Beef 20 Burgers Box"),
-              normalizeText("Abu Dhabi - Nadeem’s AED 500- 24 Steaks Box"),
+              normalizeText("Abu Dhabi - Nadeem’s AED 500- 24 Steaks Box"),
               normalizeText("Abu Dhabi - 4 steaks offer AUS Wagyu Beef Striploin Steak MB 6/7 250gm x 4"),
               normalizeText("Abu Dhabi - NZ Grass-Fed Beef Mince Offer 1kg")
             ];

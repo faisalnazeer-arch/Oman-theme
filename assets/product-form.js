@@ -7,8 +7,21 @@ if (!customElements.get('product-form')) {
       if (this.hasChildNodes()) this.init();
     }
 
+    connectedCallback() {
+      if (!this.initialized && this.querySelector('.js-product-form')) this.init();
+    }
+
     init() {
-      this.form = this.querySelector('.js-product-form');
+      if (this.initialized) return;
+      this.initialized = true;
+
+      // Prefer the MAIN product form. The installments / payment-terms form can
+      // also carry the .js-product-form class and appear first in the DOM, so a
+      // plain querySelector would bind the submit handler to the WRONG form,
+      // leaving the real Add-to-Cart form to submit natively (full-page POST to
+      // /cart/add -> "Required parameter ... items" 400). Target it explicitly.
+      this.form = this.querySelector('.js-product-form-main')
+        || this.querySelector('.js-product-form');
       if (this.form) {
         this.form.querySelector('[name="id"]').disabled = false;
         this.cartDrawer = document.querySelector('cart-drawer');
@@ -155,6 +168,15 @@ if (!customElements.get('product-form')) {
       this.submitBtn.classList.add('is-loading');
 
       const formData = new FormData(this.form);
+
+      // Guarantee the variant id is always submitted, even if hydration timing
+      // failed to re-enable the input. Browsers exclude disabled inputs from
+      // FormData, so re-enable it and force the value in before the POST.
+      const idInput = this.form.querySelector('[name="id"]');
+      if (idInput) {
+        idInput.disabled = false;
+        if (idInput.value) formData.set('id', idInput.value);
+      }
 
       // Remove empty line item properties (e.g. a blank "Special Request" custom
       // option) so they aren't added to the cart and saved on the order.
